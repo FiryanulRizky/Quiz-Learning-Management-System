@@ -1,0 +1,28 @@
+.process-step {
+    border: 5px #ebebeb solid;
+    border-radius: 100%;
+    line-height: 0;
+    background: #959595;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    display: flex;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    font-weight: 900;
+    font-size: 13px;
+    margin-bottom: 7px;
+    margin-right: 5px;
+    z-index: 4;
+    cursor: pointer;
+}
+
+.process-step:hover{
+    border: 5px #d8d8d8 solid;
+}
+
+.process-step-active {
+    background-color: #f89828;
+}
