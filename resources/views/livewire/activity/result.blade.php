@@ -8,7 +8,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            @lang("Score")</div>
+                            @lang("Nilai")</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
 
                             <x-atoms.stars :score="$workout->score">
@@ -30,7 +30,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            @lang("question count")</div>
+                            @lang("jumlah soal")</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
 
                             {{ $activity->Questions->count() }}
@@ -52,7 +52,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                            @lang("date get result")
+                            @lang("tanggal selesai quiz")
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
@@ -78,7 +78,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            @lang("mentor comments")</div>
+                            @lang("komentar mentor")</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                             0
                         </div>

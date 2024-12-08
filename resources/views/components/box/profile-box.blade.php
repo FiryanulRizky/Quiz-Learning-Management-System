@@ -11,10 +11,11 @@
     <div class="card-body">
 
         <div class="d-flex flex-column align-items-center text-center">
-            <img src="{{ URL::to('img/profiles/' . rand(1,12) . '.jpg') }}" alt="{{ $user->name }}" class="rounded" width="150">
+            {{-- <img src="{{ URL::to('img/profiles/' . rand(1,12) . '.jpg') }}" alt="{{ $user->name }}" class="rounded" width="150"> --}}
+            <img src="{{ URL::to('img/profiles/'.$user->avatar.'') }}" alt="{{ $user->name }}" class="rounded" width="150">
             <div class="mt-3 ">
                 <p class="text-secondary mb-1"><i class="fa fa-envelope"></i> {{ $user->email }}</p>
-                <div class="px-2 rounded mt-4 date "><i class="fa fa-clock"></i> <span class="join">Joined {{ $user->created_at }}</span> </div>
+                <div class="px-2 rounded mt-4 date "><i class="fa fa-clock"></i> <span class="join">Bergabung: {{ date('d M Y H:i:s',strtotime($user->created_at)) }}</span> </div>
             </div>
         </div>
     </div>

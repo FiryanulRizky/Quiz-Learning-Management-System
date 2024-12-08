@@ -21,7 +21,7 @@
             @empty 
             @endforelse
 
-            <input type="submit" value="{{ __('save') }}" class="btn btn-primary mt-3 " />
+            <input type="submit" value="{{ __('simpan') }}" class="btn btn-primary mt-3 " />
             </form>
         </div>
    

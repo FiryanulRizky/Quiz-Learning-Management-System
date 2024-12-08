@@ -17,11 +17,11 @@ $(document).ready(function () {
             modal: true,
             
             buttons: {
-                "Save And Close": function () {
+                "Simpan Dan Tutup": function () {
                     $(this).dialog("close");
                     saveAndClose();
                 },
-                Cancel: function () {
+                Batal: function () {
                     $(this).dialog("close");
                 },
             },
@@ -63,7 +63,7 @@ function saveAndClose() {
         $(".workout_questions").each(function () {
             var data = $(this).serialize();
             var url = $(this).attr("action");
-    
+            console.log(data)
             $.post(url, data, function (data) {});
         })
        ).then(function () {

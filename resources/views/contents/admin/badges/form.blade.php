@@ -64,7 +64,7 @@
 
 
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary btn-user btn-block" value="{{ __('Save') }}">
+                        <input type="submit" class="btn btn-primary btn-user btn-block" value="{{ __('Simpan') }}">
                     </div>
                 </form>
 

@@ -23,14 +23,14 @@
 
                 <p>{{ $model->description }}</p>
 
-                <p>@lang('Min Score:') {{ $model->min_pass_score }}</p>
+                <p>@lang('Nilai Minimum:') {{ $model->min_pass_score }}</p>
                 @if($model->duration > 0)
-                <p>@lang('duration:') {{ $model->duration }}</p>
+                <p>@lang('durasi:') {{ $model->duration }}</p>
                 @endif
 
                 <form action="{{ route( 'taskLearnerPrepared' ,['participant'=> $participant->id, 'sessionable' => $sessionable->id]) }}" method="POST">
                     @csrf
-                    <input class="btn btn-primary btn-sm" type="submit" value="@lang('Start')" />
+                    <input class="btn btn-primary btn-sm" type="submit" value="@lang('Mulai Quiz')" />
                 </form>
 
             </div>

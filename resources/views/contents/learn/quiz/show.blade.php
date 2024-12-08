@@ -27,16 +27,16 @@
 
             <div class="card-footer text-center">
                 <button class="btn btn-danger" id="saveAndClose">
-                    <i class="fa fa-save"></i> {{ __("save & close") }}
+                    <i class="fa fa-save"></i> {{ __("simpan & tutup") }}
                 </button>
             </div>
         </div>
     </div>
 
     <div class="d-none">
-        <div id="dialog-confirm" title="Save And Close?">
+        <div id="dialog-confirm" title="Simpan dan Tutup ?">
             <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
-                These items will be permanently close and cannot be recovered. Are you sure?</p>
+                Item ini akan ditutup secara permanen dan tidak dapat dipulihkan. Apakah Anda yakin?</p>
         </div>
     </div>
     @endsection
