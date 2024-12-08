@@ -9,7 +9,7 @@
             <!-- Card Header - Dropdown -->
             <div
                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">{{ __("feedback") }}</h6>
+                <h6 class="m-0 font-weight-bold text-primary">{{ __("benar salah") }}</h6>
                 <div class="dropdown no-arrow">
                     @can('feedback.create')
                     <x-CreateButton path="{{ route('feedback.create') }}" />
@@ -26,9 +26,9 @@
                         <tr>
                         <th scope="col">#</th>
                         <th scope="col">{{ __("Nama") }}</th>
-                        <th scope="col">{{ __("require") }}</th>
+                        <th scope="col">{{ __("keterangan") }}</th>
                         @can('feedback.show')
-                        <th scope="col">{{ __("questions") }}</th>  
+                        <th scope="col">{{ __("detail") }}</th>  
                         @endcan                     
                         
                         @if(Auth::user()->hasRole('Super-Admin') || Auth::user()->hasRole('Super-Admin') || Auth::user()->hasAnyPermission(['feedback.edit' , 'feedback.delete']))

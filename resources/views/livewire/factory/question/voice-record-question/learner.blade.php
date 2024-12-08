@@ -40,7 +40,7 @@
                         
                         <a style="display: none;" onclick="saveButton('{{ $question->id }}')" class="btn btn-danger small" id="save">
                             <i class="bi bi-cloud-arrow-up-fill"></i>
-                            @lang("stop and save")
+                            @lang("berhenti dan simpan")
                         </a>
                     </div>
                 </div>

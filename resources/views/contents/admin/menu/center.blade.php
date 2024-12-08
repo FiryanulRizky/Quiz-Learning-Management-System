@@ -136,7 +136,7 @@
             </div>
             <div class="card-footer text-center">
                 <a href="{{ route('rubric.index') }}" class="font-weight-bold text-gray-800 text-uppercase">
-                    {{ __('rubric') }}
+                    {{ __('rubrik') }}
                 </a>
             </div>
 
@@ -156,7 +156,7 @@
             </div>
             <div class="card-footer text-center">
                 <a href="{{ route('feedback.index') }}" class="font-weight-bold text-gray-800 text-uppercase">
-                    {{ __('feedback') }}
+                    {{ __('benar salah') }}
                 </a>
             </div>
 
@@ -193,7 +193,7 @@
             </div>
             <div class="card-footer text-center">
                 <a href="{{ route('document.index') }}" class="font-weight-bold text-gray-800 text-uppercase">
-                    {{ __('document') }}
+                    {{ __('dokumen') }}
                 </a>
             </div>
         </div>
@@ -215,7 +215,7 @@
             </div>
             <div class="card-footer text-center">
                 <a href="{{ route('badges.index') }}" class="font-weight-bold text-gray-800 text-uppercase">
-                    {{ __('badges') }}
+                    {{ __('penghargaan') }}
                 </a>
             </div>
         </div>

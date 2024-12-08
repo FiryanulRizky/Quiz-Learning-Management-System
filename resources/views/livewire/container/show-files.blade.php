@@ -4,7 +4,7 @@
             <input type="text" 
                 class="form-control form-control-user" 
                 wire:model="search"
-                placeholder="Search">
+                placeholder="Cari">
         </div>
     </div>
     

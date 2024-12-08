@@ -19,10 +19,10 @@
             <div class="text-center">
 
                 @if(isset($term))
-                    <form class="user" method="POST" action="{{ route('term.update' , $term->id) }}">                    
+                    <form class="user" method="POST" action="{{ route('term.update' , $term->id) }}" enctype="multipart/form-data">                    
                      @method('patch')
                 @else
-                    <form class="user" method="POST" action="{{ route('term.store') }}">
+                    <form class="user" method="POST" action="{{ route('term.store') }}" enctype="multipart/form-data">
                 @endif
                 
                     @csrf
@@ -36,7 +36,7 @@
                                 </span>
                             @enderror    
                         </div>
-                        <div class="col-sm-6">
+                        {{-- <div class="col-sm-6">
                             <input name="image" type="text" class="form-control form-control-user" id="image"
                                 placeholder="Gambar" value="{{ $term->image ?? '' }}">
                             @error('image')
@@ -44,6 +44,13 @@
                                     {{ $message }}
                                 </span>
                             @enderror
+                        </div> --}}
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            @livewire('services.media.uploadable',[
+                            'file' => $file->file ?? '',
+                            'path' => 'files',
+                            'target' => 'files'
+                            ])
                         </div>
                     </div>
                     

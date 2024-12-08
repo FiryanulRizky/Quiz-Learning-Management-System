@@ -20,7 +20,7 @@
                     
                     <ul class="nav nav-tabs">
                         <li class="nav-item active">
-                            <a class="nav-link active" data-toggle="tab" href="#home">{{ __('Home') }}</a>
+                            <a class="nav-link active" data-toggle="tab" href="#home">{{ __('Beranda') }}</a>
                         </li>
                       </ul>
                       

@@ -82,10 +82,10 @@
                         </tbody>
                     </table>
 
-                    <hr />
+                    {{-- <hr />
                     <div class="text-center">
                         {!! $documents->links() !!}
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>

@@ -66,10 +66,10 @@
                     </tbody>
                 </table>
                 
-                <hr/>
+                {{-- <hr/>
                 <div class="text-center">
                     {!! $questions->links() !!}
-                </div>
+                </div> --}}
 
                 </div>
             </div>

@@ -33,8 +33,8 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">{{ __("Nama") }}</th>
-                                <th scope="col">{{ __("Type") }}</th>
-                                <th scope="col">{{ __("size") }}</th>
+                                <th scope="col">{{ __("Tipe") }}</th>
+                                <th scope="col">{{ __("Ukuran") }}</th>
                                 @if(Auth::user()->hasRole('Super-Admin') || Auth::user()->hasAnyPermission(['file.edit' , 'file.delete']))
                                  <th scope="col">{{ __("Aksi") }}</th>
                                 @endif
