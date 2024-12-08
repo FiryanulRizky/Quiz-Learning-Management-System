@@ -1,8 +1,8 @@
 <div class="text-center">
-    <h3>{{ __('description: ') }} {{ $file->description }}</h3>
+    <h3>{{ __('deskripsi: ') }} {{ $file->description }}</h3>
     <hr/>
     <object data="{{ $url }}" type="application/pdf" width="100%" height="100%">
-        <p>Alternative text - include a link <a href="{{ $url }}">to the PDF!</a></p>
+        <p>Teks alternatif - tautan link <a href="{{ asset('storage/'.$file->file) }}">buka PDF!</a></p>
     </object>
 
 </div>

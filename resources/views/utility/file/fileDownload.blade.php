@@ -1,5 +1,5 @@
 <div class="text-center">
-    <h3>{{ __('description: ') }} {{ $file->description }}</h3>
+    <h3>{{ __('deskripsi: ') }} {{ $file->description }}</h3>
     <hr/>
-    <img class="img" src="{{ $url }}" alt="{{ $file->description }}" />
+    <img class="img" src="{{ asset('storage/'.$file->file) }}" alt="{{ $file->description }}" />
     </div>
