@@ -22,7 +22,7 @@ class CreateQuizzesTable extends Migration
             $table->boolean('is_mentor')->default(false);
             $table->boolean('is_shuffle')->default(true);
             $table->smallInteger('min_pass_score')->default(80);
-            $table->enum('show_question' , ['StepByStep' , 'OnePage'])->default('StepByStep');
+            $table->enum('show_question' , ['PerLangkah' , 'SatuHalaman'])->default('PerLangkah');
             $table->smallInteger('random_question')->default(0);
             $table->softDeletes();
             $table->timestamps();

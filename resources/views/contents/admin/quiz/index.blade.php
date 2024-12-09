@@ -9,15 +9,15 @@
             <!-- Card Header - Dropdown -->
 
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-uppercase">{{ __('Quiz List') }}</h6>
+                <h6 class="m-0 font-weight-bold text-uppercase">{{ __('Daftar Quiz') }}</h6>
 
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
-                        <div class="dropdown-header">{{ __('Managment') }}</div>
-                        <a class="dropdown-item" href="{{ route('quiz.create') }}">{{ __("New") }}</a>
+                        <div class="dropdown-header">{{ __('Manajemen') }}</div>
+                        <a class="dropdown-item" href="{{ route('quiz.create') }}">{{ __("Tambah") }}</a>
                     </div>
                 </div>
             </div>
@@ -36,12 +36,12 @@
                                 <th scope="col">#</th>
                                 <th scope="col">{{ __("Nama") }}</th>
                                 <th scope="col">{{ __("Mentor") }}</th>
-                                <th scope="col">{{ __("attempt") }}</th>
-                                <th scope="col">{{ __("duration") }}</th>
-                                <th scope="col">{{ __("min_pass_score") }}</th>
-                                <th scope="col">{{ __("theme") }}</th>
+                                <th scope="col">{{ __("pengulangan") }}</th>
+                                <th scope="col">{{ __("durasi") }}</th>
+                                <th scope="col">{{ __("minimum kelulusan") }}</th>
+                                <th scope="col">{{ __("urutan") }}</th>
 
-                                <th scope="col">{{ __("Shuffle") }}</th>
+                                <th scope="col">{{ __("Soal Acak") }}</th>
                             
                                 @if(Auth::user()->hasRole('Super-Admin') || Auth::user()->hasRole('Super-Admin') || Auth::user()->hasAnyPermission(['quiz.edit' , 'quiz.delete']))
                                  <th scope="col">{{ __("Aksi") }}</th>
@@ -107,7 +107,7 @@
                                             @endcan
                                             <div class="dropdown-divider"></div>
                                             @can('quiz.show')
-                                            <x-buttons.show itemId="{{ $quiz->id }}" path="quiz.show" text="Show Questions" />
+                                            <x-buttons.show itemId="{{ $quiz->id }}" path="quiz.show" text="Detail Quiz" />
                                             @endcan
                                         </div>
                                     </div>

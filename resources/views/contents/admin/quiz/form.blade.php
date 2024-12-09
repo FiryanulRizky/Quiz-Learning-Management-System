@@ -39,7 +39,7 @@
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <input name="attempt" type="number" class="form-control form-control-user" id="attempt"
                             min="0" max="50"        
-                            placeholder="Attempt" value="{{ $quiz->attempt ?? 'zero is unlimited...' }}">
+                            placeholder="Pengulangan" value="{{ $quiz->attempt ?? 'zero is unlimited...' }}">
                             @error('attempt')
                                 <span class="invalid-feedback" role="alert">
                                     {{ $message }}
@@ -52,7 +52,7 @@
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <input name="duration" type="number" class="form-control form-control-user" id="duration"
-                                placeholder="duration" value="{{ $quiz->duration ?? 'zero is unlimited...' }}">
+                                placeholder="durasi" value="{{ $quiz->duration ?? 'zero is unlimited...' }}">
                             @error('duration')
                                 <span class="invalid-feedback" role="alert">
                                     {{ $message }}
@@ -75,7 +75,7 @@
                             <select name="is_shuffle" class="form-control" id="is_shuffle">
                                     <option value="1"
                                     {{ isset($quiz->is_shuffle) && $quiz->is_shuffle == '1' ? 'selected' : '' }}
-                                    >{{ __('shuffle') }}</option>
+                                    >{{ __('acak') }}</option>
                                     <option value="0"
                                     {{ isset($quiz->is_shuffle) && $quiz->is_shuffle == '0' ? 'selected' : '' }}
                                     >{{ __('normal') }}</option>
@@ -91,10 +91,10 @@
                             <select name="is_mentor" class="form-control" id="is_mentor">
                                 <option value="1"
                                 {{ isset($quiz->is_mentor) && $quiz->is_mentor == '1' ? 'selected' : '' }}
-                                >{{ __('Mentor Correct') }}</option>
+                                >{{ __('Koreksi Mentor') }}</option>
                                 <option value="0"
                                 {{ isset($quiz->is_mentor) && $quiz->is_mentor == '0' ? 'selected' : '' }}
-                                >{{ __('System Correct') }}</option>
+                                >{{ __('Koreksi Sistem') }}</option>
                             </select>
                             @error('is_mentor')
                                 <span class="invalid-feedback" role="alert">

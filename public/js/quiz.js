@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $("#btnQuestions .btnQuestion").removeClass("process-step-active");
-    if (style == "StepByStep") {
+    if (style == "PerLangkah") {
         StepByStep();
     } else {
         OnePage();
@@ -44,7 +44,7 @@ function showQuestion(question) {
     $("#btnQuestions .btnQuestion").removeClass("process-step-active");
     $("#btnQuestion-" + question).addClass("process-step-active");
 
-    if (style == "StepByStep") {
+    if (style == "PerLangkah") {
         $("#questions .question").hide();
         $("#question-" + question).show();
     } else {

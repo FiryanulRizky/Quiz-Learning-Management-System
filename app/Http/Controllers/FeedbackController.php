@@ -91,7 +91,7 @@ class FeedbackController extends Controller
         $feedback->update($request->all());
         return redirect()
             ->route("feedback.index")
-            ->with('warning', __('feedback updated successfully'));
+            ->with('warning', __('soal benar salah berhasil di update'));
     }
 
     /**

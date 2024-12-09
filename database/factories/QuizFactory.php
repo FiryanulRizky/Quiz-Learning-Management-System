@@ -21,7 +21,7 @@ class QuizFactory extends Factory
             'is_mentor' => $this->faker->boolean(),
             'is_shuffle' => $this->faker->boolean(),
             'min_pass_score' => $this->faker->numberBetween(70,80),
-            'show_question' => $this->faker->randomElement(['StepByStep' , 'OnePage']),
+            'show_question' => $this->faker->randomElement(['PerLangkah' , 'SatuHalaman']),
             'random_question' => 0,
         ];
     }

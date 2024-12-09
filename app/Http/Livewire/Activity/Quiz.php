@@ -33,7 +33,7 @@ class Quiz extends Component
             return null;
 
         #
-        # $this->activity->show_question == 'StepByStep'
+        # $this->activity->show_question == 'PerLangkah'
         #
         foreach ($this->activity->Questions as $question) {
             $this->questionsRender .= (string)QuestionFactory::Build($question->QuestionType)->createViewAsLearner($question, $this->workout);

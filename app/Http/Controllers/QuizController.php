@@ -13,7 +13,7 @@ class QuizController extends Controller
     use Sequence;
 
     protected array $show_question = [
-        'StepByStep', 'OnePage'
+        'PerLangkah', 'SatuHalaman'
     ];
 
     /**
@@ -98,7 +98,7 @@ class QuizController extends Controller
         $quiz->update($request->all());
         return redirect()
             ->route("quiz.index")
-            ->with('warning', __('quiz updated successfully'));
+            ->with('warning', __('quiz berhasil di update'));
     }
 
     /**

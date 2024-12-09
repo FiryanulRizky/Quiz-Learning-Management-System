@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'success' => ":subject has been created successfully",
-    'update' => ":subject has been updated successfully",
-    'delete' => ":subject has been deleted successfully",
+    'success' => ":subject berhasil ditambahkan",
+    'update' => ":subject berhasil di update",
+    'delete' => ":subject berhasil dihapus",
 
 ];
