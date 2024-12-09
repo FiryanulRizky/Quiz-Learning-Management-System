@@ -41,7 +41,7 @@
                                     {{ $question->title }} 
                                 </td>
                                 <td>
-                                    {{ $question->QuestionType->title }} 
+                                    {{ str_replace('Question' , '' ,  $question->QuestionType->title) }}
                                 </td>
                             
 

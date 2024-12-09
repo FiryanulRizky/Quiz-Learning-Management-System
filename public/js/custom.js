@@ -1,6 +1,6 @@
 jQuery(function(){
     $('.delete-item').submit(function(e){
-        if(!confirm('Are you sure to delete this item?')){
+        if(!confirm('Apakah Anda yakin untuk menghapus item ini?')){
             e.preventDefault();
             return false;
         }
