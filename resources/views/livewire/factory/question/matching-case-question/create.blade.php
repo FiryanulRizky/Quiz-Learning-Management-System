@@ -2,7 +2,7 @@
 
     <div class="card shadow p-2">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">question matching case:</h6>
+            <h6 class="m-0 font-weight-bold text-primary">soal pencocokan:</h6>
         </div>
         <div class="card-body">
 
@@ -20,11 +20,11 @@
             
             <div class="row align-items-end">
                 <div class="col-5">
-                    <label for="answer{{ $index }}.left">Prompts {{ $loop->iteration }}</label>
+                    <label for="answer{{ $index }}.left">Pernyataan {{ $loop->iteration }}</label>
                     <input type="text" class="form-control" id="answer{{ $index }}.left" wire:model="answers.{{ $index }}.left">
                 </div>
                 <div class="col-5">
-                    <label for="answer{{ $index }}.right">answer {{ $loop->iteration }}</label>
+                    <label for="answer{{ $index }}.right">jawaban {{ $loop->iteration }}</label>
                     <input type="text" class="form-control" id="answer{{ $index }}.right" wire:model="answers.{{ $index }}.right">
                 </div>
                 <div class="col-2">

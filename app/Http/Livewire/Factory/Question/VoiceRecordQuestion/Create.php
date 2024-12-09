@@ -10,8 +10,8 @@ class Create extends QuestionComponents
     public function mount(): void
     {
         $this->answers = [
-            'min_second' => 120,
-            'max_second' => 1200,
+            'detik_minimum' => 120,
+            'detik_maksimum' => 1200,
         ];
         if (!empty($this->question)) {
             $this->setValueWithQuestion();
