@@ -69,7 +69,7 @@
                       @elseif ($i === 12)                                              
                         <a href="{{{ URL::to('trainer/trainer/'.$trainer->nik_trainer.'/detail') }}}" class="btn btn-default btn-flat">Profile</a>
                       @elseif ($i === 13)
-                        <a href="{{{ URL::to('trainee/trainee/'.$trainee->nisn_trainee.'/detail') }}}" class="btn btn-default btn-flat">Profile</a>
+                        <a href="{{{ URL::to('trainee/trainee/'.$trainee->nik_trainee.'/detail') }}}" class="btn btn-default btn-flat">Profile</a>
                       @endif
                     </div>
                     <div class="pull-right">

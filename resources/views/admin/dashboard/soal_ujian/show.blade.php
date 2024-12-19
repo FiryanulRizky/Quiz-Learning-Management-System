@@ -119,7 +119,7 @@
 @section('script')
 <script>
   var editor_config = {
-    path_absolute : "{{ URL::to('/Arman/e-learning/public/') }}",
+    path_absolute : "{{ URL::to('/Firyanul/e-learning/public/') }}",
     selector: "textarea.my-editor",
     plugins: [
       "advlist autolink lists link image charmap print preview hr anchor pagebreak",

@@ -53,7 +53,7 @@
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="{{{ URL::to('trainee/trainee/'.$trainee->nisn_trainee.'/detail') }}}" class="btn btn-default btn-flat">Profile</a>
+                      <a href="{{{ URL::to('trainee/trainee/'.$trainee->nik_trainee.'/detail') }}}" class="btn btn-default btn-flat">Profile</a>
                       <!-- <a href="#" class="btn btn-default btn-flat">Profile</a>                       -->
                     </div>
                     <div class="pull-right">

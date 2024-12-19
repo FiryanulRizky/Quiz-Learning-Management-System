@@ -23,8 +23,8 @@ class UjianTableSeeder extends Seeder
 			'tgl_ujian'			=> '2024-12-18',
 			'info_ujian'		=> 'Dikerjakan Sekarang Juga',
 			'status_ujian'		=> 'Aktif',						
-			'created_at'		=> '2018-03-03 16:00:00',
-			'updated_at'		=> '2018-03-03 16:00:00',		
+			'created_at'		=> '2024-03-12 16:00:00',
+			'updated_at'		=> '2024-03-12 16:00:00',		
 			'id_modul'			=> '3',
 		],
 		[ 
@@ -38,8 +38,8 @@ class UjianTableSeeder extends Seeder
 			'tgl_ujian'			=> '2024-12-18',
 			'info_ujian'		=> 'Dikerjakan Sekarang Juga',
 			'status_ujian'		=> 'Aktif',						
-			'created_at'		=> '2018-03-03 16:00:00',
-			'updated_at'		=> '2018-03-03 16:00:00',		
+			'created_at'		=> '2024-03-12 16:00:00',
+			'updated_at'		=> '2024-03-12 16:00:00',		
 			'id_modul'			=> '3',
 		] 	
 		];    

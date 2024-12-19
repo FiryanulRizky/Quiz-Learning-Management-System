@@ -13,7 +13,7 @@ class TraineesTableSeeder extends Seeder
     {
         $trainees = [
         [ 
-			'nisn_trainee'		=> '121',
+			'nik_trainee'		=> '121',
 			'nama_trainee'		=> 'Muhammad Raihan ',
 			'email_trainee'		=> 'raihan@tcontinent.com',
 			'no_hp_trainee'		=> '082176074036',
@@ -24,11 +24,11 @@ class TraineesTableSeeder extends Seeder
 			'foto_trainee'		=> 'foto .jpg',
 			'status_trainee'		=> 'Aktif',
 			'id_user'			=> '7',
-			'created_at'		=> '2018-01-11 16:00:00',
-			'updated_at'		=> '2018-01-11 16:00:00',			
+			'created_at'		=> '2024-01-12 16:00:00',
+			'updated_at'		=> '2024-01-12 16:00:00',			
 		],
 		[ 
-			'nisn_trainee'		=> '122',
+			'nik_trainee'		=> '122',
 			'nama_trainee'		=> 'Abda Syakura Taqwadin',
 			'email_trainee'		=> 'abda@tcontinent.com',
 			'no_hp_trainee'		=> '081215869294',
@@ -39,8 +39,8 @@ class TraineesTableSeeder extends Seeder
 			'foto_trainee'		=> 'user1-128x128.jpg',
 			'status_trainee'		=> 'Aktif',
 			'id_user'			=> '8',
-			'created_at'		=> '2018-01-11 16:00:00',
-			'updated_at'		=> '2018-01-11 16:00:00',			
+			'created_at'		=> '2024-01-12 16:00:00',
+			'updated_at'		=> '2024-01-12 16:00:00',			
 		]		
 		];    
 

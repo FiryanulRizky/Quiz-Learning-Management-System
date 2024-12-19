@@ -173,7 +173,7 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,        
 
         // Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
+        // Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -224,7 +224,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,  
-        'Image' => Intervention\Image\Facades\Image::class,
+        // 'Image' => Intervention\Image\Facades\Image::class,
       
     ],
 

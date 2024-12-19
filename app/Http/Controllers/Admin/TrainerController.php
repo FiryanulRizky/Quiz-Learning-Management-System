@@ -91,7 +91,7 @@ class TrainerController extends Controller
   {
         $input =$request->all();
         $pesan = array(
-            'nik_trainer.required' 		=> 'nip trainer dibutuhkan.',
+            'nik_trainer.required' 		=> 'nik trainer dibutuhkan.',
             'nama_trainer.required' 		=> 'nama trainer dibutuhkan.',
             'ttl_trainer.required' 		=> 'ttl trainer dibutuhkan.', 
             'jns_kelamin_trainer.required' => 'jenis kelamin trainer dibutuhkan.',
@@ -171,7 +171,7 @@ class TrainerController extends Controller
     {
         $input =$request->all();
         $messages = [
-            'nik_trainer.required' 		=> 'nip trainer dibutuhkan.',
+            'nik_trainer.required' 		=> 'nik trainer dibutuhkan.',
             'nama_trainer.required' 		=> 'nama trainer dibutuhkan.',
             'ttl_trainer.required' 		=> 'ttl trainer dibutuhkan.', 
             'jns_kelamin_trainer.required' => 'jenis kelamin trainer dibutuhkan.',
@@ -278,7 +278,7 @@ class TrainerController extends Controller
     {
         $input =$request->all();
         $messages = [
-            'nik_trainer.required'     => 'nip trainer dibutuhkan.',
+            'nik_trainer.required'     => 'nik trainer dibutuhkan.',
             'nama_trainer.required'    => 'nama trainer dibutuhkan.',
             'ttl_trainer.required'     => 'ttl trainer dibutuhkan.', 
             'jns_kelamin_trainer.required' => 'jenis kelamin trainer dibutuhkan.',

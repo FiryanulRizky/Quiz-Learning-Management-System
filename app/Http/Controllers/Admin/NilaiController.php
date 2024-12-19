@@ -28,13 +28,13 @@ class NilaiController extends Controller
 
   public function showTambahNilai()
   {
-  	$idTrainee= Trainee::select(DB::raw("nisn_trainee, nama_trainee"))
-        ->orderBy(DB::raw("nisn_trainee"))        
+  	$idTrainee= Trainee::select(DB::raw("nik_trainee, nama_trainee"))
+        ->orderBy(DB::raw("nik_trainee"))        
         ->get();
-    $idNilaiTugas= NilaiTugas::select(DB::raw("id_nilai_tugas_trainee,nisn_trainee"))
+    $idNilaiTugas= NilaiTugas::select(DB::raw("id_nilai_tugas_trainee,nik_trainee"))
         ->orderBy(DB::raw("id_nilai_tugas_trainee"))        
         ->get();
-    $idNilaiUjian= NilaiUjian::select(DB::raw("id_nilai_ujian_trainee,nisn_trainee"))
+    $idNilaiUjian= NilaiUjian::select(DB::raw("id_nilai_ujian_trainee,nik_trainee"))
         ->orderBy(DB::raw("id_nilai_ujian_trainee"))        
         ->get();
     // dd($data);        
@@ -51,7 +51,7 @@ class NilaiController extends Controller
                  ->join('nilai_ujian_trainees', 'nilai_trainees.id_nilai_ujian_trainee', '=', 'nilai_ujian_trainees.id_nilai_ujian_trainee') 
                  ->leftjoin('moduls','nilai_ujian_trainees.id_modul','=','moduls.id_modul')                                                
                  ->join('nilai_tugas_trainees', 'nilai_trainees.id_nilai_tugas_trainee', '=', 'nilai_tugas_trainees.id_nilai_tugas_trainee')
-                 ->join('trainees', 'nilai_trainees.nisn_trainee', '=', 'trainees.nisn_trainee')
+                 ->join('trainees', 'nilai_trainees.nik_trainee', '=', 'trainees.nik_trainee')
                  ->select('nilai_trainees.*', 'trainees.nama_trainee', 'moduls.nama_modul', 'nilai_ujian_trainees.nilai_ujian', 'nilai_tugas_trainees.nilai_tugas')
                  ->get();              
     }elseif (Auth::user()->level == 12) {
@@ -61,7 +61,7 @@ class NilaiController extends Controller
                  ->join('nilai_ujian_trainees', 'nilai_trainees.id_nilai_ujian_trainee', '=', 'nilai_ujian_trainees.id_nilai_ujian_trainee') 
                  ->leftjoin('moduls','nilai_ujian_trainees.id_modul','=','moduls.id_modul')                                                
                  ->join('nilai_tugas_trainees', 'nilai_trainees.id_nilai_tugas_trainee', '=', 'nilai_tugas_trainees.id_nilai_tugas_trainee')
-                 ->join('trainees', 'nilai_trainees.nisn_trainee', '=', 'trainees.nisn_trainee')
+                 ->join('trainees', 'nilai_trainees.nik_trainee', '=', 'trainees.nik_trainee')
                  ->select('nilai_trainees.*', 'trainees.nama_trainee', 'moduls.nama_modul', 'nilai_ujian_trainees.nilai_ujian', 'nilai_tugas_trainees.nilai_tugas')
                  ->where('moduls.nama_modul', $Modul_learnTrainer->nama_modul)
                  ->get();             
@@ -76,7 +76,7 @@ class NilaiController extends Controller
       $id_nilai_trainee = Nilai::where('id_nilai_trainee', '=', $id_nilai_trainee)->first();
       if ($id_nilai_trainee == null)
         app::abort(404);    
-      Session::flash('flash_message', 'Data Nilai "'.$id_nilai_trainee->nisn_trainee.'" Berhasil dihapus.');
+      Session::flash('flash_message', 'Data Nilai "'.$id_nilai_trainee->nik_trainee.'" Berhasil dihapus.');
       $id_nilai_trainee->delete();    
       if (Auth::user()->level == 11) {
         return redirect('admin/nilai_trainee/');
@@ -95,13 +95,13 @@ class NilaiController extends Controller
     {
         $input =$request->all();
         $pesan = array(
-          	'nisn_trainee.required' 		      => 'NISN Trainee dibutuhkan.',
+          	'nik_trainee.required' 		      => 'NISN Trainee dibutuhkan.',
             'id_nilai_tugas_trainee.required' => 'ID Nilai Tugas dibutuhkan.',            
             'id_nilai_ujian_trainee.required' => 'ID Nilai Ujian dibutuhkan.',                                                  
         );
 
         $aturan = array(
-            'nisn_trainee'  		      => 'required',
+            'nik_trainee'  		      => 'required',
             'id_nilai_tugas_trainee'  => 'required',            
             'id_nilai_ujian_trainee'  => 'required',                                  
         );        
@@ -111,13 +111,13 @@ class NilaiController extends Controller
         }
 
         $nilai = new Nilai;
-        $nilai->nisn_trainee     	= $request['nisn_trainee'];
+        $nilai->nik_trainee     	= $request['nik_trainee'];
         $nilai->id_nilai_tugas_trainee     	= $request['id_nilai_tugas_trainee'];
         $nilai->id_nilai_ujian_trainee     	= $request['id_nilai_ujian_trainee'];                  
                     
         if (! $nilai->save() )
           App::abort(500);
-        Session::flash('flash_message', 'Data Nilai "'.$request['nisn_trainee'].'" Berhasil disimpan.');
+        Session::flash('flash_message', 'Data Nilai "'.$request['nik_trainee'].'" Berhasil disimpan.');
         if (Auth::user()->level == 11) {
           return redirect('admin/nilai_trainee/');
         }elseif (Auth::user()->level == 12) {
@@ -148,18 +148,18 @@ class NilaiController extends Controller
 
     $nilaiTugas = DB::table('trainee_jawab_tugas')   
            ->join('tugass', 'trainee_jawab_tugas.id_tugas', '=', 'tugass.id_tugas') 
-           ->join('trainees', 'trainee_jawab_tugas.nisn_trainee', '=', 'trainees.nisn_trainee')
+           ->join('trainees', 'trainee_jawab_tugas.nik_trainee', '=', 'trainees.nik_trainee')
            ->leftjoin('moduls','tugass.id_modul','=','moduls.id_modul')
            ->leftjoin('trainers','moduls.nik_trainer','=','trainers.nik_trainer')
-           ->select('trainee_jawab_tugas.*', 'trainees.nisn_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'tugass.*', 'trainers.nik_trainer','trainers.nama_trainer')
+           ->select('trainee_jawab_tugas.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'tugass.*', 'trainers.nik_trainer','trainers.nama_trainer')
            ->where('tugass.departemen_tugas', $departemen_terpilih)
            ->get();
       $nilaiUjian = DB::table('nilai_ujian_pilgan_trainees')   
            ->join('ujians', 'nilai_ujian_pilgan_trainees.id_ujian', '=', 'ujians.id_ujian') 
-           ->join('trainees', 'nilai_ujian_pilgan_trainees.nisn_trainee', '=', 'trainees.nisn_trainee')
+           ->join('trainees', 'nilai_ujian_pilgan_trainees.nik_trainee', '=', 'trainees.nik_trainee')
            ->leftjoin('moduls','ujians.id_modul','=','moduls.id_modul')
            ->leftjoin('trainers','moduls.nik_trainer','=','trainers.nik_trainer')
-           ->select('nilai_ujian_pilgan_trainees.*', 'trainees.nisn_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'ujians.*', 'trainers.nik_trainer','trainers.nama_trainer')
+           ->select('nilai_ujian_pilgan_trainees.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'ujians.*', 'trainers.nik_trainer','trainers.nama_trainer')
            ->where('ujians.departemen_ujian', $departemen_terpilih)
            ->get();
     return view('admin.dashboard.nilai.nilai') 
@@ -185,46 +185,46 @@ class NilaiController extends Controller
           
       $nilaiTugas = DB::table('trainee_jawab_tugas')   
            ->join('tugass', 'trainee_jawab_tugas.id_tugas', '=', 'tugass.id_tugas') 
-           ->join('trainees', 'trainee_jawab_tugas.nisn_trainee', '=', 'trainees.nisn_trainee')
+           ->join('trainees', 'trainee_jawab_tugas.nik_trainee', '=', 'trainees.nik_trainee')
            ->leftjoin('moduls','tugass.id_modul','=','moduls.id_modul')
            ->leftjoin('trainers','moduls.nik_trainer','=','trainers.nik_trainer')
-           ->select('trainee_jawab_tugas.*', 'trainees.nisn_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'tugass.*', 'trainers.nik_trainer','trainers.nama_trainer')
+           ->select('trainee_jawab_tugas.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'tugass.*', 'trainers.nik_trainer','trainers.nama_trainer')
            ->where('tugass.departemen_tugas', $trainee->departemen_trainee)
            ->where('moduls.nama_modul', $modul_learn_terpilih)
-           ->where('trainee_jawab_tugas.nisn_trainee', $trainee->nisn_trainee)
+           ->where('trainee_jawab_tugas.nik_trainee', $trainee->nik_trainee)
            ->get();
       $nilaiUjian = DB::table('nilai_ujian_pilgan_trainees')   
            ->join('ujians', 'nilai_ujian_pilgan_trainees.id_ujian', '=', 'ujians.id_ujian') 
-           ->join('trainees', 'nilai_ujian_pilgan_trainees.nisn_trainee', '=', 'trainees.nisn_trainee')
+           ->join('trainees', 'nilai_ujian_pilgan_trainees.nik_trainee', '=', 'trainees.nik_trainee')
            ->leftjoin('moduls','ujians.id_modul','=','moduls.id_modul')
            ->leftjoin('trainers','moduls.nik_trainer','=','trainers.nik_trainer')
-           ->select('nilai_ujian_pilgan_trainees.*', 'trainees.nisn_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'ujians.*', 'trainers.nik_trainer','trainers.nama_trainer')
+           ->select('nilai_ujian_pilgan_trainees.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'ujians.*', 'trainers.nik_trainer','trainers.nama_trainer')
            ->where('ujians.departemen_ujian', $trainee->departemen_trainee)
            ->where('moduls.nama_modul', $modul_learn_terpilih)
-           ->where('nilai_ujian_pilgan_trainees.nisn_trainee', $trainee->nisn_trainee)  
+           ->where('nilai_ujian_pilgan_trainees.nik_trainee', $trainee->nik_trainee)  
            ->get();
 
     }else {
       $modul_learn_terpilih = '';  
       $nilaiTugas = DB::table('trainee_jawab_tugas')   
            ->join('tugass', 'trainee_jawab_tugas.id_tugas', '=', 'tugass.id_tugas') 
-           ->join('trainees', 'trainee_jawab_tugas.nisn_trainee', '=', 'trainees.nisn_trainee')
+           ->join('trainees', 'trainee_jawab_tugas.nik_trainee', '=', 'trainees.nik_trainee')
            ->leftjoin('moduls','tugass.id_modul','=','moduls.id_modul')
            ->leftjoin('trainers','moduls.nik_trainer','=','trainers.nik_trainer')
-           ->select('trainee_jawab_tugas.*', 'trainees.nisn_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'tugass.*', 'trainers.nik_trainer','trainers.nama_trainer')
+           ->select('trainee_jawab_tugas.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'tugass.*', 'trainers.nik_trainer','trainers.nama_trainer')
            ->where('tugass.departemen_tugas', $trainee->departemen_trainee)
            ->where('moduls.nama_modul', $modul_learn_terpilih)
-           ->where('trainee_jawab_tugas.nisn_trainee', $trainee->nisn_trainee)
+           ->where('trainee_jawab_tugas.nik_trainee', $trainee->nik_trainee)
            ->get();
       $nilaiUjian = DB::table('nilai_ujian_pilgan_trainees')   
            ->join('ujians', 'nilai_ujian_pilgan_trainees.id_ujian', '=', 'ujians.id_ujian') 
-           ->join('trainees', 'nilai_ujian_pilgan_trainees.nisn_trainee', '=', 'trainees.nisn_trainee')
+           ->join('trainees', 'nilai_ujian_pilgan_trainees.nik_trainee', '=', 'trainees.nik_trainee')
            ->leftjoin('moduls','ujians.id_modul','=','moduls.id_modul')
            ->leftjoin('trainers','moduls.nik_trainer','=','trainers.nik_trainer')
-           ->select('nilai_ujian_pilgan_trainees.*', 'trainees.nisn_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'ujians.*', 'trainers.nik_trainer','trainers.nama_trainer')
+           ->select('nilai_ujian_pilgan_trainees.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'ujians.*', 'trainers.nik_trainer','trainers.nama_trainer')
            ->where('ujians.departemen_ujian', $trainee->departemen_trainee)
            ->where('moduls.nama_modul', $modul_learn_terpilih)
-           ->where('nilai_ujian_pilgan_trainees.nisn_trainee', $trainee->nisn_trainee)
+           ->where('nilai_ujian_pilgan_trainees.nik_trainee', $trainee->nik_trainee)
            ->get();
     }
 

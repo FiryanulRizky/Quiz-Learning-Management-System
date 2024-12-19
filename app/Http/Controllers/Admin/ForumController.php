@@ -50,7 +50,7 @@ class ForumController extends Controller
         return view('admin.dashboard.forum.forum_trainee')
             ->with('tgl_forum', $tgl_forum)
             ->with('dataForum', $dataForum)
-            ->with('nisn_trainee', $trainee->nisn_trainee)
+            ->with('nik_trainee', $trainee->nik_trainee)
             ->with('tugas', $dataTugas);
     }
     if (Auth::user()->level == 12) {
@@ -83,7 +83,7 @@ class ForumController extends Controller
         $forum = new Forum;
         $forum->id_tugas     = $request['id_tugas'];              
         $forum->nik_trainer     = $request['nik_trainer'];              
-        $forum->nisn_trainee     = $request['nisn_trainee'];              
+        $forum->nik_trainee     = $request['nik_trainee'];              
         $forum->komentar     = $request['komentar'];              
         $forum->tgl_forum     = date('Y-m-d');                           
         //melakukan save, jika gagal (return value false) lakukan harakiri

@@ -52,7 +52,7 @@
                         <select class="form-control " name="nik_trainer" style="font-size: 14px; text-align: left;">
                          <option value="{{ $nik_trainer }}">-- {{ $nik_trainer }} --</option>
                          @foreach ($Trainer as $idTrainer)
-                            <option value="{{ $idTrainer->nik_trainer }}">nip trainer : {{ $idTrainer->nik_trainer }} | nama trainer: {{ $idTrainer->nama_trainer }}</option>
+                            <option value="{{ $idTrainer->nik_trainer }}">nik trainer : {{ $idTrainer->nik_trainer }} | nama trainer: {{ $idTrainer->nama_trainer }}</option>
                          @endforeach                                                                                 
                         </select>
                        </div>   

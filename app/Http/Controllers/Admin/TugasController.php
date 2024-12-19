@@ -72,7 +72,7 @@ class TugasController extends Controller
     $tugasDepartemen = Tugas::where('id_tugas', $id)->first()->departemen_tugas;    
     $TraineeJawabTugas = DB::table('trainee_jawab_tugas')
                         ->join('tugass', 'trainee_jawab_tugas.id_tugas', '=', 'tugass.id_tugas')
-                        ->join('trainees', 'trainee_jawab_tugas.nisn_trainee', '=', 'trainees.nisn_trainee')
+                        ->join('trainees', 'trainee_jawab_tugas.nik_trainee', '=', 'trainees.nik_trainee')
                         ->leftjoin('moduls', 'tugass.id_modul', '=', 'moduls.id_modul')
                         ->select('trainee_jawab_tugas.*','tugass.judul_tugas', 'tugass.departemen_tugas', 'moduls.nama_modul', 'moduls.nik_trainer', 'trainees.nama_trainee')
                         ->where('trainees.departemen_trainee', $tugasDepartemen)
@@ -321,10 +321,10 @@ class TugasController extends Controller
                    ->where('tugass.id_tugas', $id)
                    ->first();
       // dd($tugas->id_tugas);
-      $trainee_jawab_tugas = TraineeJawabTugas::where('id_tugas', $id)->where('nisn_trainee', $trainee->nisn_trainee)->get();
+      $trainee_jawab_tugas = TraineeJawabTugas::where('id_tugas', $id)->where('nik_trainee', $trainee->nik_trainee)->get();
       // dd($trainee_jawab_tugas);
       if(!empty($trainee_jawab_tugas)){ 
-        // $trainee_jawab_tugas = TraineeJawabTugas::where('id_tugas', $id)->where('nisn_trainee', $trainee->nisn_trainee)->first();
+        // $trainee_jawab_tugas = TraineeJawabTugas::where('id_tugas', $id)->where('nik_trainee', $trainee->nik_trainee)->first();
         $trainee_jawab_tugas = $trainee_jawab_tugas;
       }else{
         // dd('dfsdfsdfs');
@@ -376,7 +376,7 @@ class TugasController extends Controller
             $tugasTrainee->judul        = $input['judul'];
             $tugasTrainee->nama_file    = $nama_file_tugas;
             $tugasTrainee->id_tugas     = $input['id_tugas'];
-            $tugasTrainee->nisn_trainee   = Trainee::where('id_user', Auth::user()->id_user)->first()->nisn_trainee;
+            $tugasTrainee->nik_trainee   = Trainee::where('id_user', Auth::user()->id_user)->first()->nik_trainee;
             $tugasTrainee->nilai        = 0;
             
             if (! $tugasTrainee->save() )

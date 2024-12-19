@@ -67,7 +67,7 @@
                       <tbody>
                         <tr>
                           <td width="20%">NISN</td>  
-                          <td>{{$nisn_trainee}}</td>                          
+                          <td>{{$nik_trainee}}</td>                          
                         </tr>
                         <tr>
                           <td>Nama</td> 

@@ -43,7 +43,7 @@
                      <?php $i=1; foreach ($trainee as $dataTrainee):  ?>
                       <tr>
                         <td>{{$i}}</td>
-                        <td>{{$dataTrainee->nisn_trainee}}</td>
+                        <td>{{$dataTrainee->nik_trainee}}</td>
                         <td>{{$dataTrainee->nama_trainee}}</td>                        
                         <td><img src="{{URL::to('upload_gambar/'.$dataTrainee->foto_trainee) }}" alt="" style="width:100px"></td>
                         <td>{{$dataTrainee->email_trainee}}</td>
@@ -57,13 +57,13 @@
                         <td>{{$dataTrainee->id_user}}</td>
                                                                                                            
                         <td>
-                          <a href="{{{ URL::to('admin/trainee/'.$dataTrainee->nisn_trainee.'/edit') }}}">
+                          <a href="{{{ URL::to('admin/trainee/'.$dataTrainee->nik_trainee.'/edit') }}}">
                               <span class="label label-warning" ><i class="fa fa-edit" >&nbsp;&nbsp; Edit &nbsp;&nbsp;</i></span>
                           </a>
-                          <a href="{{{ URL::to('admin/trainee/'.$dataTrainee->nisn_trainee.'/detail') }}}">
+                          <a href="{{{ URL::to('admin/trainee/'.$dataTrainee->nik_trainee.'/detail') }}}">
                               <span class="label label-info"><i class="fa fa-list"> Detail </i></span>
                         </a> 
-                          <a href="{{{ action('Admin\TraineeController@hapus',[$dataTrainee->nisn_trainee]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus Data Trainee {{{($dataTrainee->nisn_trainee).' - '.($dataTrainee->nama_trainee) }}}?')">
+                          <a href="{{{ action('Admin\TraineeController@hapus',[$dataTrainee->nik_trainee]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus Data Trainee {{{($dataTrainee->nik_trainee).' - '.($dataTrainee->nama_trainee) }}}?')">
                               <span class="label label-danger"><i class="fa fa-trash">&nbsp;&nbsp; Delete &nbsp;&nbsp;</i></span>
                           </a>                          
                         </td>                              

@@ -1,6 +1,6 @@
 <?php                       
   $trainee = \App\Trainee::where('id_user', Auth::user()->id_user)->first(); // detail field trainee yang sedang login.  
-  $id_user_trainee = \App\Trainee::where('nisn_trainee', $userJawabLembars->first()->nisn_trainee)->first()->id_user; // detail field trainee yang sedang login.   
+  $id_user_trainee = \App\Trainee::where('nik_trainee', $userJawabLembars->first()->nik_trainee)->first()->id_user; // detail field trainee yang sedang login.   
 ?>
 @extends('admin.layout.master')
 @section('breadcrump')
@@ -98,7 +98,7 @@
                             #{{$key + 1}}
                         </td>
                         <td>
-                            {{$userJawabLembar->nisn_trainee}}
+                            {{$userJawabLembar->nik_trainee}}
                         </td>
                         <td>
                             {{ date("d F Y H:i:s",strtotime($userJawabLembar->wkt_mulai)) }}
@@ -110,7 +110,7 @@
                             {{$userJawabLembar->interval}} 
                         </td>
                         <td>
-                          <?php if (Auth::user()->level == 13 and $userJawabLembar->nisn_trainee == $trainee->nisn_trainee): ?>
+                          <?php if (Auth::user()->level == 13 and $userJawabLembar->nik_trainee == $trainee->nik_trainee): ?>
                             <a href="{{ url('trainee/ujian/'.$userJawabLembar->id_nilai_ujian_pilgan) }}"
                                class="btn btn-primary btn-xs">
                                 <span class="glyphicon glyphicon-eye-open"></span> Lihat
@@ -124,7 +124,7 @@
                                 <span class="glyphicon glyphicon-eye-open"></span> Lihat
                             </a>
                                                                                     
-                            <a href="{{ url('admin/ujian_trainee/'.$userJawabLembar->id_nilai_ujian_pilgan.'/hapus') }}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus data {{{($key + 1).' - '.($userJawabLembar->nisn_trainee) }}}?')" class="btn btn-danger btn-xs">
+                            <a href="{{ url('admin/ujian_trainee/'.$userJawabLembar->id_nilai_ujian_pilgan.'/hapus') }}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus data {{{($key + 1).' - '.($userJawabLembar->nik_trainee) }}}?')" class="btn btn-danger btn-xs">
                                     <span class="glyphicon glyphicon-remove"></span> Hapus
                                 </a>                          
                           <?php endif ?>
@@ -134,7 +134,7 @@
                                 <span class="glyphicon glyphicon-eye-open"></span> Lihat
                             </a>                                                                                
 
-                            <a href="{{ url('trainer/ujian/'.$userJawabLembar->id_nilai_ujian_pilgan.'/hapus') }}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus data {{{($key + 1).' - '.($userJawabLembar->nisn_trainee) }}}?')" class="btn btn-danger btn-xs">
+                            <a href="{{ url('trainer/ujian/'.$userJawabLembar->id_nilai_ujian_pilgan.'/hapus') }}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus data {{{($key + 1).' - '.($userJawabLembar->nik_trainee) }}}?')" class="btn btn-danger btn-xs">
                                     <span class="glyphicon glyphicon-remove"></span> Hapus
                                 </a>                          
                           <?php endif ?>

@@ -13,7 +13,7 @@
 @section('content')
           <div class="callout callout-danger" style="text-align: center; color: black;">
               <h4> <b> Perhatikan Saat membuat User Baru </b></h4>
-              <h5> Untuk Hak Akses Sebagai pengguna, buatlah username nya sesuai dengan nisn trainee sedangkan untuk trainer buatlah username nya sesuai dengan nip trainer, dan untuk admin sebaiknnya menggunakan penambahan angka dibelakang "admin" contoh "admin1" "admin2" dan seterusnya. Terima Kasih atas partisipasinya.</h5>        
+              <h5> Untuk Hak Akses Sebagai pengguna, buatlah username nya sesuai dengan nisn trainee sedangkan untuk trainer buatlah username nya sesuai dengan nik trainer, dan untuk admin sebaiknnya menggunakan penambahan angka dibelakang "admin" contoh "admin1" "admin2" dan seterusnya. Terima Kasih atas partisipasinya.</h5>        
           </div>
           <div class="row">
             <div class="col-md-12">

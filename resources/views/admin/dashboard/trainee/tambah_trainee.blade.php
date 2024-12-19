@@ -43,7 +43,7 @@
               <div class="form-group">
                 <label class="col-sm-4  control-label" style="text-align: left;">NISN</label>
                  <div class="col-sm-8">                  
-                    <input type="text" class="form-control" name="nisn_trainee" value="{{ old('nisn_trainee') }}" placeholder="NISN">
+                    <input type="text" class="form-control" name="nik_trainee" value="{{ old('nik_trainee') }}" placeholder="NISN">
                     <small class="help-block"></small>
                  </div>
               </div>
@@ -112,11 +112,11 @@
                <option value="Manajemen"> Manajemen </option>
                <option value="Marketing"> Marketing </option>
                <option value="Operasional"> Operasional </option>
-               <option value="VIII A"> VIII A </option>
-               <option value="VIII B"> VIII B </option>
-               <option value="VIII C"> VIII C </option>
-               <option value="IX A"> IX A </option>
-               <option value="IX B"> IX B </option>                   
+               <option value="Billing"> Billing </option>
+               <option value="Account Payable"> Account Payable </option>
+               <option value="Account Receivable"> Account Receivable </option>
+               <option value="Warehouse Inventory"> Warehouse Inventory </option>
+               <option value="Fleet Yard"> Fleet Yard </option>                   
               </select>
              </div>
             </div>

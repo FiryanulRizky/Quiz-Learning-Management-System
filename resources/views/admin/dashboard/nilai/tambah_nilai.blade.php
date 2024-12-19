@@ -41,10 +41,10 @@
                       <div class="form-group">
                        <label class="col-md-3 control-label">NISN Trainee</label>
                        <div class="col-md-8">               
-                        <select class="form-control " name="nisn_trainee" style="font-size: 14px; text-align: left;">
+                        <select class="form-control " name="nik_trainee" style="font-size: 14px; text-align: left;">
                          <option value="">-- Pilih NISN Trainee --</option>
                          @foreach ($Trainee as $idTrainee)
-                            <option value="{{ $idTrainee->nisn_trainee }}">nisn trainee : {{ $idTrainee->nisn_trainee }} | nama : {{ $idTrainee->nama_trainee }}</option>
+                            <option value="{{ $idTrainee->nik_trainee }}">nisn trainee : {{ $idTrainee->nik_trainee }} | nama : {{ $idTrainee->nama_trainee }}</option>
                          @endforeach                                                                                 
                         </select>
                        </div>   
@@ -56,7 +56,7 @@
                         <select class="form-control " name="id_nilai_tugas_trainee" style="font-size: 14px; text-align: left;">
                          <option value="">-- Pilih ID Nilai Tugas --</option>
                          @foreach ($NilaiTugas as $idNilaiTugas)
-                            <option value="{{ $idNilaiTugas->id_nilai_tugas_trainee }}">nisn trainee : {{ $idNilaiTugas->id_nilai_tugas_trainee }} | nisn trainee : {{ $idNilaiTugas->nisn_trainee }}</option>
+                            <option value="{{ $idNilaiTugas->id_nilai_tugas_trainee }}">nisn trainee : {{ $idNilaiTugas->id_nilai_tugas_trainee }} | nisn trainee : {{ $idNilaiTugas->nik_trainee }}</option>
                          @endforeach                                                                                 
                         </select>
                        </div>   
@@ -68,7 +68,7 @@
                         <select class="form-control " name="id_nilai_ujian_trainee" style="font-size: 14px; text-align: left;">
                          <option value="">-- Pilih ID Nilai Ujian --</option>
                          @foreach ($NilaiUjian as $idNilaiUjian)
-                            <option value="{{ $idNilaiUjian->id_nilai_ujian_trainee }}">nisn trainee : {{ $idNilaiUjian->id_nilai_ujian_trainee }} | nisn trainee : {{ $idNilaiUjian->nisn_trainee }}</option>
+                            <option value="{{ $idNilaiUjian->id_nilai_ujian_trainee }}">nisn trainee : {{ $idNilaiUjian->id_nilai_ujian_trainee }} | nisn trainee : {{ $idNilaiUjian->nik_trainee }}</option>
                          @endforeach                                                                                 
                         </select>
                        </div>   

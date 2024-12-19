@@ -67,7 +67,7 @@
                           <td>{{$i}}</td>
                           <td>{{$dataNilaiTugas->nama_modul}}</td>
                           <td>{{$dataNilaiTugas->judul_tugas}}</td>
-                          <td>{{$dataNilaiTugas->nisn_trainee}}</td>
+                          <td>{{$dataNilaiTugas->nik_trainee}}</td>
                           <td>{{$dataNilaiTugas->nama_trainee}}</td>                        
                           <td>{{$dataNilaiTugas->nilai}}</td>                                                    
                         </tr>
@@ -98,7 +98,7 @@
                           <td>{{$dataNilaiUjian->nama_modul}}</td>
                           <td>{{$dataNilaiUjian->judul_ujian}}</td>
                           <td>{{$dataNilaiUjian->jenis_ujian}}</td>
-                          <td>{{$dataNilaiUjian->nisn_trainee}}</td>
+                          <td>{{$dataNilaiUjian->nik_trainee}}</td>
                           <td>{{$dataNilaiUjian->nama_trainee}}</td>                        
                           <td>{{$dataNilaiUjian->nilai}}</td>                                                    
                         </tr>

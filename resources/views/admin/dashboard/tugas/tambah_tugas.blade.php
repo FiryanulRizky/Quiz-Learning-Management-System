@@ -64,11 +64,11 @@
                    <option value="Manajemen"> Manajemen </option>
                    <option value="Marketing"> Marketing </option>
                    <option value="Operasional"> Operasional </option>
-                   <option value="VIII A"> VIII A </option>
-                   <option value="VIII B"> VIII B </option>
-                   <option value="VIII C"> VIII C </option>
-                   <option value="IX A"> IX A </option>
-                   <option value="IX B"> IX B </option>                   
+                   <option value="Billing"> Billing </option>
+                   <option value="Account Payable"> Account Payable </option>
+                   <option value="Account Receivable"> Account Receivable </option>
+                   <option value="Warehouse Inventory"> Warehouse Inventory </option>
+                   <option value="Fleet Yard"> Fleet Yard </option>                   
                   </select>
                  </div>
                 </div>

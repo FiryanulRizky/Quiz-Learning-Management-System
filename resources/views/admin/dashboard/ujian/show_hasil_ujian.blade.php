@@ -68,7 +68,7 @@
                   </div>
                   <blockquote class="pull-right">
                       <div class="btn-default btn-xs pull-right" id="btnPopover2" title="NISN Trainee" data-toggle="tooltip">
-                          <span class="glyphicon glyphicon-user"></span> {{$userjawabujian->nisn_trainee}}
+                          <span class="glyphicon glyphicon-user"></span> {{$userjawabujian->nik_trainee}}
                       </div>
                       <div class="clearfix"></div>
                       <div class="btn-default btn-xs pull-right " id="btnPopover3" title="Diambil pada" data-toggle="tooltip">
@@ -235,7 +235,7 @@
 </script>
 <script>
   var editor_config = {
-    path_absolute : "{{ URL::to('/Arman/e-learning/public/') }}",
+    path_absolute : "{{ URL::to('/Firyanul/e-learning/public/') }}",
     selector: "textarea.my-editor",
     plugins: [
       "advlist autolink lists link image charmap print preview hr anchor pagebreak",

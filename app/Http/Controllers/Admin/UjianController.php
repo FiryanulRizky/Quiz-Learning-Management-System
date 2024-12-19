@@ -130,7 +130,7 @@ public function index_trainee()
   {
     $id_user = Auth::user()->id_user;
     $trainee = Trainee::where('id_user',$id_user)->first();
-    $nisn = $trainee->nisn_trainee;
+    $nisn = $trainee->nik_trainee;
 
     $dataUjian = DB::table('ujians')
                  ->join('moduls', 'ujians.id_modul', '=', 'moduls.id_modul')
@@ -143,11 +143,11 @@ public function index_trainee()
 
     $countUjianTrainee   = Ujian::where('departemen_ujian', $trainee->departemen_trainee)->get()->count(); // berdasarkan departemen nya trainee masing masing
 
-    $userJawabLembar = NilaiUjianPilihanGandaTrainee::whereRaw('nisn_trainee = ?', array($nisn))->orderBy('id_nilai_ujian_pilgan', 'desc')->get();
+    $userJawabLembar = NilaiUjianPilihanGandaTrainee::whereRaw('nik_trainee = ?', array($nisn))->orderBy('id_nilai_ujian_pilgan', 'desc')->get();
     $userJawabLembars = DB::table('nilai_ujian_pilgan_trainees')
                  ->join('ujians', 'nilai_ujian_pilgan_trainees.id_ujian', '=', 'ujians.id_ujian')
                  ->select('ujians.judul_ujian', 'ujians.jenis_ujian', 'ujians.tgl_ujian', 'nilai_ujian_pilgan_trainees.*')
-                 ->whereRaw('nisn_trainee = ?', array($nisn))->orderBy('id_nilai_ujian_pilgan', 'desc')->get();
+                 ->whereRaw('nik_trainee = ?', array($nisn))->orderBy('id_nilai_ujian_pilgan', 'desc')->get();
     // new
     // $soals = Soal::orderBy('updated_at', 'desc')->get();
 
@@ -363,7 +363,7 @@ public function simpanedit(Request $request, $id_ujian)
               return Redirect::back();
             }
 
-            $nilaiUjianPilganTrainee = NilaiUjianPilihanGandaTrainee::whereRaw('nisn_trainee = ? and id_ujian = ?', array($trainee->nisn_trainee, $ujian->id_ujian))->get();
+            $nilaiUjianPilganTrainee = NilaiUjianPilihanGandaTrainee::whereRaw('nik_trainee = ? and id_ujian = ?', array($trainee->nik_trainee, $ujian->id_ujian))->get();
 
             if (!$nilaiUjianPilganTrainee->isEmpty()){
               Session::flash('flash_message', 'Anda sudah pernah mengambil ujian ini, periksa kembali pada Daftar Pengambilan ujian di Menu Ujian, atau hubungi Admin untuk informasi lebih lanjut');
@@ -373,7 +373,7 @@ public function simpanedit(Request $request, $id_ujian)
             // proses penyimpanan data ujian trainee, dengan nilai sementara pada saat waktu ujian di mulai.
             $nilaiUjianPilganTrainee              = new NilaiUjianPilihanGandaTrainee;
             $nilaiUjianPilganTrainee->id_ujian    = $ujian->id_ujian;
-            $nilaiUjianPilganTrainee->nisn_trainee  = Trainee::where('id_user', Auth::user()->id_user)->first()->nisn_trainee;
+            $nilaiUjianPilganTrainee->nik_trainee  = Trainee::where('id_user', Auth::user()->id_user)->first()->nik_trainee;
             $nilaiUjianPilganTrainee->wkt_mulai   = date('Y-m-d H:i:s');
             $nilaiUjianPilganTrainee->nilai       = 0; //nilai sementara //(4 * 0) - (2 * 0) - $ujian->jumlah_soal + (int)$ujian->waktu_ujian;
             $nilaiUjianPilganTrainee->save();
@@ -422,7 +422,7 @@ public function show($id_ujian)
         // $nilaiUjianPilganTrainee = NilaiUjianPilihanGandaTrainee::find($id_ujian);
         // dd($nilaiUjianPilganTrainee);
 
-        $id_user = Trainee::where('nisn_trainee', $nilaiUjianPilganTrainee->nisn_trainee)->first()->id_user; // persamaan dari : $nilaiUjianPilganTrainee->nisn_trainee->id_user
+        $id_user = Trainee::where('nik_trainee', $nilaiUjianPilganTrainee->nik_trainee)->first()->id_user; // persamaan dari : $nilaiUjianPilganTrainee->nik_trainee->id_user
 
         if (!$nilaiUjianPilganTrainee){
                 Session::flash('flash_message', 'Informasi pengambilan kuis tidak ditemukan');

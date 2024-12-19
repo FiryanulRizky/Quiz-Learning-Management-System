@@ -54,7 +54,7 @@
                         <td>{{$tugasTrainee->departemen_tugas}}</td>
                         <td>{{$tugasTrainee->nama_modul}}</td>
                         <td>{{$tugasTrainee->judul_tugas}}</td>
-                        <td>{{$tugasTrainee->nisn_trainee}}</td> 
+                        <td>{{$tugasTrainee->nik_trainee}}</td> 
                         <td>{{$tugasTrainee->nama_trainee}}</td>
                         <td>{{$tugasTrainee->nama_file}}</td>
                         <td>{{$tugasTrainee->judul}}</td>

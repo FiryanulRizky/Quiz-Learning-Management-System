@@ -37,7 +37,7 @@
                      <?php $i=1; foreach ($nilai_tugas as $dataNilai):  ?>
                       <tr>
                         <td>{{$i}}</td>
-                        <td>{{$dataNilai->nisn_trainee}}</td>
+                        <td>{{$dataNilai->nik_trainee}}</td>
                         <td>{{$dataNilai->nama_trainee}}</td>
                         <td>{{$dataNilai->nama_modul}}</td>
                         <td>{{$dataNilai->judul_tugas}}</td>
@@ -46,7 +46,7 @@
                         <td><a href="{{{ URL::to('admin/nilai_tugas/'.$dataNilai->id_nilai_tugas_trainee.'/edit') }}}">
                               <span class="label label-warning" ><i class="fa fa-edit" >&nbsp;&nbsp; Edit &nbsp;&nbsp;</i></span>
                               </a> 
-                          <a href="{{{ action('Admin\NilaiTugasController@hapus',[$dataNilai->id_nilai_tugas_trainee]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus Data Nilai Tugas  {{{($dataNilai->nisn_trainee).' - '.($dataNilai->nama_trainee) }}}?')">
+                          <a href="{{{ action('Admin\NilaiTugasController@hapus',[$dataNilai->id_nilai_tugas_trainee]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus Data Nilai Tugas  {{{($dataNilai->nik_trainee).' - '.($dataNilai->nama_trainee) }}}?')">
                               <span class="label label-danger"><i class="fa fa-trash">&nbsp;&nbsp; Delete &nbsp;&nbsp;</i></span>
                               </a>                          
                           </td>                              

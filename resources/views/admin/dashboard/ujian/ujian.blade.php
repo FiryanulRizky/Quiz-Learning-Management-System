@@ -155,10 +155,17 @@
                     <td>{{$dataUjian->jumlah_soal}}</td>
                     <td>{{date("d F Y",strtotime($dataUjian->tgl_ujian))}}</td>                    
                     <td>
+                      @if(Auth::user()->level === 11)
                       <a href="{{{action('Admin\UjianController@detail', [$dataUjian->id_ujian]) }}}"
                          class="btn btn-info btn-xs">
                           <span class="glyphicon glyphicon-play"></span> Ambil
                       </a>
+                      @else
+                      <a href="ujian/{{ $dataUjian->id_ujian }}/detail"
+                        class="btn btn-info btn-xs">
+                        <span class="glyphicon glyphicon-play"></span> Ambil
+                      </a>
+                      @endif
                     </td>
                   </tr>
                   <?php $i++; endforeach  ?> 

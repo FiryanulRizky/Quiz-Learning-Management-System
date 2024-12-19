@@ -67,7 +67,7 @@
                      <?php $i=1; foreach ($trainee as $dataTrainee):  ?>
                       <tr>
                         <td>{{$i}}</td>
-                        <td>{{$dataTrainee->nisn_trainee}}</td>
+                        <td>{{$dataTrainee->nik_trainee}}</td>
                         <td>{{$dataTrainee->nama_trainee}}</td>                        
                         <td>{{$dataTrainee->email_trainee}}</td>
                         <td>{{$dataTrainee->no_hp_trainee}}</td>
@@ -75,7 +75,7 @@
                         <td>{{$dataTrainee->jns_kelamin_trainee}}</td>
                         <td>{{$dataTrainee->alamat_trainee}}</td>                                               
                         <td>                         
-                          <a href="{{{ URL::to('trainee/trainee/'.$dataTrainee->nisn_trainee.'/detail') }}}">
+                          <a href="{{{ URL::to('trainee/trainee/'.$dataTrainee->nik_trainee.'/detail') }}}">
                               <span class="label label-info"><i class="fa fa-list"> Detail </i></span>
                           </a> 
                         </td>                              

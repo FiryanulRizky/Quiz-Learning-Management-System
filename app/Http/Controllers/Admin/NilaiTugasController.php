@@ -24,8 +24,8 @@ class NilaiTugasController extends Controller
 
   public function showTambahNilaiTugas()
   {
-  	$idTrainee= Trainee::select(DB::raw("nisn_trainee, nama_trainee"))
-        ->orderBy(DB::raw("nisn_trainee"))        
+  	$idTrainee= Trainee::select(DB::raw("nik_trainee, nama_trainee"))
+        ->orderBy(DB::raw("nik_trainee"))        
         ->get();
     $idModul_learn= Modul_learn::select(DB::raw("id_modul,nama_modul"))
         ->orderBy(DB::raw("id_modul"))        
@@ -45,7 +45,7 @@ class NilaiTugasController extends Controller
     $dataNilaiTugas = DB::table('nilai_tugas_trainees')   
      ->join('tugass', 'nilai_tugas_trainees.id_tugas', '=', 'tugass.id_tugas')                                   			       
      ->join('moduls', 'nilai_tugas_trainees.id_modul', '=', 'moduls.id_modul')
-     ->join('trainees', 'nilai_tugas_trainees.nisn_trainee', '=', 'trainees.nisn_trainee')
+     ->join('trainees', 'nilai_tugas_trainees.nik_trainee', '=', 'trainees.nik_trainee')
      ->select('nilai_tugas_trainees.*', 'trainees.nama_trainee', 'moduls.nama_modul', 'tugass.judul_tugas')
      ->get();
         
@@ -62,7 +62,7 @@ class NilaiTugasController extends Controller
     if ($id_nilai_tugas_trainee  == null)
       app::abort(404);
     
-    Session::flash('flash_message', 'Data Nilai Tugas : "'.$id_nilai_tugas_trainee ->nisn_trainee.'" Berhasil dihapus.');
+    Session::flash('flash_message', 'Data Nilai Tugas : "'.$id_nilai_tugas_trainee ->nik_trainee.'" Berhasil dihapus.');
 
     $id_nilai_tugas_trainee ->delete();
     
@@ -80,7 +80,7 @@ class NilaiTugasController extends Controller
   {
         $input =$request->all();
         $pesan = array(
-          	'nisn_trainee.required' 	=> 'NISN Trainee dibutuhkan.',
+          	'nik_trainee.required' 	=> 'NISN Trainee dibutuhkan.',
             'id_modul.required' 	=> 'ID Modul dibutuhkan.',            
             'id_tugas.required' 	=> 'ID Tugas dibutuhkan.',                              
             'nilai_tugas.required' 	=> 'Nilai Tugas dibutuhkan.', 
@@ -88,7 +88,7 @@ class NilaiTugasController extends Controller
         );
 
         $aturan = array(
-            'nisn_trainee'  	=> 'required',
+            'nik_trainee'  	=> 'required',
             'id_modul'  	=> 'required',            
             'id_tugas'  	=> 'required',            
             'nilai_tugas'  	=> 'required',                      
@@ -103,7 +103,7 @@ class NilaiTugasController extends Controller
         # Bila validasi sukses
 
         $nilai_tugas = new NilaiTugas;
-        $nilai_tugas->nisn_trainee    = $request['nisn_trainee'];
+        $nilai_tugas->nik_trainee    = $request['nik_trainee'];
         $nilai_tugas->id_modul     	= $request['id_modul'];
         $nilai_tugas->id_tugas     	= $request['id_tugas'];
         $nilai_tugas->nilai_tugas   = $request['nilai_tugas'];
@@ -113,7 +113,7 @@ class NilaiTugasController extends Controller
         if (! $nilai_tugas->save() )
           App::abort(500);
 
-        Session::flash('flash_message', 'Data Nilai Tugas "'.$request['nisn_trainee'].'" Berhasil disimpan.');
+        Session::flash('flash_message', 'Data Nilai Tugas "'.$request['nik_trainee'].'" Berhasil disimpan.');
 
         return Redirect::action('Admin\NilaiTugasController@index');
   }  
@@ -122,8 +122,8 @@ class NilaiTugasController extends Controller
     {
         
         $data = NilaiTugas::find($id_nilai_tugas_trainee );
-        $idTrainee= Trainee::select(DB::raw("nisn_trainee, nama_trainee"))
-            ->orderBy(DB::raw("nisn_trainee"))        
+        $idTrainee= Trainee::select(DB::raw("nik_trainee, nama_trainee"))
+            ->orderBy(DB::raw("nik_trainee"))        
             ->get();
         $idModul_learn= Modul_learn::select(DB::raw("id_modul,nama_modul"))
         ->orderBy(DB::raw("id_modul"))        
@@ -143,14 +143,14 @@ class NilaiTugasController extends Controller
     {
         $input =$request->all();
         $messages = [
-			'nisn_trainee.required' 	=> 'NISN Trainee dibutuhkan.',
+			'nik_trainee.required' 	=> 'NISN Trainee dibutuhkan.',
             'id_modul.required' 	=> 'ID Modul dibutuhkan.',            
             'id_tugas.required' 	=> 'ID Tugas dibutuhkan.',                              
             'nilai_tugas.required' 	=> 'Nilai Tugas dibutuhkan.',                                            
         ];        
 
         $validator = Validator::make($input, [
-        	'nisn_trainee'  	=> 'required',
+        	'nik_trainee'  	=> 'required',
             'id_modul'  	=> 'required',            
             'id_tugas'  	=> 'required',            
             'nilai_tugas'  	=> 'required',          
@@ -164,7 +164,7 @@ class NilaiTugasController extends Controller
         }
         # Bila validasi sukses
         $editNilai = NilaiTugas::find($id_nilai_tugas_trainee );
-        $editNilai->nisn_trainee     	= $input['nisn_trainee'];
+        $editNilai->nik_trainee     	= $input['nik_trainee'];
         $editNilai->id_modul     	= $input['id_modul'];
         $editNilai->id_tugas     	= $input['id_tugas'];                              
         $editNilai->nilai_tugas     = $input['nilai_tugas']; 
@@ -172,7 +172,7 @@ class NilaiTugasController extends Controller
         if (! $editNilai->save())
           App::abort(500);
 
-        Session::flash('flash_message', 'Data Nilai : " '.$input['nisn_trainee'].'" Berhasil diubah.');
+        Session::flash('flash_message', 'Data Nilai : " '.$input['nik_trainee'].'" Berhasil diubah.');
 
         return Redirect::action('Admin\NilaiTugasController@index'); 
     }

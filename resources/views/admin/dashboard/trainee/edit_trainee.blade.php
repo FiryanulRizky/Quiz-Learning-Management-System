@@ -42,14 +42,14 @@
     
     <div style="display: block;" class="box-body">
     <?php if ( Auth::user()->level  == 11): ?>
-      <form id="formTraineeEdit" class="form-horizontal" role="form" method="POST" files="true" enctype="multipart/form-data" action="{{ url('admin/trainee/'.$nisn_trainee.'/simpanedit') }}" >                    
+      <form id="formTraineeEdit" class="form-horizontal" role="form" method="POST" files="true" enctype="multipart/form-data" action="{{ url('admin/trainee/'.$nik_trainee.'/simpanedit') }}" >                    
     <?php endif ?>
     <?php if (Auth::user()->level  == 13): ?>
        <form id="formTraineeEdit" class="form-horizontal" role="form" method="POST" files="true" enctype="multipart/form-data" action="{{ url('trainee/trainee/simpanedit') }}" >           
     <?php endif ?>      
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="_method" value="PUT">
-        <input type="hidden" name="nisn_trainee" value="{{$nisn_trainee}}" >
+        <input type="hidden" name="nik_trainee" value="{{$nik_trainee}}" >
           <div class="col-md-12" style="margin-left:2%;">
             <div class="col-md-6">
         <!-- general left form elements  nisn email jk departemen id user status -->              
@@ -57,10 +57,10 @@
                 <label class="col-sm-4  control-label" style="text-align: left;">NISN</label>
                  <div class="col-sm-8"> 
                     <?php if ( Auth::user()->level  == 11): ?>
-                      <input type="text" class="form-control" name="nisn_trainee" value="{{$nisn_trainee}}">
+                      <input type="text" class="form-control" name="nik_trainee" value="{{$nik_trainee}}">
                     <?php endif ?>
                     <?php if (Auth::user()->level  == 13): ?>
-                      <input type="text" class="form-control" name="nisn_trainee" value="{{$nisn_trainee}}" readonly="true">
+                      <input type="text" class="form-control" name="nik_trainee" value="{{$nik_trainee}}" readonly="true">
                     <?php endif ?>                                      
                     <small class="help-block"></small>
                  </div>
@@ -131,11 +131,11 @@
                <option value="Manajemen"> Manajemen </option>
                <option value="Marketing"> Marketing </option>
                <option value="Operasional"> Operasional </option>
-               <option value="VIII A"> VIII A </option>
-               <option value="VIII B"> VIII B </option>
-               <option value="VIII C"> VIII C </option>
-               <option value="IX A"> IX A </option>
-               <option value="IX B"> IX B </option> 
+               <option value="Billing"> Billing </option>
+               <option value="Account Payable"> Account Payable </option>
+               <option value="Account Receivable"> Account Receivable </option>
+               <option value="Warehouse Inventory"> Warehouse Inventory </option>
+               <option value="Fleet Yard"> Fleet Yard </option> 
               <?php endif ?>
               <?php if (Auth::user()->level  == 13): ?>
                 <option value="{{$departemen_trainee}}">-- {{$departemen_trainee}} --</option>
@@ -163,13 +163,13 @@
              <div class="col-sm-8">               
               <select class="form-control " name="id_user" style="font-size: 14px; text-align: left;">               
               <?php if ( Auth::user()->level  == 11): ?>
-                <option value="{{$id_user}}">-- id user : {{ $id_user }} | username : {{ $nisn_trainee }} --</option>
+                <option value="{{$id_user}}">-- id user : {{ $id_user }} | username : {{ $nik_trainee }} --</option>
                 @foreach ($userData as $User)
                   <option value="{{ $User->id_user }}">id user : {{ $User->id_user }} | username : {{ $User->username }}</option>
                 @endforeach 
               <?php endif ?>
               <?php if (Auth::user()->level  == 13): ?>
-                <option value="{{$id_user}}">-- id user : {{ $id_user }} | username : {{ $nisn_trainee }} --</option>
+                <option value="{{$id_user}}">-- id user : {{ $id_user }} | username : {{ $nik_trainee }} --</option>
               <?php endif ?> 
               </select>
              </div>   
@@ -191,7 +191,7 @@
                     </a> 
                     <?php endif ?> 
                     <?php if ( Auth::user()->level  == 13): ?> 
-                    <a href="{{{ URL::to('trainee/trainee/'.$nisn_trainee.'/detail') }}}" title="Cancel">
+                    <a href="{{{ URL::to('trainee/trainee/'.$nik_trainee.'/detail') }}}" title="Cancel">
                       <span class="btn btn-default"><i class="fa fa-back"> Cancel </i></span>
                     </a>
                    <?php endif ?> 

@@ -747,7 +747,7 @@ public function hapus($id_soal)
     {
         try {
             $userJawabLembar = NilaiUjianPilihanGanda::find($userjawablembarId);                                   
-            $id_user_trainee = Trainee::where('nisn_trainee', $userJawabLembar->nisn_trainee)->first()->id_user;                       
+            $id_user_trainee = Trainee::where('nik_trainee', $userJawabLembar->nik_trainee)->first()->id_user;                       
 
             if (!$userJawabLembar){
                 Session::flash('flash_message', 'Ujian tidak ditemukan');
@@ -861,7 +861,7 @@ public function update(Request $request, $userjawablembarId, $soalId)
           DB::beginTransaction();
           $userJawabLembar = NilaiUjianPilihanGanda::find($userjawablembarId);
           
-          $id_user_trainee = Trainee::where('nisn_trainee', $userJawabLembar->nisn_trainee)->first()->id_user;
+          $id_user_trainee = Trainee::where('nik_trainee', $userJawabLembar->nik_trainee)->first()->id_user;
 
           $ujian = Ujian::find($userJawabLembar->id_ujian);
           $waktu_ujian = $ujian->waktu_ujian;

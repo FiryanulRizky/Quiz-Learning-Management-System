@@ -30,13 +30,13 @@ class TraineeController extends Controller
     		->with('listIduser', $idUser);;
   }
 
-  public function detail($nisn_trainee)
+  public function detail($nik_trainee)
   {
-    $data = Trainee::find($nisn_trainee);
+    $data = Trainee::find($nik_trainee);
     $user= User::select(DB::raw("id_user, username, password"))
     ->orderBy(DB::raw("id_user"))        
     ->get();        
-    $trainee = Trainee::orderBy('nisn_trainee')->get();
+    $trainee = Trainee::orderBy('nik_trainee')->get();
     
     // $idUserTrainee = '3';
     // $trainee = \App\Trainee::where('id_user', '3')->first(); 
@@ -45,32 +45,32 @@ class TraineeController extends Controller
             ->with('trainee', $trainee)
             ->with('userData', $user);
 
-    // $dataTrainee = Trainee::select(DB::raw("nisn_trainee,nama_trainee,email_trainee,no_hp_trainee,ttl_trainee,jns_kelamin_trainee,alamat_trainee,departemen_trainee,foto_trainee,status_trainee,id_user"))
-    //     ->orderBy(DB::raw("nisn_trainee"))        
+    // $dataTrainee = Trainee::select(DB::raw("nik_trainee,nama_trainee,email_trainee,no_hp_trainee,ttl_trainee,jns_kelamin_trainee,alamat_trainee,departemen_trainee,foto_trainee,status_trainee,id_user"))
+    //     ->orderBy(DB::raw("nik_trainee"))        
     //     ->get();
         
     // $data = array('trainee' => $dataTrainee);   
     // return view('admin.dashboard.trainee.detail_trainee',$data);
   }
 
-  public function detail_trainee($nisn_trainee)
+  public function detail_trainee($nik_trainee)
   {
-    $data = Trainee::find($nisn_trainee); 
+    $data = Trainee::find($nik_trainee); 
                 
     return view('admin.dashboard.trainee.detail_trainee',$data);
             
   }
 
-  public function trainee_detail($nisn_trainee)
+  public function trainee_detail($nik_trainee)
   {
-    $data = Trainee::find($nisn_trainee);    
+    $data = Trainee::find($nik_trainee);    
     return view('admin.dashboard.trainee.detail_trainee',$data);          
   }
 
   public function departemen_trainee()
   {
     $trainee = Trainee::where('id_user', Auth::user()->id_user)->first();
-    $data = Trainee::where('nisn_trainee',$trainee->nisn_trainee)->first();
+    $data = Trainee::where('nik_trainee',$trainee->nik_trainee)->first();
     $listTraineeDepartemen = Trainee::where('departemen_trainee', $data->departemen_trainee)->get();
     // dd($listTraineeDepartemen);
     $dataDepartemen = DB::table('departemen_have_moduls')                  
@@ -86,25 +86,25 @@ class TraineeController extends Controller
 
   public function index()
   {
-    $dataTrainee = Trainee::select(DB::raw("nisn_trainee,nama_trainee,email_trainee,no_hp_trainee,ttl_trainee,jns_kelamin_trainee,alamat_trainee,departemen_trainee,foto_trainee,status_trainee,id_user"))
-        ->orderBy(DB::raw("nisn_trainee"))        
+    $dataTrainee = Trainee::select(DB::raw("nik_trainee,nama_trainee,email_trainee,no_hp_trainee,ttl_trainee,jns_kelamin_trainee,alamat_trainee,departemen_trainee,foto_trainee,status_trainee,id_user"))
+        ->orderBy(DB::raw("nik_trainee"))        
         ->get();
         
     $data = array('trainee' => $dataTrainee);   
     return view('admin.dashboard.trainee.trainee',$data);
   }    
 
-  public function hapus($nisn_trainee)
+  public function hapus($nik_trainee)
   { 
   
-    $nisn_trainee = Trainee::where('nisn_trainee', '=', $nisn_trainee)->first();
+    $nik_trainee = Trainee::where('nik_trainee', '=', $nik_trainee)->first();
 
-    if ($nisn_trainee == null)
+    if ($nik_trainee == null)
       app::abort(404);
     
-    Session::flash('flash_message', 'Data Trainee "'.$nisn_trainee->nisn_trainee.'" - "'.$nisn_trainee->nama_trainee.'" Berhasil dihapus.');
-    $image_path = public_path().'/upload_gambar/'.$nisn_trainee->foto_trainee;
-    $nisn_trainee->delete();
+    Session::flash('flash_message', 'Data Trainee "'.$nik_trainee->nik_trainee.'" - "'.$nik_trainee->nama_trainee.'" Berhasil dihapus.');
+    $image_path = public_path().'/upload_gambar/'.$nik_trainee->foto_trainee;
+    $nik_trainee->delete();
     unlink($image_path);
     return Redirect::action('Admin\TraineeController@index');
 
@@ -120,7 +120,7 @@ class TraineeController extends Controller
   {
         $input =$request->all();
         $pesan = array(
-            'nisn_trainee.required' 		 	=> 'nisn trainee dibutuhkan.',
+            'nik_trainee.required' 		 	=> 'nisn trainee dibutuhkan.',
             'nama_trainee.required' 			=> 'nama trainee dibutuhkan.',
             'email_trainee.required' 			=> 'email trainee dibutuhkan.', 
             'no_hp_trainee.required' 			=> 'no hp trainee dibutuhkan.',
@@ -135,7 +135,7 @@ class TraineeController extends Controller
         );
 
         $aturan = array(
-            'nisn_trainee'      	=> 'required|numeric',
+            'nik_trainee'      	=> 'required|numeric',
             'nama_trainee'  		=> 'required',
             'email_trainee'     	=> 'required',
             'no_hp_trainee'       => 'required',
@@ -162,7 +162,7 @@ class TraineeController extends Controller
         $request->file('foto_trainee')->move('upload_gambar', $namaFotoTrainee);
 
         $trainee = new Trainee;
-        $trainee->nisn_trainee     		= $request['nisn_trainee'];
+        $trainee->nik_trainee     		= $request['nik_trainee'];
         $trainee->nama_trainee     		= $request['nama_trainee'];
         $trainee->email_trainee     	= $request['email_trainee'];
         $trainee->no_hp_trainee     	= $request['no_hp_trainee'];
@@ -179,30 +179,30 @@ class TraineeController extends Controller
         if (! $trainee->save() )
           App::abort(500);
 
-        Session::flash('flash_message', 'Data Trainee "'.$request['nisn_trainee'].'" - " '.$request['nama_trainee'].'" Berhasil disimpan.');
+        Session::flash('flash_message', 'Data Trainee "'.$request['nik_trainee'].'" - " '.$request['nama_trainee'].'" Berhasil disimpan.');
 
         return Redirect::action('Admin\TraineeController@index');
   }  
 
- public function edittrainee($nisn_trainee)
+ public function edittrainee($nik_trainee)
     {
-        $data = Trainee::find($nisn_trainee);
+        $data = Trainee::find($nik_trainee);
         $user= User::select(DB::raw("id_user, username"))
         ->orderBy(DB::raw("id_user"))        
         ->get();        
-        $trainee = Trainee::orderBy('nisn_trainee')->get();
+        $trainee = Trainee::orderBy('nik_trainee')->get();
 
         return view('admin.dashboard.trainee.edit_trainee',$data)
                 ->with('list_trainee', $trainee)
                 ->with('userData', $user);
     }
 
- public function simpanedit(Request $request, $nisn_trainee)
+ public function simpanedit(Request $request, $nik_trainee)
     {
         $input =$request->all();
         // dd($input);
         $messages = [
-            'nisn_trainee.required' 		 	=> 'nisn trainee dibutuhkan.',
+            'nik_trainee.required' 		 	=> 'nisn trainee dibutuhkan.',
             'nama_trainee.required' 			=> 'nama trainee dibutuhkan.',
             'email_trainee.required' 			=> 'email trainee dibutuhkan.', 
             'no_hp_trainee.required' 			=> 'no hp trainee dibutuhkan.',
@@ -216,7 +216,7 @@ class TraineeController extends Controller
         ];
         
         $validator = Validator::make($input, [
- 			'nisn_trainee'      	=> 'required|numeric',
+ 			'nik_trainee'      	=> 'required|numeric',
             'nama_trainee'  		=> 'required',
             'email_trainee'     	=> 'required',
             'no_hp_trainee'       => 'required',
@@ -235,7 +235,7 @@ class TraineeController extends Controller
         }
         # Bila validasi sukses
 
-        $trainee = Trainee::findOrFail($nisn_trainee);
+        $trainee = Trainee::findOrFail($nik_trainee);
         // cek apakah ada file baru di form ?
         if ($request->hasFile('foto_trainee')) {
           $foto_trainee = $input['foto_trainee'];        
@@ -248,8 +248,8 @@ class TraineeController extends Controller
           // upload file baru
           $input['foto_trainee']->move('upload_gambar', $namaFotoTrainee);
           // save data ke tabel dengan file baru
-          $editTrainee = Trainee::find($nisn_trainee);
-          $editTrainee->nisn_trainee          = $input['nisn_trainee'];
+          $editTrainee = Trainee::find($nik_trainee);
+          $editTrainee->nik_trainee          = $input['nik_trainee'];
           $editTrainee->nama_trainee          = $input['nama_trainee'];
           $editTrainee->email_trainee         = $input['email_trainee'];
           $editTrainee->no_hp_trainee         = $input['no_hp_trainee'];
@@ -264,8 +264,8 @@ class TraineeController extends Controller
           // save data ke tabel tanpa merubah dan menghapus file lama
           $foto_trainee = $trainee->foto_trainee;
           
-          $editTrainee = Trainee::find($nisn_trainee);
-          $editTrainee->nisn_trainee          = $input['nisn_trainee'];
+          $editTrainee = Trainee::find($nik_trainee);
+          $editTrainee->nik_trainee          = $input['nik_trainee'];
           $editTrainee->nama_trainee          = $input['nama_trainee'];
           $editTrainee->email_trainee         = $input['email_trainee'];
           $editTrainee->no_hp_trainee         = $input['no_hp_trainee'];
@@ -280,7 +280,7 @@ class TraineeController extends Controller
         if (! $editTrainee->save())
           App::abort(500);
 
-        Session::flash('flash_message', 'Data Trainee "'.$input['nisn_trainee'].'" dengan nama" '.$input['nama_trainee'].'" Berhasil diubah.');
+        Session::flash('flash_message', 'Data Trainee "'.$input['nik_trainee'].'" dengan nama" '.$input['nama_trainee'].'" Berhasil diubah.');
 
         return Redirect::action('Admin\TraineeController@index'); 
     }
@@ -289,7 +289,7 @@ class TraineeController extends Controller
 public function edit_asTrainee()
     {   
         $trainee = Trainee::where('id_user', Auth::user()->id_user)->first();        
-        $data = Trainee::find($trainee->nisn_trainee);   
+        $data = Trainee::find($trainee->nik_trainee);   
 
         $user= User::select(DB::raw("id_user, username"))
         ->orderBy(DB::raw("id_user"))        
@@ -305,7 +305,7 @@ public function edit_asTrainee()
         $input =$request->all();
         // dd($input);
         $messages = [
-            'nisn_trainee.required'       => 'nisn trainee dibutuhkan.',
+            'nik_trainee.required'       => 'nisn trainee dibutuhkan.',
             'nama_trainee.required'       => 'nama trainee dibutuhkan.',
             'email_trainee.required'      => 'email trainee dibutuhkan.', 
             'no_hp_trainee.required'      => 'no hp trainee dibutuhkan.',
@@ -319,7 +319,7 @@ public function edit_asTrainee()
         ];
         
         $validator = Validator::make($input, [
-      'nisn_trainee'        => 'required|numeric',
+      'nik_trainee'        => 'required|numeric',
             'nama_trainee'      => 'required',
             'email_trainee'       => 'required',
             'no_hp_trainee'       => 'required',
@@ -338,7 +338,7 @@ public function edit_asTrainee()
         }
         # Bila validasi sukses
 
-        $trainee = Trainee::findOrFail($input['nisn_trainee']);
+        $trainee = Trainee::findOrFail($input['nik_trainee']);
         // cek apakah ada file baru di form ?
         if ($request->hasFile('foto_trainee')) {
           $foto_trainee = $input['foto_trainee'];        
@@ -354,7 +354,7 @@ public function edit_asTrainee()
           // upload file baru
           $input['foto_trainee']->move('upload_gambar', $namaFotoTrainee);
           // save data ke tabel dengan file baru
-          $editTrainee = Trainee::find($input['nisn_trainee']);
+          $editTrainee = Trainee::find($input['nik_trainee']);
           $editTrainee->nama_trainee          = $input['nama_trainee'];
           $editTrainee->email_trainee         = $input['email_trainee'];
           $editTrainee->no_hp_trainee         = $input['no_hp_trainee'];
@@ -367,7 +367,7 @@ public function edit_asTrainee()
           // save data ke tabel tanpa merubah dan menghapus file lama
           // $foto_trainee = $trainee->foto_trainee;
           
-          $editTrainee = Trainee::find($input['nisn_trainee']);
+          $editTrainee = Trainee::find($input['nik_trainee']);
           $editTrainee->nama_trainee          = $input['nama_trainee'];
           $editTrainee->email_trainee         = $input['email_trainee'];
           $editTrainee->no_hp_trainee         = $input['no_hp_trainee'];
@@ -382,7 +382,7 @@ public function edit_asTrainee()
 
         Session::flash('flash_message', 'Data kamu " '.$input['nama_trainee'].' " Berhasil diubah.');
 
-        return redirect('trainee/trainee/'.$input['nisn_trainee'].'/detail'); 
+        return redirect('trainee/trainee/'.$input['nik_trainee'].'/detail'); 
     }
 
     // Forum
