@@ -2,43 +2,32 @@
 
 namespace App\Providers;
 
-use App\Events\CommentCreated;
-use App\Events\MentorsGetAlertAfterQuizSubmit;
-use App\Listeners\CommentCreatedListener;
-use App\Listeners\MentorGetAlertListener;
-use App\Observers\WorkoutObserver;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use App\Models\Workout;
 
 class EventServiceProvider extends ServiceProvider
 {
     /**
      * The event listener mappings for the application.
      *
-     * @var array<class-string, array<int, class-string>>
+     * @var array
      */
     protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
+        'App\Events\SomeEvent' => [
+            'App\Listeners\EventListener',
         ],
-        CommentCreated::class => [
-            CommentCreatedListener::class
-        ],
-        MentorsGetAlertAfterQuizSubmit::class => [
-            MentorGetAlertListener::class
-        ],
-
     ];
 
     /**
-     * Register any events for your application.
+     * Register any other events for your application.
      *
+     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
      * @return void
      */
     public function boot()
     {
-        Workout::observe(WorkoutObserver::class);
+        parent::boot();
+
+        //
     }
 }

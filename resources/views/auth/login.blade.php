@@ -1,92 +1,87 @@
+@extends('auth.layouts.default')
 
- @extends('layouts.guest')
+@section('styles')
+<style type="text/css">
+	body{
+		
+		background: url('{{URL::to('asset/images/solog_uat.jpg')}}') no-repeat center center fixed; 
+ 		 -webkit-background-size: cover;
+ 	 -moz-background-size: cover;
+ 	 -o-background-size: cover;
+ 	 background-size: cover;
 
- @section('content')
-    <div class="container">
+	}
+	.input-group{
+		margin-bottom: 20px;
+	}
+	#TitleForm{
+		margin-top: 1%;
+		margin-bottom: 1%;
+		margin-left: 12%;
+		margin-right: 12%;
+		opacity: 0.9;
+		border-radius: 25px;
+		opacity: 0.9;
+	}
+	#loginForm{
+		margin-top: 5%;
+		margin-bottom: 1%;
+		opacity: 0.9;
+		border-radius: 10px;
+		opacity: 0.9;
+	}
+	
+	#logo-pgri{
+		margin-top: -80px;
+	}
+</style>
+@endsection
 
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
+@section('banner')
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
+@endsection
 
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                                <div class="p-5">
-                                    <img src="{{ asset('img/uat-album/3.jpg') }}" style="width:100%;border-radius:25%">
-                                    <br><br><br><br>
-                                    <img src="{{ asset('img/uat-album/4.jpg') }}" style="width:100%;border-radius:25%">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Tcont Solog LMS</h1>
-                                    </div>
-                                    <form class="user" method="post" action="{{ route('login') }}">
-                                        @csrf
-                                        <div class="form-group">
-                                            <input name="email" type="email" 
-                                            class="form-control form-control-user @error('email') is-invalid @enderror"
-                                                id="email" aria-describedby="email"
-                                                placeholder="Masukkan Email...">
-                                            @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                                    {{ $message }}
-                                                </span>
-                                            @enderror    
-                                        </div>
-                                        <div class="form-group">
-                                            <input name="password" type="password"
-                                            class="form-control form-control-user @error('email') is-invalid @enderror"
-                                                id="password" placeholder="Password" value="password">
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    {{ $message }}
-                                                </span>
-                                            @enderror  
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Ingat Saya</label>
-                                            </div>
-                                        </div>
-                                        <input value="Login" type="submit" class="btn btn-primary btn-user btn-block" />
-                                        
-                                        <hr>
-                                        
-                                    </form>
+@section('content')
+<div class="col-md-9 well" id="TitleForm" >
+	<center>  		
+		<strong><h3>Selamat Datang di Sistem Informasi E-Learning Tcont Solog</h3></strong>
+	</center>
+</div>
+<div class="col-md-4 col-md-offset-4 well" id="loginForm">
+	<center>  
+		<img src="{{URL::to('asset/images/logo_tc.png')}}" height="180px" width="260px" id="logo-pgri">
+		<h3>Login</h3>
+	</center>
+		@if(count($errors) > 0)
+			<div class="alert alert-danger" style="text-align: center;">
+				<ul>
+					@foreach($errors->all() as $error)
+						<li>{{$error}}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif	
+	<form id="form-login" name="form-login"  action="{{ url('/login') }}" method="post" autocomplete="off">
+		{{csrf_field()}}
+		<div class="input-group">
+			<span class="input-group-addon" id="addon1"><i class="glyphicon glyphicon-user"></i></span>
+			<input type="text" id="username" name="username" class="form-control input-lg" aria-describedby="addon1" placeholder="Username">
+			
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon" id="addon1"><i class="glyphicon glyphicon-lock"></i></span>
+			<input type="password" id="password" name="password" class="form-control input-lg" aria-describedby="addon1" placeholder="Password">
+			 
+		</div>
+		<button type="submit" class="btn btn-danger btn-block btn-lg" value="Login"><font style="color:black"> Login </font></button>
+	</form>
+</div>
+@endsection
 
-                                    <label>super admin:</label><br/>
-                                    <strong>username: </strong><span>super_su@mail.com</span><br/>
-                                    <strong>password: </strong><span>password</span>
-                                    <hr>
-                                    <label>manajemen:</label><br/>
-                                    <strong>username: </strong><span>manajemen@tcontinent.com</span><br/>
-                                    <hr>
-                                    <label>operasional:</label><br/>
-                                    <strong>username: </strong><span>operasional@tcontinent.com</span><br/>
-                                    <hr>
+@section('footer')
 
-                                    {{-- <div class="text-center">
-                                        <a class="small" href="forgot-password">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="register">Create an Account!</a>
-                                    </div> --}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+@endsection
 
-            </div>
+@section('scripts')
 
-        </div>
-
-    </div>
-    
 @endsection

@@ -2,44 +2,30 @@
 
 namespace App\Providers;
 
-use App\Models\Feedback;
-use App\Models\File;
-use App\Models\Quiz;
-use App\Models\Term;
-use App\Policies\FeedbackPolicy;
-use App\Policies\filePolicy;
-use App\Policies\QuizPolicy;
-use App\Policies\TermPolicy;
-
+use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
     /**
      * The policy mappings for the application.
      *
-     * @var array<class-string, class-string>
+     * @var array
      */
     protected $policies = [
-        Term::class => TermPolicy::class,
-        File::class => filePolicy::class,
-        Feedback::class => FeedbackPolicy::class,
-        Quiz::class => QuizPolicy::class
+        'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
     /**
-     * Register any authentication / authorization services.
+     * Register any application authentication / authorization services.
      *
+     * @param  \Illuminate\Contracts\Auth\Access\Gate  $gate
      * @return void
      */
-    public function boot()
+    public function boot(GateContract $gate)
     {
+        $this->registerPolicies($gate);
 
-        $this->registerPolicies();
-
-        Gate::before(function ($user, $ability) {
-            return $user->hasRole('Super-Admin') ?: null;
-        });
+        //
     }
 }
