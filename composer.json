@@ -7,13 +7,11 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^10.0",
-        "maatwebsite/excel": "*",
         "illuminate/container": "*",
         "barryvdh/laravel-dompdf": "*",
         "unisharp/laravel-filemanager": "*",
         "smsgatewayme/client": "*",
         "spatie/laravel-html": "*",
-        "fruitcake/php-cors": "*",
         "microweber-deps/laravel-cors": "*",
         "laravel/fortify": "*",
         "laravel/sail": "*",
