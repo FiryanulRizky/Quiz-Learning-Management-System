@@ -53,7 +53,7 @@
                     <thead>
                       <tr>      
                         <th>No</th>                                         
-                        <th>NISN</th>                                               
+                        <th>NIK</th>                                               
                         <th>Nama</th>                        
                         <th>Email</th>
                         <th>No. Hp</th>
@@ -85,7 +85,7 @@
                     <tfoot>
                       <tr>
                         <th>No</th>                                         
-                        <th>NISN</th>                                               
+                        <th>NIK</th>                                               
                         <th>Nama</th>                        
                         <th>Email</th>
                         <th>No. Hp</th>

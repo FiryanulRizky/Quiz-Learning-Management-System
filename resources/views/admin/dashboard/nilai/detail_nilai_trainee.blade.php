@@ -56,7 +56,7 @@
                           <th>No</th>                          
                           <th style="width: 15%;">Modul</th>
                           <th style="width: 30%;">Judul Tugas</th>
-                          <th>NISN</th>                                     
+                          <th>NIK</th>                                     
                           <th>Nama Trainee</th>                        
                           <th>Nilai Tugas</th>
                         </tr>
@@ -86,7 +86,7 @@
                           <th style="width: 15%;">Modul</th>
                           <th style="width: 30%;">Judul Ujian</th>
                           <th>Jenis</th>                                     
-                          <th>NISN</th> 
+                          <th>NIK</th> 
                           <th>Nama Trainee</th>                        
                           <th>Nilai Ujian</th>
                         </tr>

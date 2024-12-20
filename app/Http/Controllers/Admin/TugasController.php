@@ -229,13 +229,13 @@ class TugasController extends Controller
  public function simpanedit(Request $request, $id_tugas)
     {
         $input =$request->all();
-        $tgl_tugas_before = $input['wkt_mulai'];          
-        $tgl_tugas = date ("Y-m-d", strtotime($tgl_tugas_before));
+        // $tgl_tugas_before = $input['wkt_mulai'];          
+        // $tgl_tugas = date ("Y-m-d", strtotime($tgl_tugas_before));
         $messages = [
             'judul_tugas.required'      => 'Judul Tugas dibutuhkan.',
             'deskripsi_tugas.required'  => 'Deskripsi Tugas dibutuhkan.',
             'departemen_tugas.required'      => 'Departemen Tugas dibutuhkan.',             
-            'waktu_tugas_range.required'    => 'Waktu Tugas dibutuhkan.',
+            // 'waktu_tugas_range.required'    => 'Waktu Tugas dibutuhkan.',
             'pembuat_tugas.required'    => 'Pembuat Tugas dibutuhkan.',             
             'info_tugas.required'       => 'Info Tugas dibutuhkan.',
             'status_tugas.required'     => 'Status Tugas dibutuhkan.', 
@@ -247,7 +247,7 @@ class TugasController extends Controller
             'judul_tugas'       => 'required',
             'deskripsi_tugas'   => 'required',
             'departemen_tugas'       => 'required',
-            'waktu_tugas_range' => 'required',
+            // 'waktu_tugas_range' => 'required',
             'pembuat_tugas'     => 'required',
             'info_tugas'        => 'required',
             'status_tugas'      => 'required',
@@ -265,11 +265,11 @@ class TugasController extends Controller
         $editTugas->judul_tugas         = $input['judul_tugas'];
         $editTugas->deskripsi_tugas     = $input['deskripsi_tugas'];
         $editTugas->departemen_tugas         = $input['departemen_tugas'];
-        $editTugas->waktu_tugas          = $input['waktu_tugas_range'];
-        $editTugas->wkt_mulai           = $input['wkt_mulai'];
-        $editTugas->wkt_selesai         = $input['wkt_selesai'];
+        // $editTugas->waktu_tugas          = $input['waktu_tugas_range'];
+        // $editTugas->wkt_mulai           = $input['wkt_mulai'];
+        // $editTugas->wkt_selesai         = $input['wkt_selesai'];
         $editTugas->pembuat_tugas       = $input['pembuat_tugas'];
-        $editTugas->tgl_tugas           = $tgl_tugas;
+        // $editTugas->tgl_tugas           = $tgl_tugas;
         $editTugas->info_tugas          = $input['info_tugas'];
         $editTugas->status_tugas        = $input['status_tugas'];
         $editTugas->sms_status_tugas    = $input['sms_status_tugas'];

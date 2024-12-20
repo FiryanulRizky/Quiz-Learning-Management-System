@@ -67,7 +67,7 @@
                       @endif
                   </div>
                   <blockquote class="pull-right">
-                      <div class="btn-default btn-xs pull-right" id="btnPopover2" title="NISN Trainee" data-toggle="tooltip">
+                      <div class="btn-default btn-xs pull-right" id="btnPopover2" title="NIK Trainee" data-toggle="tooltip">
                           <span class="glyphicon glyphicon-user"></span> {{$userjawabujian->nik_trainee}}
                       </div>
                       <div class="clearfix"></div>

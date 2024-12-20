@@ -85,7 +85,7 @@
                 <table class="table table-hover table-responsive">
                     <thead>
                     <th>Peringkat</th>
-                    <th>NISN Trainee</th>
+                    <th>NIK Trainee</th>
                     <th>Waktu Pengambilan</th>
                     <th>Nilai Akhir</th>
                     <th>Waktu Penyelesaian</th>

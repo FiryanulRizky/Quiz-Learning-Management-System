@@ -41,9 +41,9 @@
         <div class="col-md-6" >
         <!-- general left form elements  nisn email jk departemen id user status -->              
               <div class="form-group">
-                <label class="col-sm-4  control-label" style="text-align: left;">NISN</label>
+                <label class="col-sm-4  control-label" style="text-align: left;">NIK</label>
                  <div class="col-sm-8">                  
-                    <input type="text" class="form-control" name="nik_trainee" value="{{ old('nik_trainee') }}" placeholder="NISN">
+                    <input type="text" class="form-control" name="nik_trainee" value="{{ old('nik_trainee') }}" placeholder="NIK">
                     <small class="help-block"></small>
                  </div>
               </div>

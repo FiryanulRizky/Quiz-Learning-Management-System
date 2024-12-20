@@ -40,7 +40,7 @@
                       <input type="hidden" name="id_nilai_ujian_trainee" value="{{$id_nilai_ujian_trainee}}" >                                                
 
                       <div class="form-group">
-                       <label class="col-md-3 control-label">NISN Trainee</label>
+                       <label class="col-md-3 control-label">NIK Trainee</label>
                        <div class="col-md-8">               
                         <select class="form-control " name="nik_trainee" style="font-size: 14px; text-align: left;">
                          <option value="{{$nik_trainee}}">-- {{$nik_trainee}} --</option>

@@ -25,7 +25,7 @@
                     <thead>
                       <tr>      
                         <th>No</th>                                         
-                        <th>NISN</th>                                               
+                        <th>NIK</th>                                               
                         <th>Nama Trainee</th>
                         <th>Modul</th> 
                         <th>Judul Tugas</th>
@@ -56,7 +56,7 @@
                     <tfoot>
                        <tr>      
                         <th>No</th>                                         
-                        <th>NISN</th>                                               
+                        <th>NIK</th>                                               
                         <th>Nama Trainee</th>
                         <th>Modul</th> 
                         <th>Judul Tugas</th>

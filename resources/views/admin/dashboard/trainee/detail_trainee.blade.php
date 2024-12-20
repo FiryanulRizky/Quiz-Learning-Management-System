@@ -66,7 +66,7 @@
                      <table id="dataTrainee" class="table table-bordered table-hover">                    
                       <tbody>
                         <tr>
-                          <td width="20%">NISN</td>  
+                          <td width="20%">NIK</td>  
                           <td>{{$nik_trainee}}</td>                          
                         </tr>
                         <tr>

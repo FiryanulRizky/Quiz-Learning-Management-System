@@ -38,7 +38,7 @@
                         <th>Departemen</th>
                         <th>Modul</th>
                         <th>Judul Tugas</th>
-                        <th>NISN</th>
+                        <th>NIK</th>
                         <th>Nama Trainee</th>                        
                         <th>Nama File</th>
                         <th>Keterangan File</th> 
@@ -89,7 +89,7 @@
                         <th>Departemen</th>
                         <th>Modul</th>
                         <th>Judul Tugas</th>
-                        <th>NISN</th>
+                        <th>NIK</th>
                         <th>Nama Trainee</th>                        
                         <th>Nama File</th>
                         <th>Keterangan File</th> 

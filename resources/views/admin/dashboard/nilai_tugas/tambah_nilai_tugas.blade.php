@@ -39,10 +39,10 @@
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                       <div class="form-group">
-                       <label class="col-md-3 control-label">NISN Trainee</label>
+                       <label class="col-md-3 control-label">NIK Trainee</label>
                        <div class="col-md-8">               
                         <select class="form-control " name="nik_trainee" style="font-size: 14px; text-align: left;">
-                         <option value="">-- Pilih NISN Trainee --</option>
+                         <option value="">-- Pilih NIK Trainee --</option>
                          @foreach ($Trainee as $idTrainee)
                             <option value="{{ $idTrainee->nik_trainee }}">nisn trainee : {{ $idTrainee->nik_trainee }} | nama : {{ $idTrainee->nama_trainee }}</option>
                          @endforeach                                                                                 
