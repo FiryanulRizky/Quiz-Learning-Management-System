@@ -30,11 +30,13 @@
             <div class="col-xs-12">
               <div class="box box-danger">
                 <div class="box-header with-border">
-                  <?php if ( Auth::user()->level  == 11 or  Auth::user()->level  == 12): ?>
+                  <?php if ( Auth::user()->level  == 11): ?>
                     <h3 class="box-title">Tambah Tugas <a href="{{{ URL::to('admin/tambahtugas') }}}" class="btn btn-success btn-flat btn-sm" id="tambahTugas" title="Tambah"><i class="fa fa-plus"></i></a></h3>
                     <h3 class="box-title">SMS Gateway <a href="{{{ URL::to('admin/message/send') }}}" class="btn btn-success btn-flat btn-sm" id="tambahSMSGateway" title="SMS Pemberitahuan Tugas ke seluruh Trainee"><i class="fa fa-envelope"></i></a></h3>
-                  <?php endif ?>
-                  <?php if ( Auth::user()->level  == 13): ?>                    
+                  <?php elseif ( Auth::user()->level  == 12): ?>
+                    <h3 class="box-title">Tambah Tugas <a href="{{{ URL::to('trainer/tambahtugas') }}}" class="btn btn-success btn-flat btn-sm" id="tambahTugas" title="Tambah"><i class="fa fa-plus"></i></a></h3>
+                    <h3 class="box-title">SMS Gateway <a href="{{{ URL::to('trainer/message/send') }}}" class="btn btn-success btn-flat btn-sm" id="tambahSMSGateway" title="SMS Pemberitahuan Tugas ke seluruh Trainee"><i class="fa fa-envelope"></i></a></h3>
+                  <?php elseif ( Auth::user()->level  == 13): ?>                    
                     <h3 class="box-title"><strong> Daftar Tugas </strong></h3>
                   <?php endif ?>
                 </div><!-- /.box-header -->

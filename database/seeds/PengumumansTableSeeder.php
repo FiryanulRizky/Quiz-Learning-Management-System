@@ -25,7 +25,7 @@ class PengumumansTableSeeder extends Seeder
 		],
 		[
 			'judul'	=> 'Rapat Audit Keuangan',
-			'deskripsi'	=> 'Diumumkan kepada Seluruh Trainee departemen Finance agar menikuti acara Rapat Audit pada :
+			'deskripsi'	=> 'Diumumkan kepada Seluruh Trainee departemen Finance agar mengikuti acara Rapat Audit pada :
 							Hari : Rabu
 							Pukul : 09.00 s.d Selesai
 							Ruangan : Aula 

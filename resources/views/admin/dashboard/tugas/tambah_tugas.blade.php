@@ -133,10 +133,14 @@
                <label class="col-sm-3 control-label" style="text-align: left;">ID Modul_learn</label>
                <div class="col-sm-8">               
                 <select class="form-control" name="id_modul" style="font-size: 14px; text-align: left;">
+                 @if(Auth::user()->level  == 11)
                  <option value="">-- Pilih ID Modul  --</option>
                  @foreach ($Modul_learn as $idModul_learn)
                     <option value="{{ $idModul_learn->id_modul }}">id modul : {{ $idModul_learn->id_modul }} | nama : {{ $idModul_learn->nama_modul }}</option>
-                 @endforeach                                                                                 
+                 @endforeach
+                 @elseif(Auth::user()->level  == 12)
+                    <option value="{{ $dataModul_learn->id_modul }}">id modul : {{ $dataModul_learn->id_modul }} | nama : {{ $dataModul_learn->nama_modul }}</option>
+                 @endif                                                                                 
                 </select>
                </div>   
               </div> 

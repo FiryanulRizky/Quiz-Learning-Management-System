@@ -22,7 +22,7 @@
 
           <!-- Sidebar Menu Header-->
         <ul class="sidebar-menu">
-            <li class="header" style=" text-align: center;"> <font color = "white";"><b>MAIN NAVIGATION SISWA </b> </font> </li>
+            <li class="header" style=" text-align: center;"> <font color = "white";"><b>MAIN NAVIGATION TRAINEE </b> </font> </li>
             <!-- Optionally, you can add icons to the links -->
             <li class="@if(url('/') == request()->url()) active @else '' @endif"><a href="{{ url('/') }}">
               <i class='fa fa-dashcube'></i> <span>Dashboard</span></a>

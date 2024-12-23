@@ -164,6 +164,7 @@ Route::group(['middleware' => ['auth','level:12']], function()
 	Route::put('trainer/tugas/{id}/simpanedit', array('as'=>'trainer.tugas.simpanedit', 'uses'=> 'Admin\TugasController@simpanedit'));		
 	Route::get('trainer/tugas/{id}/peserta_koreksi', array('as'=>'trainer.peserta_koreksi', 'uses'=> 'Admin\TugasController@ShowPesertaKoreksiTugas'));
 	Route::put('trainer/tugas/trainee/{id}/update_nilai_tugas', array('as'=>'trainer.update_nilai_tugas', 'uses'=> 'Admin\TugasController@updateNilaiTugasTrainee'));
+	Route::get('trainer/message/send',array('as'=>'trainer.message.form', 'uses'=> 'Admin\MessageController@form'));		
 	Route::get('trainer/message/send/{id}/edit', array('as'=>'trainer.message_edit.send', 'uses'=> 'Admin\MessageController@edit'));
 	Route::post('trainer/message/sending', array('as'=>'trainer.message.sendEditedMessage', 'uses'=> 'Admin\MessageController@sendEditedMessage'));
 	// Download Tugas Trainee

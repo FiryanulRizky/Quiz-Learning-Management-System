@@ -22,7 +22,7 @@
 
           <!-- Sidebar Menu Header-->
         <ul class="sidebar-menu">
-            <li class="header" style=" text-align: center;"> <font color = "white";"><b>MAIN NAVIGATION GURU </b> </font> </li>
+            <li class="header" style=" text-align: center;"> <font color = "white";"><b>MAIN NAVIGATION TRAINER </b> </font> </li>
             <!-- Optionally, you can add icons to the links -->
             <li class="@if(url('/') == request()->url()) active @else '' @endif"><a href="{{ url('/') }}">
               <i class='fa fa-dashcube'></i> <span>Dashboard</span></a>
@@ -53,14 +53,14 @@
                   </i> Tugas Trainee</a>
                 </li>
 
-                <li class="@if(url('trainer/soal_ujian') == request()->url() or url('trainer/tambah_soal_ujian')  == request()->url() ) active @else '' @endif">
-                  <a href="{{{URL::to('trainer/soal_ujian')}}}"><i class="fa fa-plus-square">                    
-                  </i> Soal Ujian Trainee</a>
-                </li>
-
                 <li class="@if(url('trainer/ujian') == request()->url() ) active @else '' @endif">
                   <a href="{{{URL::to('trainer/ujian')}}}"><i class="fa fa-plus-square">                    
                   </i> Ujian Trainee</a>
+                </li>
+
+                <li class="@if(url('trainer/soal_ujian') == request()->url() or url('trainer/tambah_soal_ujian')  == request()->url() ) active @else '' @endif">
+                  <a href="{{{URL::to('trainer/soal_ujian')}}}"><i class="fa fa-plus-square">                    
+                  </i> Soal Ujian Trainee</a>
                 </li>
 
                 <li class="@if(url('trainer/nilai_trainee') == request()->url() ) active @else '' @endif">

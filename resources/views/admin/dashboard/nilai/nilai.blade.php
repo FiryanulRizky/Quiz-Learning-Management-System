@@ -22,16 +22,24 @@
             <div class="col-xs-12">
               <div class="box box-danger">
                 <div class="box-header with-border">
-                  <div class="box-header">               
+                  <div class="box-header">
+                  @if(Auth::user()->level  == 11)               
                     <form id="formDepartemenModul_learn" class="form-horizontal" role="form" method="POST" action="{{ route('admin.post_nilai_trainee.departemen.modul_learn')}}");>
+                  @elseif(Auth::user()->level  == 12)
+                    <form id="formDepartemenModul_learn" class="form-horizontal" role="form" method="POST" action="{{ route('trainer.post_nilai_trainee.departemen.modul_learn')}}");>
+                  @endif
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
                       <label class="col-md-4 control-label">Pilihan Departemen</label>
                       <div class="col-md-4">  
                         <select class="form-control " name="departemen_terpilih" style="font-size: 14px; text-align: left;">
-                         @foreach ($listDepartemen as $dataDepartemen)
-                          <option value="{{$dataDepartemen}}"  @if($departemen_terpilih == $dataDepartemen) ? ' selected="selected"' : '' @endif > {{$dataDepartemen}}</option>                          
-                         @endforeach
+                          @if(Auth::user()->level  == 11)
+                            @foreach ($listDepartemen as $dataDepartemen)
+                              <option value="{{$dataDepartemen}}"  @if($departemen_terpilih == $dataDepartemen) ? ' selected="selected"' : '' @endif > {{$dataDepartemen}}</option>                          
+                            @endforeach
+                          @elseif(Auth::user()->level  == 12)
+                              <option value="{{$listDepartemen[0]->nama_departemen}}"> {{$listDepartemen[0]->nama_departemen}}</option>                          
+                          @endif
                         </select>                                          
                       <small class="help-block"></small>
                       </div>                          
