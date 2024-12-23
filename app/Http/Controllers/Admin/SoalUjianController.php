@@ -50,6 +50,28 @@ class SoalUjianController extends Controller
              ->with('soal', $JawabanSoal); 
   }
 
+  public function detail_trainer($id_soal)
+  { 
+      $dataSoal = Soal::find($id_soal);         
+      $JawabanSoal = DB::table('jawaban_soal_ujians')       
+            ->join('soals','jawaban_soal_ujians.id_soal','=','soals.id_soal')       
+            ->where('jawaban_soal_ujians.id_soal', $id_soal)
+            ->select('jawaban_soal_ujians.*', 'soals.*') 
+            ->get();
+
+      $soal_ujian = Soal::orderBy('id_soal')->get();   
+      $dataUjian = DB::table('soals')   
+         ->join('ujians','soals.id_ujian','=','ujians.id_ujian')
+         ->where('soals.id_soal', $id_soal)
+         ->select('ujians.*', 'soals.*')
+         ->get();     
+         // dd($JawabanSoal[0]->id_soal);
+         // dd($dataSoal);         
+      return view('admin.dashboard.soal_ujian.detail_soal',$dataSoal)                
+             ->with('ujian', $dataUjian)              
+             ->with('soal', $JawabanSoal); 
+  }
+
   public function showTambahSoalUjian()
   {
     if (Auth::user()->level == 11) {     

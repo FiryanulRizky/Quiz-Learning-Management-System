@@ -31,9 +31,15 @@
                   </div>
                 <?php if ( Auth::user()->level  == 11 or  Auth::user()->level  == 12): ?>
                   <div class="pull-right"> 
+                    @if(Auth::user()->level  == 11)
                     <a href="{{{ URL::to('admin/tambah_soal_ujian') }}}" class="btn btn-success btn-xs">
                       <span class="fa fa-plus" ></span> Buat Soal
-                    </a>  
+                    </a> 
+                    @elseif(Auth::user()->level  == 12)
+                    <a href="{{{ URL::to('trainer/tambah_soal_ujian') }}}" class="btn btn-success btn-xs">
+                      <span class="fa fa-plus" ></span> Buat Soal
+                    </a>
+                    @endif
                   </div> 
                 <?php endif ?>                
                 </div><!-- /.box-header -->                
@@ -137,12 +143,13 @@
 
                                   <?php if (Auth::user()->level  == 11): ?>
                                   <a href="{{{action('Admin\SoalUjianController@detail', [$dataSoalUjian->id_soal]) }}}" class="btn btn-primary btn-xs">
-                                  <?php endif ?>
-                                  <?php if (Auth::user()->level  == 12): ?>
-                                  <a href="{{{action('Admin\SoalUjianController@detail_trainer', [$dataSoalUjian->id_soal]) }}}" class="btn btn-primary btn-xs">
-                                    <?php endif ?>
                                     <span class="glyphicon glyphicon-eye-open"></span> Lihat
                                   </a>
+                                  <?php elseif (Auth::user()->level  == 12): ?>
+                                  <a href="{{{action('Admin\SoalUjianController@detail_trainer', [$dataSoalUjian->id_soal]) }}}" class="btn btn-primary btn-xs">
+                                    <span class="glyphicon glyphicon-eye-open"></span> Lihat
+                                  </a>
+                                  <?php endif ?>
 
                                   <?php if (Auth::user()->level  == 11): ?>
                                   <a href="{{{ URL::to('admin/soal_ujian/'.$dataSoalUjian->id_soal.'/edit') }}}" class="btn btn-warning btn-xs">
@@ -157,7 +164,7 @@
                                   <a href="{{{ action('Admin\SoalUjianController@hapus',[$dataSoalUjian->id_soal]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus data {{{($i).' - '.($dataSoalUjian->judul_ujian) }}}?')" class="btn btn-danger btn-xs">
                                   <?php endif ?>
                                   <?php if (Auth::user()->level  == 12): ?>
-                                  <a href="{{{ action('Admin\SoalUjianController@hapus_trainer',[$dataSoalUjian->id_soal]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus data {{{($i).' - '.($dataSoalUjian->judul_ujian) }}}?')" class="btn btn-danger btn-xs">
+                                  <a href="{{{ action('Admin\SoalUjianController@hapus',[$dataSoalUjian->id_soal]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus data {{{($i).' - '.($dataSoalUjian->judul_ujian) }}}?')" class="btn btn-danger btn-xs">
                                   <?php endif ?>
                                     <span class="glyphicon glyphicon-trash"></span> Delete
                                   </a>

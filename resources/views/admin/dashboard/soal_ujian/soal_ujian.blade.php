@@ -78,9 +78,15 @@
                               <td>{{$dataSoalUjian->pembuat_ujian}}</td>
                               <td>  
                                 <div class="btn-group-vertical">
+                                  @if(Auth::user()->level  == 11)
                                   <a href="{{{ URL::to('admin/soal_ujian/'.$dataSoalUjian->id_soal.'/edit') }}}" class="btn btn-warning btn-xs">
                                     <span class="glyphicon glyphicon-edit" ></span> Edit 
                                 </a> 
+                                @elseif(Auth::user()->level  == 12)
+                                  <a href="{{{ URL::to('trainer/soal_ujian/'.$dataSoalUjian->id_soal.'/edit') }}}" class="btn btn-warning btn-xs">
+                                    <span class="glyphicon glyphicon-edit" ></span> Edit 
+                                </a>
+                                @endif
                                 <a href="{{{action('Admin\SoalUjianController@detail', [$dataSoalUjian->id_soal]) }}}" class="btn btn-primary btn-xs">
                                     <span class="glyphicon glyphicon-eye-open"></span> Lihat
                                 </a>

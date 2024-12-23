@@ -35,7 +35,7 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">                  
                     @if ($i === 11)                     
-                      <img src="{{asset('/img/avatar04.png')}}" class="user-image" alt="User Image">                
+                      <img src="{{asset('/img/avatar5.png')}}" class="user-image" alt="User Image">                
                     @elseif ($i === 12)
                       <img src="{{URL::to('upload_gambar/'.$trainer->foto_trainer) }}" class="user-image" alt="User Image">
                     @elseif ($i === 13)
@@ -49,7 +49,7 @@
                   <!-- User image -->                  
                   <li class="user-header">                                                         
                       @if ($i === 11) 
-                      <img src="{{asset('/img/avatar04.png')}}" class="img-circle" alt="User Image">
+                      <img src="{{asset('/img/avatar5.png')}}" class="img-circle" alt="User Image">
                       @elseif ($i === 12)
                       <img src="{{URL::to('upload_gambar/'.$trainer->foto_trainer) }}" class="img-circle" alt="User Image">
                       @elseif ($i === 13)

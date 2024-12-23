@@ -187,7 +187,7 @@ Route::group(['middleware' => ['auth','level:12']], function()
 	Route::get('trainer/soal_ujian/{id}/hapus', array('as'=>'trainer.hapus_soal_ujian', 'uses'=> 'Admin\SoalUjianController@hapus'));
 	Route::get('trainer/soal_ujian/{id}/edit', array('as'=>'trainer.edit_soal_ujian', 'uses'=> 'Admin\SoalUjianController@edit'));
 	Route::put('trainer/soal_ujian/{id}/simpanedit', array('as'=>'trainer.soal_ujian.simpanedit', 'uses'=> 'Admin\SoalUjianController@simpanedit'));
-	Route::get('trainer/soal_ujian/{id}/detail', array('as'=>'trainer.detail_soal_ujian', 'uses'=> 'Admin\SoalUjianController@detail'));
+	Route::get('trainer/soal_ujian/{id}/detail', array('as'=>'trainer.detail_soal_ujian', 'uses'=> 'Admin\SoalUjianController@detail_trainer'));
 	// Show Nilai by Departemen
 	Route::get('trainer/nilai_trainee', array('as'=>'trainer.get_nilai_trainee.departemen.modul_learn', 'uses'=>'Admin\NilaiController@showDepartemenNilai'));
 	Route::post('trainer/nilai_trainee', array('as'=>'trainer.post_nilai_trainee.departemen.modul_learn', 'uses'=>'Admin\NilaiController@showDepartemenNilai'));

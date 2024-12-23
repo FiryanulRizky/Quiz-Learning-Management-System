@@ -49,7 +49,11 @@
     </div>
     
     <div style="display: block;" class="box-body">
+      @if(Auth::user()->level  == 11)
       <form id="formSoalUjianTambah" class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url('admin/soal_ujian/tambah') }}" >
+      @elseif(Auth::user()->level  == 12)
+      <form id="formSoalUjianTambah" class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url('trainer/soal_ujian/tambah') }}" >
+      @endif
         <input type="hidden" name="_token" value="{{ csrf_token() }}">                    
                 
                 <div class="col-md-6" >

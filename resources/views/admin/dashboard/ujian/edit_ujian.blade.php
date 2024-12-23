@@ -33,8 +33,12 @@
         <h3 class="box-title">Form Edit Data Ujian </h3>
     </div>
 
-      <div style="display: block;" class="box-body"> <!-- box-body -->                      
+      <div style="display: block;" class="box-body"> <!-- box-body -->    
+        @if(Auth::user()->level  == 11)                  
           <form id="formUjianEdit" class="form-horizontal" role="form" method="POST" action="{{ url('admin/ujian/'.$id_ujian.'/simpanedit') }}">
+        @elseif(Auth::user()->level  == 12)
+          <form id="formUjianEdit" class="form-horizontal" role="form" method="POST" action="{{ url('trainer/ujian/'.$id_ujian.'/simpanedit') }}">
+        @endif
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <input type="hidden" name="_method" value="PUT">
           <input type="hidden" name="id_ujian" value="{{$id_ujian}}" >                                                
@@ -75,9 +79,13 @@
                  <div class="col-sm-8">               
                   <select class="form-control " name="id_modul" style="font-size: 14px; text-align: left;">
                    <option value="{{$id_modul}}">-- {{$id_modul}} --</option>
+                   @if(Auth::user()->level  == 11)
                    @foreach ($Modul_learn as $idModul_learn)
                       <option value="{{$idModul_learn->id_modul}}">id modul : {{ $idModul_learn->id_modul }} | nama : {{ $idModul_learn->nama_modul }}</option>
-                   @endforeach                                                                                 
+                   @endforeach                   
+                   @elseif(Auth::user()->level  == 12)
+                      <option value="{{$dataModul_learn->id_modul}}">id modul : {{ $dataModul_learn->id_modul }} | nama : {{ $dataModul_learn->nama_modul }}</option>
+                    @endif                                                     
                   </select>
                  </div>   
                 </div>

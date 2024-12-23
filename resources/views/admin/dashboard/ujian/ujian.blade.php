@@ -83,19 +83,23 @@
                             <a href="{{{ URL::to('admin/ujian/'.$dataUjian->id_ujian.'/detail') }}}" class="btn btn-primary btn-xs">
                               <span class="glyphicon glyphicon-eye-open"></span> Lihat
                             </a>
-                          <?php endif ?>
-                          <?php if (Auth::user()->level  == 12): ?>
-                            <a href="{{{ URL::to('trainer/ujian/'.$dataUjian->id_ujian.'/detail') }}}" class="btn btn-primary btn-xs">
-                              <span class="glyphicon glyphicon-eye-open"></span> Lihat
-                            </a>
-                          <?php endif ?>                            
                             <a href="{{{ URL::to('admin/ujian/'.$dataUjian->id_ujian.'/edit') }}}" class="btn btn-warning btn-xs">
                               <span class="glyphicon glyphicon-edit" ></span> Edit 
                             </a>
                             <a href="{{{ action('Admin\UjianController@hapus',[$dataUjian->id_ujian]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus Data Ujian {{{($i).' - '.($dataUjian->judul_ujian) }}}?')" class="btn btn-danger btn-xs">
                               <span class="glyphicon glyphicon-trash"></span> Delete
-                            </a> 
-                                                        
+                            </a>
+                          <?php elseif (Auth::user()->level  == 12): ?>
+                            <a href="{{{ URL::to('trainer/ujian/'.$dataUjian->id_ujian.'/detail') }}}" class="btn btn-primary btn-xs">
+                              <span class="glyphicon glyphicon-eye-open"></span> Lihat
+                            </a>
+                            <a href="{{{ URL::to('trainer/ujian/'.$dataUjian->id_ujian.'/edit') }}}" class="btn btn-warning btn-xs">
+                              <span class="glyphicon glyphicon-edit" ></span> Edit 
+                            </a>
+                            <a href="{{{ action('Admin\UjianController@hapus',[$dataUjian->id_ujian]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus Data Ujian {{{($i).' - '.($dataUjian->judul_ujian) }}}?')" class="btn btn-danger btn-xs">
+                              <span class="glyphicon glyphicon-trash"></span> Delete
+                            </a>
+                          <?php endif ?>                                                                                     
                         </td>                              
                       </tr>
                       <?php $i++; endforeach  ?> 

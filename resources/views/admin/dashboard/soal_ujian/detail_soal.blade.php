@@ -29,9 +29,15 @@
                     <a href="{{{ action('Admin\SoalUjianController@index') }}}" class="btn btn-success btn-xs">
                         <span class="glyphicon glyphicon-th-list" ></span> Daftar Soal 
                     </a> 
+                    @if(Auth::user()->level  == 11)
                     <a href="{{{ URL::to('admin/soal_ujian/'.$id_soal.'/edit') }}}" class="btn btn-warning btn-xs">
                        <span class="glyphicon glyphicon-edit" ></span> Edit 
                     </a> 
+                    @elseif(Auth::user()->level  == 12)
+                    <a href="{{{ URL::to('trainer/soal_ujian/'.$id_soal.'/edit') }}}" class="btn btn-warning btn-xs">
+                      <span class="glyphicon glyphicon-edit" ></span> Edit 
+                   </a>
+                   @endif
                     <a href="{{{ action('Admin\SoalUjianController@hapus',[$id_soal]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus data {{{($pertanyaan).' - '.($ujian[0]->judul_ujian) }}}?')" class="btn btn-danger btn-xs">
                        <span class="glyphicon glyphicon-trash"></span> Delete
                     </a>                 
@@ -63,7 +69,7 @@
                               <br>
                               <div class="textpanel" style="position: relative;">
                               <img src="{{ URL::to('upload_gambar/'.$soal[0]->gambar) }}" style="width: 210px; height: 210px; display: block;">
-                                <!-- <img src="2kurungkurawalasset('/img/avatar04.png')2kurungkurawal" style="width: 210px; height: 210px; display: block;"> -->
+                                <!-- <img src="2kurungkurawalasset('/img/avatar5.png')2kurungkurawal" style="width: 210px; height: 210px; display: block;"> -->
                               </div>                           
                             </div>
                         <!-- Pertanyaan -->

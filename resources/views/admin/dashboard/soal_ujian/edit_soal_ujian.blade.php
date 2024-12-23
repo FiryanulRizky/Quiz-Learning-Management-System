@@ -49,8 +49,12 @@
         </div> 
       </div><!-- /.box-header -->
       
-    <div style="display: block;" class="box-body">                         
+    <div style="display: block;" class="box-body"> 
+      @if(Auth::user()->level  == 11)                        
         <form id="formUjianEdit" class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url('admin/soal_ujian/'.$id_soal.'/simpanedit') }}">
+      @elseif(Auth::user()->level  == 12)
+        <form id="formUjianEdit" class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url('trainer/soal_ujian/'.$id_soal.'/simpanedit') }}">
+      @endif
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="id_soal" value="{{$id_soal}}" > 

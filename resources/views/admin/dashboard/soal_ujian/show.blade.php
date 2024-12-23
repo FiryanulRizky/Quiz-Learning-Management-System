@@ -61,7 +61,7 @@
                 <br>
                 <div class="textpanel" style="position: relative;">
                 <img src="{{ URL::to('upload_gambar/'.$soal[0]->gambar) }}" style="width: 210px; height: 210px; display: block;">
-                  <!-- <img src="2kurungkurawalasset('/img/avatar04.png')2kurungkurawal" style="width: 210px; height: 210px; display: block;"> -->
+                  <!-- <img src="2kurungkurawalasset('/img/avatar5.png')2kurungkurawal" style="width: 210px; height: 210px; display: block;"> -->
                 </div>                           
               </div>
           <!-- Pertanyaan -->
