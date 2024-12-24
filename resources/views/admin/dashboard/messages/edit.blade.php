@@ -34,12 +34,20 @@
                       <h3 class="box-title">Form Kirim SMS Pemberitahuan Tugas</h3>
                     </div>
                     <div class="pull-right">
+                    @if(Auth::user()->level == 11)
                       <h3 class="box-title">Daftar Tugas &nbsp;&nbsp;<a href="{{{ URL::to('admin/tugas') }}}" class="btn btn-success btn-flat btn-sm" id="Tugas" title="Tugas"><i class="fa fa-list-ul"></i></a>&nbsp;&nbsp;</h3>
+                    @elseif(Auth::user()->level == 12)
+                      <h3 class="box-title">Daftar Tugas &nbsp;&nbsp;<a href="{{{ URL::to('trainer/tugas') }}}" class="btn btn-success btn-flat btn-sm" id="Tugas" title="Tugas"><i class="fa fa-list-ul"></i></a>&nbsp;&nbsp;</h3>
+                    @endif
                     </div>
                 </div>                
 
                 <div style="display: block;" class="box-body">
+                  @if(Auth::user()->level == 11)
                   <form id="formSMSTambah" class="form-horizontal" role="form" method="POST" action="{{ url('admin/message/sending') }}" >
+                  @elseif(Auth::user()->level == 12)
+                  <form id="formSMSTambah" class="form-horizontal" role="form" method="POST" action="{{ url('trainer/message/sending') }}" >
+                  @endif
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <input type="hidden" name="id_tugas" value="{{$id_tugas}}" >  
 

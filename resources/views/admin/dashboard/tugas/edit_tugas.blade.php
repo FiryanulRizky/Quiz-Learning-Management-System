@@ -34,7 +34,11 @@
       </div>
 
       <div style="display: block; " class="box-body">                        
+      @if(Auth::user()->level == 11)                        
        <form id="formTugasEdit" class="form-horizontal" role="form" method="POST" action="{{ url('admin/tugas/'.$id_tugas.'/simpanedit') }}">
+      @elseif(Auth::user()->level == 12)
+        <form id="formTugasEdit" class="form-horizontal" role="form" method="POST" action="{{ url('trainer/tugas/'.$id_tugas.'/simpanedit') }}">
+      @endif
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <input type="hidden" name="_method" value="PUT">
           <input type="hidden" name="id_tugas" value="{{$id_tugas}}" >                                                                      
@@ -134,10 +138,14 @@
                <label class="col-sm-3 control-label" style="text-align: left;">ID Modul_learn</label>
                <div class="col-sm-8">               
                 <select class="form-control" name="id_modul" style="font-size: 14px; text-align: left;">
+                 @if(Auth::user()->level == 11)
                  <option value="{{ $id_modul }}">-- {{ $id_modul }}  --</option>
                  @foreach ($Modul_learn as $idModul_learn)
                     <option value="{{ $idModul_learn->id_modul }}">id modul : {{ $idModul_learn->id_modul }} | nama : {{ $idModul_learn->nama_modul }}</option>
-                 @endforeach                                                                                 
+                 @endforeach   
+                 @elseif(Auth::user()->level == 12)
+                    <option value="{{ $dataModul_learn->id_modul }}">id modul : {{ $dataModul_learn->id_modul }} | nama : {{ $dataModul_learn->nama_modul }}</option>
+                 @endif
                 </select>
                </div>   
               </div> 
@@ -151,9 +159,15 @@
                          <button type="submit" class="btn btn-primary" id="button-reg">
                             Simpan
                          </button>
+                         @if(Auth::user()->level == 11)
                           <a href="{{{ action('Admin\TugasController@index') }}}" title="Cancel">
                             <span class="btn btn-default"><i class="fa fa-back"> Cancel </i></span>
                           </a>  
+                          @elseif(Auth::user()->level == 12)
+                          <a href="{{{ action('Admin\TugasController@index_trainer') }}}" title="Cancel">
+                            <span class="btn btn-default"><i class="fa fa-back"> Cancel </i></span>
+                          </a>
+                          @endif
                        </div>
                     </div>
                   </div><!-- /.box-footer-->

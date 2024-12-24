@@ -66,6 +66,11 @@ class TugasController extends Controller
     $data = array('tugas' => $dataTugas);       
     return view('admin.dashboard.tugas.tugas',$data);
   }     
+     
+  public function index_trainer()
+  {           
+    return $this->index();
+  }
 
   public function ShowPesertaKoreksiTugas($id)
   {       

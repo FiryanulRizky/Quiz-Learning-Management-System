@@ -156,7 +156,7 @@ Route::group(['middleware' => ['auth','level:12']], function()
 	Route::put('trainer/materi_ajar/{id}/simpanedit', array('as'=>'trainer.materi_ajar.simpanedit', 'uses'=> 'Admin\MateriAjarController@simpanedit_trainer'));
 	Route::get('trainer/materi_ajar/{id}/download', array('as'=>'trainer.download_materi_ajar', 'uses'=> 'Admin\MateriAjarController@download_trainer'));	
 	// Tugas 	
-	Route::get('trainer/tugas',array('as'=>'trainer.tugas', 'uses'=> 'Admin\TugasController@index'));
+	Route::get('trainer/tugas', array('as'=>'trainer.tugas', 'uses'=> 'Admin\TugasController@index_trainer'));
 	Route::get('trainer/tambahtugas', array('as'=>'trainer.tambahtugas.show', 'uses'=> 'Admin\TugasController@showTambahTugas'));
 	Route::post('trainer/tugas/tambah', array('as'=>'trainer.tambahtugas', 'uses'=> 'Admin\TugasController@tambah'));
 	Route::get('trainer/tugas/{id}/hapus', array('as'=>'trainer.hapustugas', 'uses'=> 'Admin\TugasController@hapus'));

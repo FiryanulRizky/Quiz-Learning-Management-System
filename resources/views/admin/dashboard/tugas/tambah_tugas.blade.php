@@ -35,7 +35,11 @@
     </div>
 
     <div style="display: block; " class="box-body">
+    @if(Auth::user()->level == 11)
       <form id="formTambahTugas" class="form-horizontal" role="form" method="POST" action="{{ url('admin/tugas/tambah') }}" >
+    @elseif(Auth::user()->level == 12)
+      <form id="formTambahTugas" class="form-horizontal" role="form" method="POST" action="{{ url('trainer/tugas/tambah') }}" >
+    @endif
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                
             <div class="col-md-6"> 
@@ -153,9 +157,15 @@
                    <button type="submit" class="btn btn-primary" id="button-reg">
                       Simpan
                    </button>
+                   @if(Auth::user()->level == 11)
                     <a href="{{{ action('Admin\TugasController@index') }}}" title="Cancel">
                       <span class="btn btn-default"><i class="fa fa-back"> Cancel </i></span>
                     </a>  
+                    @elseif(Auth::user()->level == 12)
+                    <a href="{{{ action('Admin\TugasController@index_trainer') }}}" title="Cancel">
+                      <span class="btn btn-default"><i class="fa fa-back"> Cancel </i></span>
+                    </a>
+                    @endif
                  </div>
               </div>
             </div><!-- /.box-footer-->

@@ -77,6 +77,7 @@
                                                                                                            
                         <td>
                           
+                          @if(Auth::user()->level == 11)
                             <a href="{{{ URL::to('admin/message/send/'.$dataTugas->id_tugas.'/edit') }}}">
                           
                               <span class="label label-primary" ><i class="fa fa-envelope" >&nbsp;&nbsp; Kirim Pesan &nbsp;&nbsp;</i></span>
@@ -87,6 +88,18 @@
                           <a href="{{{ URL::to('admin/tugas/'.$dataTugas->id_tugas.'/edit') }}}">
                               <span class="label label-warning" ><i class="fa fa-edit" >&nbsp;&nbsp; Edit &nbsp;&nbsp;</i></span>
                           </a> 
+                          @elseif(Auth::user()->level == 12)
+                          <a href="{{{ URL::to('trainer/message/send/'.$dataTugas->id_tugas.'/edit') }}}">
+                          
+                              <span class="label label-primary" ><i class="fa fa-envelope" >&nbsp;&nbsp; Kirim Pesan &nbsp;&nbsp;</i></span>
+                          </a>
+                          <a href="{{{ URL::to('trainer/tugas/'.$dataTugas->id_tugas.'/peserta_koreksi') }}}">
+                              <span class="label label-info" ><i class="fa fa-edit" >&nbsp;&nbsp; Peserta & Koreksi &nbsp;&nbsp;</i></span>
+                          </a>
+                          <a href="{{{ URL::to('trainer/tugas/'.$dataTugas->id_tugas.'/edit') }}}">
+                              <span class="label label-warning" ><i class="fa fa-edit" >&nbsp;&nbsp; Edit &nbsp;&nbsp;</i></span>
+                          </a>
+                          @endif
                           <a href="{{{ action('Admin\TugasController@hapus',[$dataTugas->id_tugas]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus Data Tugas {{{($i).' - '.($dataTugas->judul_tugas) }}}?')">
                               <span class="label label-danger"><i class="fa fa-trash">&nbsp;&nbsp; Delete &nbsp;&nbsp;</i></span>
                           </a>

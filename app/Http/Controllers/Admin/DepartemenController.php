@@ -39,15 +39,7 @@ class DepartemenController extends Controller
 
   public function index_trainer()
   {
-    $trainer = Trainer::where('id_user', Auth::user()->id_user)->first();
-    $Modul_learnTrainer = Modul::where('nik_trainer', $trainer->nik_trainer)->first();
-    $dataDepartemen = DB::table('departemen_have_moduls')                  
-                 ->join('moduls', 'departemen_have_moduls.id_modul', '=', 'moduls.id_modul')
-                 ->select('departemen_have_moduls.*', 'moduls.nama_modul')
-                 ->where('moduls.nama_modul', $Modul_learnTrainer->nama_modul)
-                 ->orderBy('departemen_have_moduls.nama_departemen', 'asc')->get();         
-    $data = array('departemen' => $dataDepartemen);   
-    return view('admin.dashboard.departemen.departemen',$data);
+    return $this->index();
   }     
 
   public function hapus($id)
