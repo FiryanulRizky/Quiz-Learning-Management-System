@@ -82,14 +82,17 @@
                                   <a href="{{{ URL::to('admin/soal_ujian/'.$dataSoalUjian->id_soal.'/edit') }}}" class="btn btn-warning btn-xs">
                                     <span class="glyphicon glyphicon-edit" ></span> Edit 
                                 </a> 
+                                <a href="{{{action('Admin\SoalUjianController@detail', [$dataSoalUjian->id_soal]) }}}" class="btn btn-primary btn-xs">
+                                  <span class="glyphicon glyphicon-eye-open"></span> Lihat
+                              </a>
                                 @elseif(Auth::user()->level  == 12)
                                   <a href="{{{ URL::to('trainer/soal_ujian/'.$dataSoalUjian->id_soal.'/edit') }}}" class="btn btn-warning btn-xs">
                                     <span class="glyphicon glyphicon-edit" ></span> Edit 
                                 </a>
+                                <a href="{{{ URL::to('trainer/soal_ujian/'.$dataSoalUjian->id_soal.'/detail') }}}" class="btn btn-primary btn-xs">
+                                  <span class="glyphicon glyphicon-eye-open"></span> Lihat
+                              </a>
                                 @endif
-                                <a href="{{{action('Admin\SoalUjianController@detail', [$dataSoalUjian->id_soal]) }}}" class="btn btn-primary btn-xs">
-                                    <span class="glyphicon glyphicon-eye-open"></span> Lihat
-                                </a>
                                 <a href="{{{ action('Admin\SoalUjianController@hapus',[$dataSoalUjian->id_soal]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus data {{{($i).' - '.($dataSoalUjian->judul_ujian) }}}?')" class="btn btn-danger btn-xs">
                                     <span class="glyphicon glyphicon-trash"></span> Delete
                                 </a>
