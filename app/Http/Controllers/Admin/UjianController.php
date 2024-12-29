@@ -56,11 +56,17 @@ public function detail($id_ujian)
   {
     $data = Ujian::find($id_ujian);
     $ujian = Ujian::orderBy('id_ujian')->get();
-    $dataUjian = DB::table('ujians')
-                 ->join('moduls', 'ujians.id_modul', '=', 'moduls.id_modul')
-                 ->select('ujians.*', 'moduls.nama_modul')
+    $modul_ujian_datas = DB::table('ujians')
+                 ->join('moduls', 'ujians.id_modul', '=', 'moduls.id_modul');
+    
+    $dataUjian = $modul_ujian_datas
+                 ->select('ujians.*')
                  ->where('ujians.id_ujian', $id_ujian)
                  ->first();
+    $dataModul = $modul_ujian_datas
+                 ->select('moduls.*')
+                 ->where('ujians.id_ujian', $id_ujian)
+                 ->get();
 
     // dd($dataUjian);
     // revisi check waktu ujian
@@ -102,6 +108,7 @@ public function detail($id_ujian)
             ->with('countSoalDetail', $countSoalDetail)
             ->with('soal_ujian', $dataSoalUjianDetail)
             ->with('poin', $maxPoint)
+            ->with('modul', $dataModul)
             ->with('ujian', $dataUjian);
   }
 

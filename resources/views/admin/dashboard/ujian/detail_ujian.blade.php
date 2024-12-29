@@ -53,7 +53,7 @@
                       <tbody>
                         <tr>
                           <td width="30%"><strong>Modul</strong></td>  
-                          <td>: &nbsp;&nbsp; {{$itemUjian->nama_modul ?? ''}}</td>                          
+                          <td>: &nbsp;&nbsp; {{$modul[0]->nama_modul}}</td>                          
                         </tr>                        
                         <tr>
                           <td><strong>Jumlah Soal</strong></td> 
