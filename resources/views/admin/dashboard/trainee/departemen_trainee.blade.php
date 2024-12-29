@@ -58,8 +58,8 @@
                         <th>Email</th>
                         <th>No. Hp</th>
                         <th>TTL</th>
-                        <th>Alamat</th>
                         <th>Jenis Kelamin</th>                         
+                        <th>Alamat</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -90,8 +90,8 @@
                         <th>Email</th>
                         <th>No. Hp</th>
                         <th>TTL</th>
-                        <th>Alamat</th>
                         <th>Jenis Kelamin</th>                         
+                        <th>Alamat</th>
                         <th>Aksi</th>                        
                       </tr>
                     </tfoot>

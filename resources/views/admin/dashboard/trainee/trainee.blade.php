@@ -31,8 +31,8 @@
                         <th>Email</th>
                         <th>No. Hp</th>
                         <th>TTL</th>
-                        <th>Alamat</th>
                         <th>Jenis Kelamin</th>                        
+                        <th>Alamat</th>
                         <th>Departemen</th>                        
                         <th>Status</th>
                         <th>ID User</th>                       
@@ -79,8 +79,8 @@
                         <th>Email</th>
                         <th>No. Hp</th>
                         <th>TTL</th>
-                        <th>Alamat</th>
                         <th>Jenis Kelamin</th>                        
+                        <th>Alamat</th>
                         <th>Departemen</th>                        
                         <th>Status</th>
                         <th>ID User</th>                       
