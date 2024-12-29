@@ -70,14 +70,14 @@ Route::group(['middleware' => ['auth','level:11']], function()
 	Route::get('admin/modul_learn/{id}/edit', array('as'=>'admin.editmodul_learn', 'uses'=> 'Admin\ModulController@editmodul_learn'));
 	Route::put('admin/modul_learn/{id}/simpanedit', array('as'=>'admin.modul_learn.simpanedit', 'uses'=> 'Admin\ModulController@simpanedit'));
 
-	// Materi Ajar 
-	Route::get('admin/materi_ajar',array('as'=>'admin.materi_ajar', 'uses'=> 'Admin\MateriAjarController@index'));
-	Route::get('admin/tambahmateri_ajar', array('as'=>'admin.tambahmateri_ajar.show', 'uses'=> 'Admin\MateriAjarController@showTambahMateriAjar'));
-	Route::post('admin/materi_ajar/tambah', array('as'=>'admin.tambahmateri_ajar', 'uses'=> 'Admin\MateriAjarController@tambah'));
-	Route::get('admin/materi_ajar/{id}/hapus', array('as'=>'admin.hapusmateri_ajar', 'uses'=> 'Admin\MateriAjarController@hapus'));
-	Route::get('admin/materi_ajar/{id}/edit', array('as'=>'admin.editmateri_ajar', 'uses'=> 'Admin\MateriAjarController@editmateri_ajar'));
-	Route::put('admin/materi_ajar/{id}/simpanedit', array('as'=>'admin.materi_ajar.simpanedit', 'uses'=> 'Admin\MateriAjarController@simpanedit'));
-	Route::get('admin/materi_ajar/{id}/download', array('as'=>'admin.download_materi_ajar', 'uses'=> 'Admin\MateriAjarController@download'));
+	// Modul Menu 
+	Route::get('admin/materi_modul',array('as'=>'admin.materi_modul', 'uses'=> 'Admin\MateriModulController@index'));
+	Route::get('admin/tambahmateri_modul', array('as'=>'admin.tambahmateri_modul.show', 'uses'=> 'Admin\MateriModulController@showTambahMateriModul'));
+	Route::post('admin/materi_modul/tambah', array('as'=>'admin.tambahmateri_modul', 'uses'=> 'Admin\MateriModulController@tambah'));
+	Route::get('admin/materi_modul/{id}/hapus', array('as'=>'admin.hapusmateri_modul', 'uses'=> 'Admin\MateriModulController@hapus'));
+	Route::get('admin/materi_modul/{id}/edit', array('as'=>'admin.editmateri_modul', 'uses'=> 'Admin\MateriModulController@editmateri_modul'));
+	Route::put('admin/materi_modul/{id}/simpanedit', array('as'=>'admin.materi_modul.simpanedit', 'uses'=> 'Admin\MateriModulController@simpanedit'));
+	Route::get('admin/materi_modul/{id}/download', array('as'=>'admin.download_materi_modul', 'uses'=> 'Admin\MateriModulController@download'));
 
 	// Tugas 
 	Route::get('admin/tugas',array('as'=>'admin.tugas', 'uses'=> 'Admin\TugasController@index'));
@@ -91,37 +91,37 @@ Route::group(['middleware' => ['auth','level:11']], function()
 	// Download Tugas Trainee
 	Route::get('admin/tugas/{id}/download_tugas_trainee', array('as'=>'admin.download_tugas', 'uses'=> 'Admin\TugasController@download_tugas_trainee'));
 
-	// Ujian 
-	Route::get('admin/ujian',array('as'=>'admin.ujian', 'uses'=> 'Admin\UjianController@index'));
-	Route::get('admin/tambahujian', array('as'=>'admin.tambahujian.show', 'uses'=> 'Admin\UjianController@showTambahUjian'));
-	Route::post('admin/ujian/tambah', array('as'=>'admin.tambahujian', 'uses'=> 'Admin\UjianController@tambah'));
-	Route::get('admin/ujian/{id}/hapus', array('as'=>'admin.hapusujian', 'uses'=> 'Admin\UjianController@hapus'));
-	Route::get('admin/ujian/{id}/edit', array('as'=>'admin.editujian', 'uses'=> 'Admin\UjianController@editujian'));
-	Route::put('admin/ujian/{id}/simpanedit', array('as'=>'admin.ujian.simpanedit', 'uses'=> 'Admin\UjianController@simpanedit'));
-	Route::get('admin/ujian/{id}/detail', array('as'=>'admin.detail_ujian', 'uses'=> 'Admin\UjianController@detail'));
-	Route::get('admin/ujian_trainee/{id}/hapus', array('as'=>'admin.hapus_ujian_trainee', 'uses'=> 'Admin\UjianController@destroy'));
-	Route::get('admin/trainee_ujian/{id}', array('as'=>'admin.trainee_ujian.show', 'uses'=> 'Admin\TraineeJawabUjianController@show'));
-	Route::get('admin/ujian/{id}', array('as'=>'.ujian.show', 'uses'=> 'Admin\UjianController@show'));
+	// Quiz 
+	Route::get('admin/quiz',array('as'=>'admin.quiz', 'uses'=> 'Admin\QuizController@index'));
+	Route::get('admin/tambahquiz', array('as'=>'admin.tambahquiz.show', 'uses'=> 'Admin\QuizController@showTambahQuiz'));
+	Route::post('admin/quiz/tambah', array('as'=>'admin.tambahquiz', 'uses'=> 'Admin\QuizController@tambah'));
+	Route::get('admin/quiz/{id}/hapus', array('as'=>'admin.hapusquiz', 'uses'=> 'Admin\QuizController@hapus'));
+	Route::get('admin/quiz/{id}/edit', array('as'=>'admin.editquiz', 'uses'=> 'Admin\QuizController@editquiz'));
+	Route::put('admin/quiz/{id}/simpanedit', array('as'=>'admin.quiz.simpanedit', 'uses'=> 'Admin\QuizController@simpanedit'));
+	Route::get('admin/quiz/{id}/detail', array('as'=>'admin.detail_quiz', 'uses'=> 'Admin\QuizController@detail'));
+	Route::get('admin/quiz_trainee/{id}/hapus', array('as'=>'admin.hapus_quiz_trainee', 'uses'=> 'Admin\QuizController@destroy'));
+	Route::get('admin/trainee_quiz/{id}', array('as'=>'admin.trainee_quiz.show', 'uses'=> 'Admin\TraineeJawabQuizController@show'));
+	Route::get('admin/quiz/{id}', array('as'=>'.quiz.show', 'uses'=> 'Admin\QuizController@show'));
 
-	// Soal Ujian 
-	Route::get('admin/soal_ujian',array('as'=>'admin.soal_ujian', 'uses'=> 'Admin\SoalUjianController@index'));
-	Route::get('admin/tambah_soal_ujian', array('as'=>'admin.tambah_soal_ujian.show', 'uses'=> 'Admin\SoalUjianController@showTambahSoalUjian'));
-	Route::post('admin/soal_ujian/tambah', array('as'=>'admin.tambah_soal_ujian', 'uses'=> 'Admin\SoalUjianController@tambah'));
-	Route::get('admin/soal_ujian/{id}/hapus', array('as'=>'admin.hapus_soal_ujian', 'uses'=> 'Admin\SoalUjianController@hapus'));
-	Route::get('admin/soal_ujian/{id}/edit', array('as'=>'admin.edit_soal_ujian', 'uses'=> 'Admin\SoalUjianController@edit'));
-	Route::put('admin/soal_ujian/{id}/simpanedit', array('as'=>'admin.soal_ujian.simpanedit', 'uses'=> 'Admin\SoalUjianController@simpanedit'));
-	Route::get('admin/soal_ujian/{id}/detail', array('as'=>'admin.detail_soal_ujian', 'uses'=> 'Admin\SoalUjianController@detail'));
+	// Soal Quiz 
+	Route::get('admin/soal_quiz',array('as'=>'admin.soal_quiz', 'uses'=> 'Admin\SoalQuizController@index'));
+	Route::get('admin/tambah_soal_quiz', array('as'=>'admin.tambah_soal_quiz.show', 'uses'=> 'Admin\SoalQuizController@showTambahSoalQuiz'));
+	Route::post('admin/soal_quiz/tambah', array('as'=>'admin.tambah_soal_quiz', 'uses'=> 'Admin\SoalQuizController@tambah'));
+	Route::get('admin/soal_quiz/{id}/hapus', array('as'=>'admin.hapus_soal_quiz', 'uses'=> 'Admin\SoalQuizController@hapus'));
+	Route::get('admin/soal_quiz/{id}/edit', array('as'=>'admin.edit_soal_quiz', 'uses'=> 'Admin\SoalQuizController@edit'));
+	Route::put('admin/soal_quiz/{id}/simpanedit', array('as'=>'admin.soal_quiz.simpanedit', 'uses'=> 'Admin\SoalQuizController@simpanedit'));
+	Route::get('admin/soal_quiz/{id}/detail', array('as'=>'admin.detail_soal_quiz', 'uses'=> 'Admin\SoalQuizController@detail'));
 	
 	// Show Nilai by Departemen
 	Route::get('admin/nilai_trainee', array('as'=>'admin.get_nilai_trainee.departemen.modul_learn', 'uses'=>'Admin\NilaiController@showDepartemenNilai'));
 	Route::post('admin/nilai_trainee', array('as'=>'admin.post_nilai_trainee.departemen.modul_learn', 'uses'=>'Admin\NilaiController@showDepartemenNilai'));
 
-	Route::get('admin/nilai_ujian',array('as'=>'admin.nilai_ujian', 'uses'=> 'Admin\NilaiUjianController@index'));
-	Route::get('admin/tambahnilai_ujian', array('as'=>'admin.tambahnilai_ujian.show', 'uses'=> 'Admin\NilaiUjianController@showTambahNilaiUjian'));
-	Route::post('admin/nilai_ujian/tambah', array('as'=>'admin.tambahnilai_ujian', 'uses'=> 'Admin\NilaiUjianController@tambah'));
-	Route::get('admin/nilai_ujian/{id}/hapus', array('as'=>'admin.hapusnilai_ujian', 'uses'=> 'Admin\NilaiUjianController@hapus'));
-	Route::get('admin/nilai_ujian/{id}/edit', array('as'=>'admin.editnilai_ujian', 'uses'=> 'Admin\NilaiUjianController@editnilai_ujian'));
-	Route::put('admin/nilai_ujian/{id}/simpanedit', array('as'=>'admin.nilai_ujian.simpanedit', 'uses'=> 'Admin\NilaiUjianController@simpanedit'));
+	Route::get('admin/nilai_quiz',array('as'=>'admin.nilai_quiz', 'uses'=> 'Admin\NilaiQuizController@index'));
+	Route::get('admin/tambahnilai_quiz', array('as'=>'admin.tambahnilai_quiz.show', 'uses'=> 'Admin\NilaiQuizController@showTambahNilaiQuiz'));
+	Route::post('admin/nilai_quiz/tambah', array('as'=>'admin.tambahnilai_quiz', 'uses'=> 'Admin\NilaiQuizController@tambah'));
+	Route::get('admin/nilai_quiz/{id}/hapus', array('as'=>'admin.hapusnilai_quiz', 'uses'=> 'Admin\NilaiQuizController@hapus'));
+	Route::get('admin/nilai_quiz/{id}/edit', array('as'=>'admin.editnilai_quiz', 'uses'=> 'Admin\NilaiQuizController@editnilai_quiz'));
+	Route::put('admin/nilai_quiz/{id}/simpanedit', array('as'=>'admin.nilai_quiz.simpanedit', 'uses'=> 'Admin\NilaiQuizController@simpanedit'));
 
 	// Menu Tambahan : SMS 
 	Route::get('admin/message/send',array('as'=>'admin.message.form', 'uses'=> 'Admin\MessageController@form'));		
@@ -147,14 +147,14 @@ Route::group(['middleware' => ['auth','level:12']], function()
 {	
 	// Departemen
 	Route::get('trainer/departemen',array('as'=>'trainer.departemen', 'uses'=> 'Admin\DepartemenController@index_trainer'));
-	// Materi Ajar 
-	Route::get('trainer/materi_ajar',array('as'=>'trainer.materi_ajar', 'uses'=> 'Admin\MateriAjarController@index_trainer'));
-	Route::get('trainer/tambahmateri_ajar', array('as'=>'trainer.tambahmateri_ajar.show', 'uses'=> 'Admin\MateriAjarController@showTambahMateriAjar_trainer'));
-	Route::post('trainer/materi_ajar/tambah', array('as'=>'trainer.tambahmateri_ajar', 'uses'=> 'Admin\MateriAjarController@tambah_trainer'));
-	Route::get('trainer/materi_ajar/{id}/hapus', array('as'=>'trainer.hapusmateri_ajar', 'uses'=> 'Admin\MateriAjarController@hapus_trainer'));
-	Route::get('trainer/materi_ajar/{id}/edit', array('as'=>'trainer.editmateri_ajar', 'uses'=> 'Admin\MateriAjarController@editmateri_ajar_trainer'));
-	Route::put('trainer/materi_ajar/{id}/simpanedit', array('as'=>'trainer.materi_ajar.simpanedit', 'uses'=> 'Admin\MateriAjarController@simpanedit_trainer'));
-	Route::get('trainer/materi_ajar/{id}/download', array('as'=>'trainer.download_materi_ajar', 'uses'=> 'Admin\MateriAjarController@download_trainer'));	
+	// Modul Menu 
+	Route::get('trainer/materi_modul',array('as'=>'trainer.materi_modul', 'uses'=> 'Admin\MateriModulController@index_trainer'));
+	Route::get('trainer/tambahmateri_modul', array('as'=>'trainer.tambahmateri_modul.show', 'uses'=> 'Admin\MateriModulController@showTambahMateriModul_trainer'));
+	Route::post('trainer/materi_modul/tambah', array('as'=>'trainer.tambahmateri_modul', 'uses'=> 'Admin\MateriModulController@tambah_trainer'));
+	Route::get('trainer/materi_modul/{id}/hapus', array('as'=>'trainer.hapusmateri_modul', 'uses'=> 'Admin\MateriModulController@hapus_trainer'));
+	Route::get('trainer/materi_modul/{id}/edit', array('as'=>'trainer.editmateri_modul', 'uses'=> 'Admin\MateriModulController@editmateri_modul_trainer'));
+	Route::put('trainer/materi_modul/{id}/simpanedit', array('as'=>'trainer.materi_modul.simpanedit', 'uses'=> 'Admin\MateriModulController@simpanedit_trainer'));
+	Route::get('trainer/materi_modul/{id}/download', array('as'=>'trainer.download_materi_modul', 'uses'=> 'Admin\MateriModulController@download_trainer'));	
 	// Tugas 	
 	Route::get('trainer/tugas', array('as'=>'trainer.tugas', 'uses'=> 'Admin\TugasController@index_trainer'));
 	Route::get('trainer/tambahtugas', array('as'=>'trainer.tambahtugas.show', 'uses'=> 'Admin\TugasController@showTambahTugas'));
@@ -169,25 +169,25 @@ Route::group(['middleware' => ['auth','level:12']], function()
 	Route::post('trainer/message/sending', array('as'=>'trainer.message.sendEditedMessage', 'uses'=> 'Admin\MessageController@sendEditedMessage'));
 	// Download Tugas Trainee
 	Route::get('trainer/tugas/{id}/download_tugas_trainee', array('as'=>'trainer.download_tugas', 'uses'=> 'Admin\TugasController@download_tugas_trainee'));
-	// Ujian 
-	Route::get('trainer/ujian',array('as'=>'trainer.ujian', 'uses'=> 'Admin\UjianController@index'));
-	Route::get('trainer/tambahujian', array('as'=>'trainer.tambahujian.show', 'uses'=> 'Admin\UjianController@showTambahUjian'));
-	Route::post('trainer/ujian/tambah', array('as'=>'trainer.tambahujian', 'uses'=> 'Admin\UjianController@tambah'));
-	Route::get('trainer/ujian/{id}/hapus', array('as'=>'trainer.hapusujian', 'uses'=> 'Admin\UjianController@hapus'));
-	Route::get('trainer/ujian/{id}/edit', array('as'=>'trainer.editujian', 'uses'=> 'Admin\UjianController@editujian'));
-	Route::put('trainer/ujian/{id}/simpanedit', array('as'=>'trainer.ujian.simpanedit', 'uses'=> 'Admin\UjianController@simpanedit'));
-	Route::get('trainer/ujian/{id}/detail', array('as'=>'trainer.detail_ujian', 'uses'=> 'Admin\UjianController@detail'));
-	Route::get('trainer/ujian_trainee/{id}/hapus', array('as'=>'trainer.hapus_ujian_trainee', 'uses'=> 'Admin\UjianController@destroy'));
-	Route::get('trainer/trainee_ujian/{id}', array('as'=>'trainer.trainee_ujian.show', 'uses'=> 'Admin\TraineeJawabUjianController@show'));
-	Route::get('trainer/ujian/{id}', array('as'=>'.ujian.show', 'uses'=> 'Admin\UjianController@show'));
-	// Soal Ujian 
-	Route::get('trainer/soal_ujian',array('as'=>'trainer.soal_ujian', 'uses'=> 'Admin\SoalUjianController@index'));
-	Route::get('trainer/tambah_soal_ujian', array('as'=>'trainer.tambah_soal_ujian.show', 'uses'=> 'Admin\SoalUjianController@showTambahSoalUjian'));
-	Route::post('trainer/soal_ujian/tambah', array('as'=>'trainer.tambah_soal_ujian', 'uses'=> 'Admin\SoalUjianController@tambah'));
-	Route::get('trainer/soal_ujian/{id}/hapus', array('as'=>'trainer.hapus_soal_ujian', 'uses'=> 'Admin\SoalUjianController@hapus'));
-	Route::get('trainer/soal_ujian/{id}/edit', array('as'=>'trainer.edit_soal_ujian', 'uses'=> 'Admin\SoalUjianController@edit'));
-	Route::put('trainer/soal_ujian/{id}/simpanedit', array('as'=>'trainer.soal_ujian.simpanedit', 'uses'=> 'Admin\SoalUjianController@simpanedit'));
-	Route::get('trainer/soal_ujian/{id}/detail', array('as'=>'trainer.detail_soal_ujian', 'uses'=> 'Admin\SoalUjianController@detail_trainer'));
+	// Quiz 
+	Route::get('trainer/quiz',array('as'=>'trainer.quiz', 'uses'=> 'Admin\QuizController@index'));
+	Route::get('trainer/tambahquiz', array('as'=>'trainer.tambahquiz.show', 'uses'=> 'Admin\QuizController@showTambahQuiz'));
+	Route::post('trainer/quiz/tambah', array('as'=>'trainer.tambahquiz', 'uses'=> 'Admin\QuizController@tambah'));
+	Route::get('trainer/quiz/{id}/hapus', array('as'=>'trainer.hapusquiz', 'uses'=> 'Admin\QuizController@hapus'));
+	Route::get('trainer/quiz/{id}/edit', array('as'=>'trainer.editquiz', 'uses'=> 'Admin\QuizController@editquiz'));
+	Route::put('trainer/quiz/{id}/simpanedit', array('as'=>'trainer.quiz.simpanedit', 'uses'=> 'Admin\QuizController@simpanedit'));
+	Route::get('trainer/quiz/{id}/detail', array('as'=>'trainer.detail_quiz', 'uses'=> 'Admin\QuizController@detail'));
+	Route::get('trainer/quiz_trainee/{id}/hapus', array('as'=>'trainer.hapus_quiz_trainee', 'uses'=> 'Admin\QuizController@destroy'));
+	Route::get('trainer/trainee_quiz/{id}', array('as'=>'trainer.trainee_quiz.show', 'uses'=> 'Admin\TraineeJawabQuizController@show'));
+	Route::get('trainer/quiz/{id}', array('as'=>'.quiz.show', 'uses'=> 'Admin\QuizController@show'));
+	// Soal Quiz 
+	Route::get('trainer/soal_quiz',array('as'=>'trainer.soal_quiz', 'uses'=> 'Admin\SoalQuizController@index'));
+	Route::get('trainer/tambah_soal_quiz', array('as'=>'trainer.tambah_soal_quiz.show', 'uses'=> 'Admin\SoalQuizController@showTambahSoalQuiz'));
+	Route::post('trainer/soal_quiz/tambah', array('as'=>'trainer.tambah_soal_quiz', 'uses'=> 'Admin\SoalQuizController@tambah'));
+	Route::get('trainer/soal_quiz/{id}/hapus', array('as'=>'trainer.hapus_soal_quiz', 'uses'=> 'Admin\SoalQuizController@hapus'));
+	Route::get('trainer/soal_quiz/{id}/edit', array('as'=>'trainer.edit_soal_quiz', 'uses'=> 'Admin\SoalQuizController@edit'));
+	Route::put('trainer/soal_quiz/{id}/simpanedit', array('as'=>'trainer.soal_quiz.simpanedit', 'uses'=> 'Admin\SoalQuizController@simpanedit'));
+	Route::get('trainer/soal_quiz/{id}/detail', array('as'=>'trainer.detail_soal_quiz', 'uses'=> 'Admin\SoalQuizController@detail_trainer'));
 	// Show Nilai by Departemen
 	Route::get('trainer/nilai_trainee', array('as'=>'trainer.get_nilai_trainee.departemen.modul_learn', 'uses'=>'Admin\NilaiController@showDepartemenNilai'));
 	Route::post('trainer/nilai_trainee', array('as'=>'trainer.post_nilai_trainee.departemen.modul_learn', 'uses'=>'Admin\NilaiController@showDepartemenNilai'));
@@ -197,9 +197,9 @@ Route::group(['middleware' => ['auth','level:12']], function()
 	Route::get('trainer/trainer/{id}/detail', array('as'=>'trainer.detail_trainer', 'uses'=> 'Admin\TrainerController@detail_trainer'));
 	Route::get('trainer/trainer/ubahpassword',array('as'=>'trainer.user.ubah_password', 'uses'=> 'AdminController@showUbahPasswordUser'));
 	Route::post('trainer/trainer/simpanubahpassworduser', array('as'=>'trainer.user.simpanedit', 'uses'=> 'AdminController@simpanubahpassworduser'));
-	Route::get('trainer/trainee_ujian/{id}', array('as'=>'trainer.trainee_ujian.show', 'uses'=> 'Admin\TraineeJawabUjianController@show'));
-	Route::get('trainer/ujian/{id}', array('as'=>'trainee.get_ujians.show', 'uses'=> 'Admin\UjianController@show'));	
-	Route::get('trainer/ujian_trainee/{id}/hapus', array('as'=>'trainer.hapus_ujian_trainee', 'uses'=> 'Admin\UjianController@destroy'));
+	Route::get('trainer/trainee_quiz/{id}', array('as'=>'trainer.trainee_quiz.show', 'uses'=> 'Admin\TraineeJawabQuizController@show'));
+	Route::get('trainer/quiz/{id}', array('as'=>'trainee.get_quizs.show', 'uses'=> 'Admin\QuizController@show'));	
+	Route::get('trainer/quiz_trainee/{id}/hapus', array('as'=>'trainer.hapus_quiz_trainee', 'uses'=> 'Admin\QuizController@destroy'));
 	// profile
 	Route::get('trainer/trainer/edit', array('as'=>'trainer.edittrainer', 'uses'=> 'Admin\TrainerController@edit_asTrainer'));
 	Route::put('trainer/trainer/simpanedit', array('as'=>'trainer.trainer.simpanedit', 'uses'=> 'Admin\TrainerController@simpanedit_asTrainer'));
@@ -214,9 +214,9 @@ Route::group(['middleware' => ['auth','level:13']], function()
 {	
 	// trainee/departemen_trainee
 	Route::get('trainee/departemen_trainee',array('as'=>'trainee.departemen_trainee', 'uses'=> 'Admin\TraineeController@departemen_trainee'));
-	// Materi Ajar 
-	Route::get('trainee/materi_ajar',array('as'=>'trainee.materi_ajar', 'uses'=> 'Admin\MateriAjarController@index_trainee'));
-	Route::get('trainee/materi_ajar/{id}/download', array('as'=>'trainee.download_materi_ajar', 'uses'=> 'Admin\MateriAjarController@download_trainee'));
+	// Modul Menu 
+	Route::get('trainee/materi_modul',array('as'=>'trainee.materi_modul', 'uses'=> 'Admin\MateriModulController@index_trainee'));
+	Route::get('trainee/materi_modul/{id}/download', array('as'=>'trainee.download_materi_modul', 'uses'=> 'Admin\MateriModulController@download_trainee'));
 
 	// trainee/pengumuman
 	Route::get('trainee/pengumuman',array('as'=>'trainee.pengumuman', 'uses'=> 'Admin\PengumumanController@index_trainee'));
@@ -230,19 +230,19 @@ Route::group(['middleware' => ['auth','level:13']], function()
 	Route::get('trainee/tugas/{id}/detail_tugas_trainee', array('as'=>'trainee.detail_tugas', 'uses'=> 'Admin\TugasController@show_detail_tugas_trainee'));
 	Route::get('trainee/tugas/{id}/download_tugas_trainee', array('as'=>'trainee.download_tugas', 'uses'=> 'Admin\TugasController@download_tugas_trainee'));
 	Route::post('trainee/tugas/tambah', array('as'=>'trainee.tambah.tugas', 'uses'=> 'Admin\TugasController@tambah_tugas_trainee'));
-	Route::get('trainee/tugas/{id}/hapus', array('as'=>'trainee.hapusmateri_ajar', 'uses'=> 'Admin\TugasController@hapus_tugas_trainee'));
-	Route::get('trainee/tugas/{id}/download', array('as'=>'trainee.tugas_download', 'uses'=> 'Admin\MateriAjarController@download_tugas_trainee'));
+	Route::get('trainee/tugas/{id}/hapus', array('as'=>'trainee.hapusmateri_modul', 'uses'=> 'Admin\TugasController@hapus_tugas_trainee'));
+	Route::get('trainee/tugas/{id}/download', array('as'=>'trainee.tugas_download', 'uses'=> 'Admin\MateriModulController@download_tugas_trainee'));
 	Route::get('trainee/tugas',array('as'=>'trainee.tugas', 'uses'=> 'Admin\TugasController@index_trainee'));
 
 
-	// trainee/ujian
-	Route::get('trainee/ujian',array('as'=>'trainee.get_ujian', 'uses'=> 'Admin\UjianController@index_trainee'));	
-	Route::get('trainee/ujian/{id}/detail', array('as'=>'trainee.detail_ujian', 'uses'=> 'Admin\UjianController@detail'));
-	Route::post('trainee/ujian',array('as'=>'trainee.post_ujian', 'uses'=> 'Admin\UjianController@store_trainee'));
-	Route::get('trainee/ujian/{id}', array('as'=>'trainee.get_ujian.show', 'uses'=> 'Admin\UjianController@show'));	
-	Route::get('trainee/trainee_ujian/{id}', array('as'=>'trainee.trainee_ujian.show', 'uses'=> 'Admin\TraineeJawabUjianController@show'));	
-	Route::get('trainee/ujians/{ujians}/soals/{soals}', array('as'=>'trainee.soal_ujian.show', 'uses'=> 'Admin\SoalUjianController@show'));	
-	Route::put('trainee/ujians/{ujians}/soals/{soals} ', array('as'=>'trainee.soal_ujian_update.show', 'uses'=> 'Admin\SoalUjianController@update'));	
+	// trainee/quiz
+	Route::get('trainee/quiz',array('as'=>'trainee.get_quiz', 'uses'=> 'Admin\QuizController@index_trainee'));	
+	Route::get('trainee/quiz/{id}/detail', array('as'=>'trainee.detail_quiz', 'uses'=> 'Admin\QuizController@detail'));
+	Route::post('trainee/quiz',array('as'=>'trainee.post_quiz', 'uses'=> 'Admin\QuizController@store_trainee'));
+	Route::get('trainee/quiz/{id}', array('as'=>'trainee.get_quiz.show', 'uses'=> 'Admin\QuizController@show'));	
+	Route::get('trainee/trainee_quiz/{id}', array('as'=>'trainee.trainee_quiz.show', 'uses'=> 'Admin\TraineeJawabQuizController@show'));	
+	Route::get('trainee/quizs/{quizs}/soals/{soals}', array('as'=>'trainee.soal_quiz.show', 'uses'=> 'Admin\SoalQuizController@show'));	
+	Route::put('trainee/quizs/{quizs}/soals/{soals} ', array('as'=>'trainee.soal_quiz_update.show', 'uses'=> 'Admin\SoalQuizController@update'));	
 
 	//trainee/trainee
 	Route::get('trainee/trainee/{id}/detail', array('as'=>'trainee.detailtrainee', 'uses'=> 'Admin\TraineeController@detail_trainee'));

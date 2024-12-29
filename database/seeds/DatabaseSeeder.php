@@ -1,6 +1,6 @@
 <?php
 
-use App\MateriAjar;
+use App\MateriModul;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,13 +18,13 @@ class DatabaseSeeder extends Seeder
         $this->call(PengumumansTableSeeder::class);
         $this->call(TraineesTableSeeder::class);
         $this->call(TugasTableSeeder::class);
-        $this->call(UjianTableSeeder::class);
-        $this->call(SoalUjianTableSeeder::class);
+        $this->call(QuizTableSeeder::class);
+        $this->call(SoalQuizTableSeeder::class);
         $this->call(JawabanSoalTableSeeder::class);
-        $this->call(MateriAjarTableSeeder::class);
+        $this->call(MateriModulTableSeeder::class);
 
         // $this->call(NilaiTugasTableSeeder::class);
-        // $this->call(NilaiUjianTableSeeder::class);
+        // $this->call(NilaiQuizTableSeeder::class);
         // $this->call(NilaiTableSeeder::class);
         
 

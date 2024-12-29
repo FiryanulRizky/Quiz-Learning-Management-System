@@ -12,7 +12,7 @@
 @section('content')
 
     <div class="callout callout-danger" style="text-align: center; color: black;">
-        <h3> <b>SISTEM INFORMASI E-LEARNING TCONT SOLOG </b></h3>
+        <h3> <b>E-LEARNING SOFTWARE LOGISTICS PT. TRANS CONTINENT</b></h3>
         <h4 >Selamat Datang Trainee!</h4>        
     </div>              
     <br><br><br><br><br><br>
@@ -22,13 +22,13 @@
               <!-- small box -->
               <div class="small-box bg-blue"> 
                 <div class="inner">
-                  <h3>{{$countMateriAjar}}</h3>
+                  <h3>{{$countMateriModul}}</h3>
                   <p>Materi Modul</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-list-ol"></i>
                 </div>
-                <a href="{{url('trainee/materi_ajar')}}" class="small-box-footer" data-toggle="tooltip" data-title="Kelola Materi Ajar">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{url('trainee/materi_modul')}}" class="small-box-footer" data-toggle="tooltip" data-title="Kelola Modul Menu">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
 
@@ -64,13 +64,13 @@
               <!-- small box -->
               <div class="small-box bg-purple">
                 <div class="inner">
-                  <h3>{{$countUjian}}</h3>
-                  <p>Ujian</p>
+                  <h3>{{$countQuiz}}</h3>
+                  <p>Quiz</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-edit "></i>
                 </div>
-                <a href="{{url('trainee/ujian')}}" class="small-box-footer" data-toggle="tooltip" data-title="Lihat Ujian kamu disini">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{url('trainee/quiz')}}" class="small-box-footer" data-toggle="tooltip" data-title="Lihat Quiz kamu disini">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
             

@@ -55,7 +55,7 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#nilai_tugas" data-toggle="tab">Nilai Tugas</a></li>
-                  <li ><a href="#nilai_ujian" data-toggle="tab">Nilai Ujian</a></li>
+                  <li ><a href="#nilai_quiz" data-toggle="tab">Nilai Quiz</a></li>
                 </ul>
 
                 <!-- Tab panes 1 -->
@@ -91,33 +91,33 @@
                     </table>
                     @endif                   
                   </div>
-                  <div class="tab-pane fade" id="nilai_ujian">
+                  <div class="tab-pane fade" id="nilai_quiz">
                     <br/>                    
-                    @if (!count($nilaiUjian)<=1)
-                    <table id="dataTabelNilaiUjian" class="table table-bordered table-hover">
+                    @if (!count($nilaiQuiz)<=1)
+                    <table id="dataTabelNilaiQuiz" class="table table-bordered table-hover">
                       <thead>
                         <tr>      
                           <th >No</th>
                           <th>Departemen</th> 
                           <th style="width: 15%;">Modul</th>
-                          <th style="width: 30%;">Judul Ujian</th>
+                          <th style="width: 30%;">Judul Quiz</th>
                           <th>Jenis</th>                                     
                           <th>NIK</th> 
                           <th>Nama Trainee</th>                        
-                          <th>Nilai Ujian</th>
+                          <th>Nilai Quiz</th>
                         </tr>
                       </thead>
                       <tbody>
-                       <?php $i=1; foreach ($nilaiUjian as $dataNilaiUjian):  ?>
+                       <?php $i=1; foreach ($nilaiQuiz as $dataNilaiQuiz):  ?>
                         <tr>
                           <td>{{$i}}</td>
-                          <td>{{$dataNilaiUjian->departemen_ujian}}</td>
-                          <td>{{$dataNilaiUjian->nama_modul}}</td>
-                          <td>{{$dataNilaiUjian->judul_ujian}}</td>
-                          <td>{{$dataNilaiUjian->jenis_ujian}}</td>
-                          <td>{{$dataNilaiUjian->nik_trainee}}</td>
-                          <td>{{$dataNilaiUjian->nama_trainee}}</td>                        
-                          <td>{{$dataNilaiUjian->nilai}}</td>                                                    
+                          <td>{{$dataNilaiQuiz->departemen_quiz}}</td>
+                          <td>{{$dataNilaiQuiz->nama_modul}}</td>
+                          <td>{{$dataNilaiQuiz->judul_quiz}}</td>
+                          <td>{{$dataNilaiQuiz->jenis_quiz}}</td>
+                          <td>{{$dataNilaiQuiz->nik_trainee}}</td>
+                          <td>{{$dataNilaiQuiz->nama_trainee}}</td>                        
+                          <td>{{$dataNilaiQuiz->nilai}}</td>                                                    
                         </tr>
                         <?php $i++; endforeach  ?> 
                       </tbody>
@@ -137,7 +137,7 @@
 <script>
       $(function () {
         $('#dataTabelNilaiTugas').DataTable({"pageLength": 10}); //, "scrollX": true
-        $('#dataTabelNilaiUjian').DataTable({"pageLength": 10}); //, "scrollX": true
+        $('#dataTabelNilaiQuiz').DataTable({"pageLength": 10}); //, "scrollX": true
 
       });
 

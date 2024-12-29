@@ -21,9 +21,9 @@ use App\Trainer as Trainer;
 use App\DepartemenHaveModul as Departemen;
 use App\Modul as Modul;
 use App\Pengumuman as Pengumuman;
-use App\MateriAjar as MateriAjar;
+use App\MateriModul as MateriModul;
 use App\Tugas as Tugas;
-use App\Ujian as Ujian;
+use App\Quiz as Quiz;
 use App\Soal as Soal;
 
 class AdminController extends Controller
@@ -267,86 +267,86 @@ class AdminController extends Controller
       $countTrainer   = Trainer::count();
       $countModul_learn   = Modul::count();
       $countPengumuman   = Pengumuman::count();
-      $countMateriAjar   = MateriAjar::count();
+      $countMateriModul   = MateriModul::count();
       $countTugas   = Tugas::count();
       $countSoal   = Soal::count();
-      $countUjian   = Ujian::count();
+      $countQuiz   = Quiz::count();
       return view('admin.dashboard.index.main_admin')
              ->with('countTrainee', $countTrainee)
              ->with('countTrainer', $countTrainer)
              ->with('countModul_learn', $countModul_learn)
              ->with('countPengumuman', $countPengumuman)
-             ->with('countMateriAjar', $countMateriAjar)
+             ->with('countMateriModul', $countMateriModul)
              ->with('countTugas', $countTugas)
              ->with('countSoal', $countSoal)
-             ->with('countUjian', $countUjian);
+             ->with('countQuiz', $countQuiz);
     }
 
   public function dashBoardLevel12(){            
       $trainer = Trainer::where('id_user', Auth::user()->id_user)->first();        
       $Modul_learnTrainer = Modul::where('nik_trainer', $trainer->nik_trainer)->first();         
-      $dataMateriAjar = DB::table('materi_ajars')                                                          
-       ->join('moduls', 'materi_ajars.id_modul', '=', 'moduls.id_modul')       
-       ->select('materi_ajars.*', 'moduls.nama_modul')
+      $dataMateriModul = DB::table('materi_moduls')                                                          
+       ->join('moduls', 'materi_moduls.id_modul', '=', 'moduls.id_modul')       
+       ->select('materi_moduls.*', 'moduls.nama_modul')
        ->where('moduls.nama_modul', $Modul_learnTrainer->nama_modul)
        ->get(); 
-      $countMateriAjar   = count($dataMateriAjar);
+      $countMateriModul   = count($dataMateriModul);
       $dataTugas = DB::table('tugass')                  
                  ->join('moduls', 'tugass.id_modul', '=', 'moduls.id_modul')
                  ->select('tugass.*', 'moduls.nama_modul')
                  ->where('moduls.nama_modul', $Modul_learnTrainer->nama_modul)
                  ->get();
       $countTugas   = count($dataTugas);
-      $dataSoalUjian = DB::table('soals')   
-               ->join('ujians', 'soals.id_ujian', '=', 'ujians.id_ujian') 
-               ->leftjoin('moduls','ujians.id_modul','=','moduls.id_modul')
+      $dataSoalQuiz = DB::table('soals')   
+               ->join('quizs', 'soals.id_quiz', '=', 'quizs.id_quiz') 
+               ->leftjoin('moduls','quizs.id_modul','=','moduls.id_modul')
                ->leftjoin('trainers','moduls.nik_trainer','=','trainers.nik_trainer')
-               ->select('soals.*', 'ujians.*', 'moduls.nama_modul', 'trainers.nama_trainer')
+               ->select('soals.*', 'quizs.*', 'moduls.nama_modul', 'trainers.nama_trainer')
                ->where('moduls.nama_modul', $Modul_learnTrainer->nama_modul)
                ->get(); 
-      $countSoal   = count($dataSoalUjian);
-      $dataUjian = DB::table('ujians')                  
-                 ->join('moduls', 'ujians.id_modul', '=', 'moduls.id_modul')
-                 ->select('ujians.*', 'moduls.nama_modul')
+      $countSoal   = count($dataSoalQuiz);
+      $dataQuiz = DB::table('quizs')                  
+                 ->join('moduls', 'quizs.id_modul', '=', 'moduls.id_modul')
+                 ->select('quizs.*', 'moduls.nama_modul')
                  ->where('moduls.nama_modul', $Modul_learnTrainer->nama_modul)
                  ->get(); 
-      $countUjian   = count($dataUjian);
+      $countQuiz   = count($dataQuiz);
       return view('admin.dashboard.index.main_trainer')             
-             ->with('countMateriAjar', $countMateriAjar)
+             ->with('countMateriModul', $countMateriModul)
              ->with('countTugas', $countTugas)
              ->with('countSoal', $countSoal)
-             ->with('countUjian', $countUjian);     
+             ->with('countQuiz', $countQuiz);     
     }
 
   public function dashBoardLevel13(){  
       $trainee = Trainee::where('id_user', Auth::user()->id_user)->first();        
       $departemen_trainee = Departemen::where('nama_departemen', $trainee->departemen_trainee)->get();
 
-      $dataMateriAjar = DB::table('materi_ajars')                                                          
-         ->join('moduls', 'materi_ajars.id_modul', '=', 'moduls.id_modul')       
-         ->select('materi_ajars.*', 'moduls.nama_modul')
-         // ->where('materi_ajars.materi_departemen', $trainee->departemen_trainee)
-         ->where('materi_ajars.materi_departemen', $trainee->departemen_trainee)
+      $dataMateriModul = DB::table('materi_moduls')                                                          
+         ->join('moduls', 'materi_moduls.id_modul', '=', 'moduls.id_modul')       
+         ->select('materi_moduls.*', 'moduls.nama_modul')
+         // ->where('materi_moduls.materi_departemen', $trainee->departemen_trainee)
+         ->where('materi_moduls.materi_departemen', $trainee->departemen_trainee)
          ->get();      
-      $countMateriAjar   = count($dataMateriAjar);
+      $countMateriModul   = count($dataMateriModul);
       $dataTugas = DB::table('tugass')
                  ->join('moduls', 'tugass.id_modul', '=', 'moduls.id_modul')
                  ->select('tugass.*', 'moduls.nama_modul')
                  ->where('tugass.departemen_tugas', $trainee->departemen_trainee)
                  ->get();
       $countTugas   = count($dataTugas);
-      $dataUjian = DB::table('ujians')                  
-                 ->join('moduls', 'ujians.id_modul', '=', 'moduls.id_modul')
-                 ->select('ujians.*', 'moduls.nama_modul')
-                 ->where('departemen_ujian', $trainee->departemen_trainee)
-                 ->where('status_ujian', 'Aktif')
+      $dataQuiz = DB::table('quizs')                  
+                 ->join('moduls', 'quizs.id_modul', '=', 'moduls.id_modul')
+                 ->select('quizs.*', 'moduls.nama_modul')
+                 ->where('departemen_quiz', $trainee->departemen_trainee)
+                 ->where('status_quiz', 'Aktif')
                  ->get();
-      $countUjian   = count($dataUjian);
+      $countQuiz   = count($dataQuiz);
       $countPengumuman   = Pengumuman::count();      
       return view('admin.dashboard.index.main_trainee')
-            ->with('countMateriAjar', $countMateriAjar)
+            ->with('countMateriModul', $countMateriModul)
             ->with('countTugas', $countTugas)
-            ->with('countUjian', $countUjian)            
+            ->with('countQuiz', $countQuiz)            
             ->with('countPengumuman', $countPengumuman);     
     }   
 

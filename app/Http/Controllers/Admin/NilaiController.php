@@ -11,11 +11,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use App\TraineeJawabTugas as NilaiTugas; // tabel nilai tugas trainee
-use App\NilaiUjianPilihanGandaTrainee as NilaiUjian; 
+use App\NilaiQuizPilihanGandaTrainee as NilaiQuiz; 
 use App\Modul as Modul;
 use App\Tugas as Tugas;
 use App\DepartemenHaveModul as Departemen;
-use App\Ujian as Ujian;
+use App\Quiz as Quiz;
 use App\Trainee as Trainee;
 use App\Trainer as Trainer;
 
@@ -34,35 +34,35 @@ class NilaiController extends Controller
     $idNilaiTugas= NilaiTugas::select(DB::raw("id_nilai_tugas_trainee,nik_trainee"))
         ->orderBy(DB::raw("id_nilai_tugas_trainee"))        
         ->get();
-    $idNilaiUjian= NilaiUjian::select(DB::raw("id_nilai_ujian_trainee,nik_trainee"))
-        ->orderBy(DB::raw("id_nilai_ujian_trainee"))        
+    $idNilaiQuiz= NilaiQuiz::select(DB::raw("id_nilai_quiz_trainee,nik_trainee"))
+        ->orderBy(DB::raw("id_nilai_quiz_trainee"))        
         ->get();
     // dd($data);        
     return view('admin.dashboard.nilai.tambah_nilai')
     		->with('Trainee', $idTrainee)
         ->with('NilaiTugas', $idNilaiTugas)
-        ->with('NilaiUjian', $idNilaiUjian);
+        ->with('NilaiQuiz', $idNilaiQuiz);
   }
 
   public function index()
     {                
     if (Auth::user()->level == 11) {
       $dataNilai = DB::table('nilai_trainees')   
-                 ->join('nilai_ujian_trainees', 'nilai_trainees.id_nilai_ujian_trainee', '=', 'nilai_ujian_trainees.id_nilai_ujian_trainee') 
-                 ->leftjoin('moduls','nilai_ujian_trainees.id_modul','=','moduls.id_modul')                                                
+                 ->join('nilai_quiz_trainees', 'nilai_trainees.id_nilai_quiz_trainee', '=', 'nilai_quiz_trainees.id_nilai_quiz_trainee') 
+                 ->leftjoin('moduls','nilai_quiz_trainees.id_modul','=','moduls.id_modul')                                                
                  ->join('nilai_tugas_trainees', 'nilai_trainees.id_nilai_tugas_trainee', '=', 'nilai_tugas_trainees.id_nilai_tugas_trainee')
                  ->join('trainees', 'nilai_trainees.nik_trainee', '=', 'trainees.nik_trainee')
-                 ->select('nilai_trainees.*', 'trainees.nama_trainee', 'moduls.nama_modul', 'nilai_ujian_trainees.nilai_ujian', 'nilai_tugas_trainees.nilai_tugas')
+                 ->select('nilai_trainees.*', 'trainees.nama_trainee', 'moduls.nama_modul', 'nilai_quiz_trainees.nilai_quiz', 'nilai_tugas_trainees.nilai_tugas')
                  ->get();              
     }elseif (Auth::user()->level == 12) {
       $trainer = Trainer::where('id_user', Auth::user()->id_user)->first();        
       $Modul_learnTrainer = Modul::where('nik_trainer', $trainer->nik_trainer)->first();      
       $dataNilai = DB::table('nilai_trainees')   
-                 ->join('nilai_ujian_trainees', 'nilai_trainees.id_nilai_ujian_trainee', '=', 'nilai_ujian_trainees.id_nilai_ujian_trainee') 
-                 ->leftjoin('moduls','nilai_ujian_trainees.id_modul','=','moduls.id_modul')                                                
+                 ->join('nilai_quiz_trainees', 'nilai_trainees.id_nilai_quiz_trainee', '=', 'nilai_quiz_trainees.id_nilai_quiz_trainee') 
+                 ->leftjoin('moduls','nilai_quiz_trainees.id_modul','=','moduls.id_modul')                                                
                  ->join('nilai_tugas_trainees', 'nilai_trainees.id_nilai_tugas_trainee', '=', 'nilai_tugas_trainees.id_nilai_tugas_trainee')
                  ->join('trainees', 'nilai_trainees.nik_trainee', '=', 'trainees.nik_trainee')
-                 ->select('nilai_trainees.*', 'trainees.nama_trainee', 'moduls.nama_modul', 'nilai_ujian_trainees.nilai_ujian', 'nilai_tugas_trainees.nilai_tugas')
+                 ->select('nilai_trainees.*', 'trainees.nama_trainee', 'moduls.nama_modul', 'nilai_quiz_trainees.nilai_quiz', 'nilai_tugas_trainees.nilai_tugas')
                  ->where('moduls.nama_modul', $Modul_learnTrainer->nama_modul)
                  ->get();             
     }
@@ -97,13 +97,13 @@ class NilaiController extends Controller
         $pesan = array(
           	'nik_trainee.required' 		      => 'NISN Trainee dibutuhkan.',
             'id_nilai_tugas_trainee.required' => 'ID Nilai Tugas dibutuhkan.',            
-            'id_nilai_ujian_trainee.required' => 'ID Nilai Ujian dibutuhkan.',                                                  
+            'id_nilai_quiz_trainee.required' => 'ID Nilai Quiz dibutuhkan.',                                                  
         );
 
         $aturan = array(
             'nik_trainee'  		      => 'required',
             'id_nilai_tugas_trainee'  => 'required',            
-            'id_nilai_ujian_trainee'  => 'required',                                  
+            'id_nilai_quiz_trainee'  => 'required',                                  
         );        
         $validator = Validator::make($input,$aturan, $pesan);
         if($validator->fails()) {
@@ -113,7 +113,7 @@ class NilaiController extends Controller
         $nilai = new Nilai;
         $nilai->nik_trainee     	= $request['nik_trainee'];
         $nilai->id_nilai_tugas_trainee     	= $request['id_nilai_tugas_trainee'];
-        $nilai->id_nilai_ujian_trainee     	= $request['id_nilai_ujian_trainee'];                  
+        $nilai->id_nilai_quiz_trainee     	= $request['id_nilai_quiz_trainee'];                  
                     
         if (! $nilai->save() )
           App::abort(500);
@@ -154,19 +154,19 @@ class NilaiController extends Controller
            ->select('trainee_jawab_tugas.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'tugass.*', 'trainers.nik_trainer','trainers.nama_trainer')
            ->where('tugass.departemen_tugas', $departemen_terpilih)
            ->get();
-      $nilaiUjian = DB::table('nilai_ujian_pilgan_trainees')   
-           ->join('ujians', 'nilai_ujian_pilgan_trainees.id_ujian', '=', 'ujians.id_ujian') 
-           ->join('trainees', 'nilai_ujian_pilgan_trainees.nik_trainee', '=', 'trainees.nik_trainee')
-           ->leftjoin('moduls','ujians.id_modul','=','moduls.id_modul')
+      $nilaiQuiz = DB::table('nilai_quiz_pilgan_trainees')   
+           ->join('quizs', 'nilai_quiz_pilgan_trainees.id_quiz', '=', 'quizs.id_quiz') 
+           ->join('trainees', 'nilai_quiz_pilgan_trainees.nik_trainee', '=', 'trainees.nik_trainee')
+           ->leftjoin('moduls','quizs.id_modul','=','moduls.id_modul')
            ->leftjoin('trainers','moduls.nik_trainer','=','trainers.nik_trainer')
-           ->select('nilai_ujian_pilgan_trainees.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'ujians.*', 'trainers.nik_trainer','trainers.nama_trainer')
-           ->where('ujians.departemen_ujian', $departemen_terpilih)
+           ->select('nilai_quiz_pilgan_trainees.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'quizs.*', 'trainers.nik_trainer','trainers.nama_trainer')
+           ->where('quizs.departemen_quiz', $departemen_terpilih)
            ->get();
     return view('admin.dashboard.nilai.nilai') 
             ->with('listDepartemen', $listDepartemen)
             ->with('departemen_terpilih', $departemen_terpilih)
             ->with('nilaiTugas', $nilaiTugas)
-            ->with('nilaiUjian', $nilaiUjian);
+            ->with('nilaiQuiz', $nilaiQuiz);
 
   }
 
@@ -193,15 +193,15 @@ class NilaiController extends Controller
            ->where('moduls.nama_modul', $modul_learn_terpilih)
            ->where('trainee_jawab_tugas.nik_trainee', $trainee->nik_trainee)
            ->get();
-      $nilaiUjian = DB::table('nilai_ujian_pilgan_trainees')   
-           ->join('ujians', 'nilai_ujian_pilgan_trainees.id_ujian', '=', 'ujians.id_ujian') 
-           ->join('trainees', 'nilai_ujian_pilgan_trainees.nik_trainee', '=', 'trainees.nik_trainee')
-           ->leftjoin('moduls','ujians.id_modul','=','moduls.id_modul')
+      $nilaiQuiz = DB::table('nilai_quiz_pilgan_trainees')   
+           ->join('quizs', 'nilai_quiz_pilgan_trainees.id_quiz', '=', 'quizs.id_quiz') 
+           ->join('trainees', 'nilai_quiz_pilgan_trainees.nik_trainee', '=', 'trainees.nik_trainee')
+           ->leftjoin('moduls','quizs.id_modul','=','moduls.id_modul')
            ->leftjoin('trainers','moduls.nik_trainer','=','trainers.nik_trainer')
-           ->select('nilai_ujian_pilgan_trainees.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'ujians.*', 'trainers.nik_trainer','trainers.nama_trainer')
-           ->where('ujians.departemen_ujian', $trainee->departemen_trainee)
+           ->select('nilai_quiz_pilgan_trainees.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'quizs.*', 'trainers.nik_trainer','trainers.nama_trainer')
+           ->where('quizs.departemen_quiz', $trainee->departemen_trainee)
            ->where('moduls.nama_modul', $modul_learn_terpilih)
-           ->where('nilai_ujian_pilgan_trainees.nik_trainee', $trainee->nik_trainee)  
+           ->where('nilai_quiz_pilgan_trainees.nik_trainee', $trainee->nik_trainee)  
            ->get();
 
     }else {
@@ -216,15 +216,15 @@ class NilaiController extends Controller
            ->where('moduls.nama_modul', $modul_learn_terpilih)
            ->where('trainee_jawab_tugas.nik_trainee', $trainee->nik_trainee)
            ->get();
-      $nilaiUjian = DB::table('nilai_ujian_pilgan_trainees')   
-           ->join('ujians', 'nilai_ujian_pilgan_trainees.id_ujian', '=', 'ujians.id_ujian') 
-           ->join('trainees', 'nilai_ujian_pilgan_trainees.nik_trainee', '=', 'trainees.nik_trainee')
-           ->leftjoin('moduls','ujians.id_modul','=','moduls.id_modul')
+      $nilaiQuiz = DB::table('nilai_quiz_pilgan_trainees')   
+           ->join('quizs', 'nilai_quiz_pilgan_trainees.id_quiz', '=', 'quizs.id_quiz') 
+           ->join('trainees', 'nilai_quiz_pilgan_trainees.nik_trainee', '=', 'trainees.nik_trainee')
+           ->leftjoin('moduls','quizs.id_modul','=','moduls.id_modul')
            ->leftjoin('trainers','moduls.nik_trainer','=','trainers.nik_trainer')
-           ->select('nilai_ujian_pilgan_trainees.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'ujians.*', 'trainers.nik_trainer','trainers.nama_trainer')
-           ->where('ujians.departemen_ujian', $trainee->departemen_trainee)
+           ->select('nilai_quiz_pilgan_trainees.*', 'trainees.nik_trainee','trainees.nama_trainee', 'moduls.nama_modul', 'quizs.*', 'trainers.nik_trainer','trainers.nama_trainer')
+           ->where('quizs.departemen_quiz', $trainee->departemen_trainee)
            ->where('moduls.nama_modul', $modul_learn_terpilih)
-           ->where('nilai_ujian_pilgan_trainees.nik_trainee', $trainee->nik_trainee)
+           ->where('nilai_quiz_pilgan_trainees.nik_trainee', $trainee->nik_trainee)
            ->get();
     }
 
@@ -233,7 +233,7 @@ class NilaiController extends Controller
                 ->with('listModul_learn', $listModul_learn)
                 ->with('modul_learn_terpilih', $modul_learn_terpilih)
                 ->with('nilaiTugas', $nilaiTugas)
-                ->with('nilaiUjian', $nilaiUjian);
+                ->with('nilaiQuiz', $nilaiQuiz);
 
   }
 } 

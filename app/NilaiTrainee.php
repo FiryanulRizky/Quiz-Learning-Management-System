@@ -9,6 +9,6 @@ class NilaiTrainee extends Model
 	protected $table = 'nilai_trainees';
     protected $primaryKey = 'id_nilai_trainee';
     // protected $fillable = {
-    // 	'jenis_nilai','id_tugas','id_ujian','id_modul','nik_trainee'
+    // 	'jenis_nilai','id_tugas','id_quiz','id_modul','nik_trainee'
     // }
 }

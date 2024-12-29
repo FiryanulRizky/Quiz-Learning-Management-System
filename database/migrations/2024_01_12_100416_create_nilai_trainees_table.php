@@ -22,8 +22,8 @@ class CreateNilaiTraineesTable extends Migration
             $table->foreign('nik_trainee')->references('nik_trainee')->on('trainees')->onDelete('cascade');
             $table->integer('id_nilai_tugas_trainee')->unsigned();
             $table->foreign('id_nilai_tugas_trainee')->references('id_nilai_tugas_trainee')->on('nilai_tugas_trainees')->onDelete('cascade');                        
-            $table->integer('id_nilai_ujian_trainee')->unsigned();
-            $table->foreign('id_nilai_ujian_trainee')->references('id_nilai_ujian_trainee')->on('nilai_ujian_trainees')->onDelete('cascade');                        
+            $table->integer('id_nilai_quiz_trainee')->unsigned();
+            $table->foreign('id_nilai_quiz_trainee')->references('id_nilai_quiz_trainee')->on('nilai_quiz_trainees')->onDelete('cascade');                        
             
         });
     }

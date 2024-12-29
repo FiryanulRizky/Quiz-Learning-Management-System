@@ -63,7 +63,7 @@
                      <label class="col-sm-3  control-label" style="text-align: left;">Nama Materi</label>
                      <div class="col-sm-8">                  
                         <input type="file" id="materi_nama" name="nama_file" >
-                        <p class="help-block">Pilih Nama File Materi Ajar. Ukuran maksimal 10 MB. </p>                                 
+                        <p class="help-block">Pilih Nama File Modul Menu. Ukuran maksimal 10 MB. </p>                                 
                      </div>
                     </div>
                   </div>
@@ -134,7 +134,7 @@
 <script>
       $(function () {
 
-        $('#dataTableSoalUjian').DataTable({"pageLength": 10, "scrollX": true});
+        $('#dataTableSoalQuiz').DataTable({"pageLength": 10, "scrollX": true});
       });
 
 </script>

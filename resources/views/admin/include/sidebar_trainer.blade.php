@@ -43,9 +43,9 @@
                   </i> Departemen Anda </a>
                 </li>
 
-                <li class="@if(url('trainer/materi_ajar') == request()->url() ) active @else '' @endif">
-                  <a href="{{{URL::to('trainer/materi_ajar')}}}"><i class="fa fa-plus-square">                    
-                  </i> Materi Ajar Trainee</a>
+                <li class="@if(url('trainer/materi_modul') == request()->url() ) active @else '' @endif">
+                  <a href="{{{URL::to('trainer/materi_modul')}}}"><i class="fa fa-plus-square">                    
+                  </i> Modul Menu Trainee</a>
                 </li>                
                 
                 <li class="@if(url('trainer/tugas') == request()->url() ) active @else '' @endif">
@@ -53,14 +53,14 @@
                   </i> Tugas Trainee</a>
                 </li>
 
-                <li class="@if(url('trainer/ujian') == request()->url() ) active @else '' @endif">
-                  <a href="{{{URL::to('trainer/ujian')}}}"><i class="fa fa-plus-square">                    
-                  </i> Ujian Trainee</a>
+                <li class="@if(url('trainer/quiz') == request()->url() ) active @else '' @endif">
+                  <a href="{{{URL::to('trainer/quiz')}}}"><i class="fa fa-plus-square">                    
+                  </i> Quiz Trainee</a>
                 </li>
 
-                <li class="@if(url('trainer/soal_ujian') == request()->url() or url('trainer/tambah_soal_ujian')  == request()->url() ) active @else '' @endif">
-                  <a href="{{{URL::to('trainer/soal_ujian')}}}"><i class="fa fa-plus-square">                    
-                  </i> Soal Ujian Trainee</a>
+                <li class="@if(url('trainer/soal_quiz') == request()->url() or url('trainer/tambah_soal_quiz')  == request()->url() ) active @else '' @endif">
+                  <a href="{{{URL::to('trainer/soal_quiz')}}}"><i class="fa fa-plus-square">                    
+                  </i> Soal Quiz Trainee</a>
                 </li>
 
                 <li class="@if(url('trainer/nilai_trainee') == request()->url() ) active @else '' @endif">

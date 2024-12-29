@@ -20,8 +20,8 @@ class CreateSoalsTable extends Migration
             $table->string('gambar');            
             $table->timestamps();
             // foreign key            
-            $table->integer('id_ujian')->unsigned();
-            $table->foreign('id_ujian')->references('id_ujian')->on('ujians')->onDelete('cascade');            
+            $table->integer('id_quiz')->unsigned();
+            $table->foreign('id_quiz')->references('id_quiz')->on('quizs')->onDelete('cascade');            
                         
         });
     }

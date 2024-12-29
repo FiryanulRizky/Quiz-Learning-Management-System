@@ -34,13 +34,13 @@
             <i class='fa fa-bullhorn'></i> <span> Pengumuman</span></a>
            </li>
 
-            <li class="@if(url('trainee/departemen_trainee') == request()->url() or url('trainee/tambahmateri_ajar')  == request()->url() ) active @else '' @endif">
+            <li class="@if(url('trainee/departemen_trainee') == request()->url() or url('trainee/tambahmateri_modul')  == request()->url() ) active @else '' @endif">
               <a href="{{{URL::to('trainee/departemen_trainee')}}}"><i class="fa fa-home">                    
               </i> Departemen Anda </a>
             </li> 
 
-            <li class="@if(url('trainee/materi_ajar') == request()->url() or url('trainee/tambahmateri_ajar')  == request()->url() ) active @else '' @endif">
-              <a href="{{{URL::to('trainee/materi_ajar')}}}"><i class="fa fa-list-ol">                    
+            <li class="@if(url('trainee/materi_modul') == request()->url() or url('trainee/tambahmateri_modul')  == request()->url() ) active @else '' @endif">
+              <a href="{{{URL::to('trainee/materi_modul')}}}"><i class="fa fa-list-ol">                    
               </i> Materi Modul</a>
             </li>                             
                 
@@ -49,9 +49,9 @@
               </i> Tugas</a>
             </li>
 
-            <li class="@if(url('trainee/ujian') == request()->url() or url('trainee/tambahujian')  == request()->url() ) active @else '' @endif">
-              <a href="{{{URL::to('trainee/ujian')}}}"><i class="fa fa-edit">                    
-              </i> Ujian</a>
+            <li class="@if(url('trainee/quiz') == request()->url() or url('trainee/tambahquiz')  == request()->url() ) active @else '' @endif">
+              <a href="{{{URL::to('trainee/quiz')}}}"><i class="fa fa-edit">                    
+              </i> Quiz</a>
             </li>
 
             <li class="@if(url('trainee/nilai') == request()->url() or url('trainee/nilai') == request()->url() ) active @else '' @endif">

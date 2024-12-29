@@ -44,7 +44,7 @@
 @section('content')
 <div class="col-md-9 well" id="TitleForm" >
 	<center>  		
-		<strong><h3>Selamat Datang di Sistem Informasi E-Learning Tcont Solog</h3></strong>
+		<strong><h3>Selamat Datang di E-Learning Software Logistics</h3></strong>
 	</center>
 </div>
 <div class="col-md-4 col-md-offset-4 well" id="loginForm">

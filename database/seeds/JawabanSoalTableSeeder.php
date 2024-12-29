@@ -11,7 +11,7 @@ class JawabanSoalTableSeeder extends Seeder
      */
     public function run()
     {
-        $jawaban_soal_ujians = [
+        $jawaban_soal_quizs = [
         [ 
 			'jawaban'		=> '3500',
 			'is_benar'		=> '0',			
@@ -62,6 +62,6 @@ class JawabanSoalTableSeeder extends Seeder
 		],	
 		];    
 
-		DB::table('jawaban_soal_ujians')->insert($jawaban_soal_ujians);
+		DB::table('jawaban_soal_quizs')->insert($jawaban_soal_quizs);
     }
 }

@@ -63,12 +63,12 @@
                       </div>
 
                       <div class="form-group">
-                       <label class="col-md-3 control-label">ID Nilai Ujian</label>
+                       <label class="col-md-3 control-label">ID Nilai Quiz</label>
                        <div class="col-md-8">               
-                        <select class="form-control " name="id_nilai_ujian_trainee" style="font-size: 14px; text-align: left;">
-                         <option value="">-- Pilih ID Nilai Ujian --</option>
-                         @foreach ($NilaiUjian as $idNilaiUjian)
-                            <option value="{{ $idNilaiUjian->id_nilai_ujian_trainee }}">nisn trainee : {{ $idNilaiUjian->id_nilai_ujian_trainee }} | nisn trainee : {{ $idNilaiUjian->nik_trainee }}</option>
+                        <select class="form-control " name="id_nilai_quiz_trainee" style="font-size: 14px; text-align: left;">
+                         <option value="">-- Pilih ID Nilai Quiz --</option>
+                         @foreach ($NilaiQuiz as $idNilaiQuiz)
+                            <option value="{{ $idNilaiQuiz->id_nilai_quiz_trainee }}">nisn trainee : {{ $idNilaiQuiz->id_nilai_quiz_trainee }} | nisn trainee : {{ $idNilaiQuiz->nik_trainee }}</option>
                          @endforeach                                                                                 
                         </select>
                        </div>   

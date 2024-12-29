@@ -43,7 +43,7 @@
             <i class='fa fa-user-plus'></i> <span>Kelola Trainer</span></a>
            </li>                                 
 
-            <li class="@if(url('admin/modul_learn') == request()->url() or url('admin/materi_ajar') == request()->url() or url('admin/tugas') == request()->url() or url('admin/message/send') == request()->url() or url('admin/ujian') == request()->url() or url('admin/nilai') == request()->url() or url('admin/nilai_tugas')  == request()->url() or url('admin/nilai_ujian')  == request()->url() or url('admin/tambahmodul_learn')  == request()->url()or url('admin/tambahmateri_ajar')  == request()->url() or url('admin/tambahtugas')  == request()->url() or url('admin/tambahujian')  == request()->url() or url('admin/tambahnilai') == request()->url() or url('admin/tambahnilai_tugas')  == request()->url() or url('admin/tambahnilai_ujian')  == request()->url() or url('admin/soal_ujian') == request()->url() or url('admin/tambah_soal_ujian')  == request()->url() or url('admin/nilai_trainee') == request()->url()) treeview active @else '' @endif">
+            <li class="@if(url('admin/modul_learn') == request()->url() or url('admin/materi_modul') == request()->url() or url('admin/tugas') == request()->url() or url('admin/message/send') == request()->url() or url('admin/quiz') == request()->url() or url('admin/nilai') == request()->url() or url('admin/nilai_tugas')  == request()->url() or url('admin/nilai_quiz')  == request()->url() or url('admin/tambahmodul_learn')  == request()->url()or url('admin/tambahmateri_modul')  == request()->url() or url('admin/tambahtugas')  == request()->url() or url('admin/tambahquiz')  == request()->url() or url('admin/tambahnilai') == request()->url() or url('admin/tambahnilai_tugas')  == request()->url() or url('admin/tambahnilai_quiz')  == request()->url() or url('admin/soal_quiz') == request()->url() or url('admin/tambah_soal_quiz')  == request()->url() or url('admin/nilai_trainee') == request()->url()) treeview active @else '' @endif">
               <a href="">
                 <i class="fa fa-list-alt"></i>
                 <span>Kelola Modul</span>
@@ -55,9 +55,9 @@
                   </i> Kelola Modul</a>
                 </li>
 
-                <li class="@if(url('admin/materi_ajar') == request()->url() or url('admin/tambahmateri_ajar')  == request()->url() ) active @else '' @endif">
-                  <a href="{{{URL::to('admin/materi_ajar')}}}"><i class="fa fa-plus-square">                    
-                  </i> Kelola Materi Ajar</a>
+                <li class="@if(url('admin/materi_modul') == request()->url() or url('admin/tambahmateri_modul')  == request()->url() ) active @else '' @endif">
+                  <a href="{{{URL::to('admin/materi_modul')}}}"><i class="fa fa-plus-square">                    
+                  </i> Kelola Modul Menu</a>
                 </li>                
                 
                 <li class="@if(url('admin/tugas') == request()->url() or url('admin/tambahtugas')  == request()->url() or url('admin/message/send') == request()->url()) active @else '' @endif">
@@ -65,14 +65,14 @@
                   </i> Kelola Tugas</a>
                 </li>
 
-                <li class="@if(url('admin/ujian') == request()->url() or url('admin/tambahujian')  == request()->url() ) active @else '' @endif">
-                  <a href="{{{URL::to('admin/ujian')}}}"><i class="fa fa-plus-square">                    
-                  </i> Kelola Ujian</a>
+                <li class="@if(url('admin/quiz') == request()->url() or url('admin/tambahquiz')  == request()->url() ) active @else '' @endif">
+                  <a href="{{{URL::to('admin/quiz')}}}"><i class="fa fa-plus-square">                    
+                  </i> Kelola Quiz</a>
                 </li>
 
-                <li class="@if(url('admin/soal_ujian') == request()->url() or url('admin/tambah_soal_ujian')  == request()->url() ) active @else '' @endif">
-                  <a href="{{{URL::to('admin/soal_ujian')}}}"><i class="fa fa-plus-square">                    
-                  </i> Kelola Soal Ujian</a>
+                <li class="@if(url('admin/soal_quiz') == request()->url() or url('admin/tambah_soal_quiz')  == request()->url() ) active @else '' @endif">
+                  <a href="{{{URL::to('admin/soal_quiz')}}}"><i class="fa fa-plus-square">                    
+                  </i> Kelola Soal Quiz</a>
                 </li>
                 
                   
