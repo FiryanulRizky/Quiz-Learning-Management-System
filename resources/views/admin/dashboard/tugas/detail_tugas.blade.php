@@ -52,7 +52,7 @@
                 <div class="row">                   
                   <div class="col-md-11" style="margin-left:8%;">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" style="text-align: left;"> Judul </label>
+                        <label class="col-sm-3 control-label" style="text-align: left;"> Judul Tugas </label>
                         <div class="col-sm-8"">
                             <input type="text" class="form-control" name="judul" placeholder="Judul File Tugas">
                             <small class="help-block"></small>
@@ -60,7 +60,7 @@
                     </div>                      
 
                     <div class="form-group" style="height: 48px">
-                     <label class="col-sm-3  control-label" style="text-align: left;">Nama Materi</label>
+                     <label class="col-sm-3  control-label" style="text-align: left;">Nama File</label>
                      <div class="col-sm-8">                  
                         <input type="file" id="materi_nama" name="nama_file" >
                         <p class="help-block">Pilih Nama File Modul Menu. Ukuran maksimal 10 MB. </p>                                 

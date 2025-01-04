@@ -64,10 +64,18 @@
                             <a href="{{{ URL::to('admin/tugas/'.$tugasTrainee->id_trainee_jawab_tugas.'/download_tugas_trainee') }}}">
                               <span class="label label-info"><i class="fa fa-print">&nbsp;&nbsp; Download &nbsp;&nbsp;</i></span>
                             </a>
+                          <?php elseif (Auth::user()->level == 12): ?>
+                            <a href="{{{ URL::to('trainer/tugas/'.$tugasTrainee->id_trainee_jawab_tugas.'/download_tugas_trainee') }}}">
+                              <span class="label label-info"><i class="fa fa-print">&nbsp;&nbsp; Download &nbsp;&nbsp;</i></span>
+                            </a>
                           <?php endif ?>
                         </td>                                               
-                        <td>                         
+                        <td>  
+                        @if(Auth::user()->level == 11)                       
                           <form id="formTugasNilaiTrainee" class="form-horizontal" role="form" method="POST" action="{{ url('admin/tugas/trainee/'.$tugasTrainee->id_trainee_jawab_tugas.'/update_nilai_tugas') }}">
+                        @elseif(Auth::user()->level == 12)
+                          <form id="formTugasNilaiTrainee" class="form-horizontal" role="form" method="POST" action="{{ url('trainer/tugas/trainee/'.$tugasTrainee->id_trainee_jawab_tugas.'/update_nilai_tugas') }}">
+                        @endif
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="_method" value="PUT">
                             <input type="hidden" name="id_trainee_jawab_tugas" value="{{$tugasTrainee->id_trainee_jawab_tugas}}" >

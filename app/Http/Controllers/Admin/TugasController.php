@@ -236,6 +236,7 @@ class TugasController extends Controller
         $input =$request->all();
         // $tgl_tugas_before = $input['wkt_mulai'];          
         // $tgl_tugas = date ("Y-m-d", strtotime($tgl_tugas_before));
+        $tgl_tugas = date ("Y-m-d", strtotime($input['tgl_tugas']));
         $messages = [
             'judul_tugas.required'      => 'Judul Tugas dibutuhkan.',
             'deskripsi_tugas.required'  => 'Deskripsi Tugas dibutuhkan.',
@@ -274,7 +275,7 @@ class TugasController extends Controller
         // $editTugas->wkt_mulai           = $input['wkt_mulai'];
         // $editTugas->wkt_selesai         = $input['wkt_selesai'];
         $editTugas->pembuat_tugas       = $input['pembuat_tugas'];
-        // $editTugas->tgl_tugas           = $tgl_tugas;
+        $editTugas->tgl_tugas           = $tgl_tugas;
         $editTugas->info_tugas          = $input['info_tugas'];
         $editTugas->status_tugas        = $input['status_tugas'];
         $editTugas->sms_status_tugas    = $input['sms_status_tugas'];
@@ -346,8 +347,8 @@ class TugasController extends Controller
     {
       $tugas = Tugas::find($request['id_tugas']);
       // dd($tugas);
-      $wkt_selesai         = $tugas->wkt_selesai;
-      $wkt_sekarang = Date('Y-m-d H:i:s');          
+      $wkt_selesai = Date('Y-m-d',strtotime($tugas->tgl_tugas));
+      $wkt_sekarang = Date('Y-m-d');
       //check waktu tugas
       if ($wkt_sekarang > $wkt_selesai) {            
             Session::flash('flash_message', 'Waktu mengerjakan tugas sudah habis, Anda tidak bisa mengirimkan tugas lagi');
