@@ -54,10 +54,22 @@
                   <a href="{{{URL::to('admin/modul_learn')}}}"><i class="fa fa-plus-square">                    
                   </i> Kelola Modul</a>
                 </li>
-
-                <li class="@if(url('admin/materi_modul') == request()->url() or url('admin/tambahmateri_modul')  == request()->url() ) active @else '' @endif">
-                  <a href="{{{URL::to('admin/materi_modul')}}}"><i class="fa fa-plus-square">                    
-                  </i> Kelola Modul Menu</a>
+                <li class="@if(url('admin/materi_modul')  == request()->url() or url('tutorial') == request()->url()) treeview active @else '' @endif">
+                  <a href="">
+                    <i class="fa fa-list-alt"></i>
+                    <span>Materi</span>
+                    <span class="label label-primary pull-right">2</span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li class="@if(url('admin/materi_modul') == request()->url()) active @else '' @endif">
+                      <a href="{{{URL::to('admin/materi_modul')}}}"><i class="fa fa-plus-square">                    
+                      </i> Kelola Modul Menu</a>
+                    </li>
+                    <li class="@if(url('tutorial') == request()->url()) active @else '' @endif">
+                      <a href="../tutorial" target="_blank" rel="noopener noreferrer"><i class="fa fa-plus-square">                    
+                      </i> List Modul Menu</a>
+                    </li>
+                  </ul>
                 </li>                
                 
                 <li class="@if(url('admin/tugas') == request()->url() or url('admin/tambahtugas')  == request()->url() or url('admin/message/send') == request()->url()) active @else '' @endif">
