@@ -65,8 +65,8 @@
                       <a href="{{{URL::to('admin/materi_modul')}}}"><i class="fa fa-plus-square">                    
                       </i> Kelola Modul Menu</a>
                     </li>
-                    <li class="@if(url('tutorial') == request()->url()) active @else '' @endif">
-                      <a href="../tutorial" target="_blank" rel="noopener noreferrer"><i class="fa fa-plus-square">                    
+                    <li class="@if(url('tutorial/index.html') == request()->url()) active @else '' @endif">
+                      <a href="{{ url('tutorial/index.html') }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-plus-square">                    
                       </i> List Modul Menu</a>
                     </li>
                   </ul>

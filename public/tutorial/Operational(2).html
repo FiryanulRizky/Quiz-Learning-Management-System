@@ -10,6 +10,14 @@
    <script language="JavaScript" type="text/JavaScript" src="Res/tree/tree.js"></script>
    <script language="JavaScript" type="text/JavaScript" src="Res/tree/tree_items.js"></script>
    <script language="JavaScript" type="text/JavaScript" src="Res/tree/tree_tpl.js"></script>
+   <script language="JavaScript" type="text/JavaScript">
+    const _DateAndTime = () => {
+      document.querySelector("#currentTime").innerHTML = new Date().toLocaleDateString('en-id', {year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour24: true});
+      // document.querySelector("#futureTime").innerHTML = new Date(Date.now()+36e5).toLocaleDateString('en-id', {year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour24: true});
+    }  
+    setInterval(_DateAndTime, 100);
+    _DateAndTime();
+  </script>
    <link href="Res/styles/shared.css" rel="stylesheet" type="text/css">
    <link href="Res/styles/DynamicOutline.css" rel="stylesheet" type="text/css">
 </head>
@@ -231,8 +239,7 @@
    <tr>
       <td class="right">
          <div class="lastUpdated">
-            <span></span>
-            <span>09/02/2021</span>
+            <span id="currentTime"></span>
          </div>
       </td>
    </tr>
