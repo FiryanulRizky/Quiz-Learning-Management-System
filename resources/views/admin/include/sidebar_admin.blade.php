@@ -66,7 +66,7 @@
                       </i> Kelola Modul Menu</a>
                     </li>
                     <li class="@if(url('tutorial/index.html') == request()->url()) active @else '' @endif">
-                      <a href="{{ url('tutorial/index.html') }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-plus-square">                    
+                      <a href="{{ url('tutorial/index.html?user=super_admin') }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-plus-square">                    
                       </i> List Modul Menu</a>
                     </li>
                   </ul>
