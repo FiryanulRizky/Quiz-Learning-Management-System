@@ -60,15 +60,16 @@
                         <td>{{$dataMateriModul->materi_judul}}</td>
                         <td>{{$dataMateriModul->materi_nama}}</td>
                         <td>
-                          <?php if (Auth::user()->level  == 13): ?>                          
-                          <a href="{{{ URL::to('trainee/materi_modul/'.$dataMateriModul->id_materi_modul.'/download') }}}"
-                               class="btn btn-primary btn-xs">
-                                <span class="fa fa-print"></span> Download
+                          @if (Auth::user()->level  == 13)                          
+                          {{-- <a href="{{{ URL::to('trainee/materi_modul/'.$dataMateriModul->id_materi_modul.'/download') }}}" --}}
+                          <a href="{{{ URL::to('upload_file/'.$dataMateriModul->materi_nama) }}}"
+                               class="btn btn-primary btn-xs" target="_blank">
+                                <span class="fa fa-print"></span> Buka Materi
                           </a>
-                          <?php endif ?>
-                          <?php if ( Auth::user()->level  == 11 ): ?>
-                            <a href="{{{ URL::to('admin/materi_modul/'.$dataMateriModul->id_materi_modul.'/download') }}}">
-                                <span class="label label-info"><i class="fa fa-print">&nbsp;&nbsp; Download &nbsp;&nbsp;</i></span>                             
+                          @elseif ( Auth::user()->level  == 11 )
+                            {{-- <a href="{{{ URL::to('admin/materi_modul/'.$dataMateriModul->id_materi_modul.'/download') }}}"> --}}
+                            <a href="{{{ URL::to('upload_file/'.$dataMateriModul->materi_nama) }}}" target="_blank">
+                                <span class="label label-info"><i class="fa fa-print">&nbsp;&nbsp; Buka Materi &nbsp;&nbsp;</i></span>                             
                             </a>
                             <a href="{{{ URL::to('admin/materi_modul/'.$dataMateriModul->id_materi_modul.'/edit') }}}">
                                 <span class="label label-warning" ><i class="fa fa-edit" >&nbsp;&nbsp; Edit &nbsp;&nbsp;</i></span>
@@ -76,11 +77,11 @@
                             <a href="{{{ action('Admin\MateriModulController@hapus',[$dataMateriModul->id_materi_modul]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus Data MateriModul {{{($dataMateriModul->materi_judul).' - '.($dataMateriModul->materi_nama) }}}?')">
                                 <span class="label label-danger"><i class="fa fa-trash">&nbsp;&nbsp; Delete &nbsp;&nbsp;</i></span>
                             </a> 
-                          <?php endif ?>
 
-                          <?php if ( Auth::user()->level  == 12 ): ?>
-                            <a href="{{{ URL::to('trainer/materi_modul/'.$dataMateriModul->id_materi_modul.'/download') }}}">
-                                <span class="label label-info"><i class="fa fa-print">&nbsp;&nbsp; Download &nbsp;&nbsp;</i></span>                             
+                          @elseif ( Auth::user()->level  == 12 )
+                            {{-- <a href="{{{ URL::to('trainer/materi_modul/'.$dataMateriModul->id_materi_modul.'/download') }}}"> --}}
+                            <a href="{{{ URL::to('upload_file/'.$dataMateriModul->materi_nama) }}}" target="_blank">
+                                <span class="label label-info"><i class="fa fa-print">&nbsp;&nbsp; Buka Materi &nbsp;&nbsp;</i></span>                             
                             </a>
                             <a href="{{{ URL::to('trainer/materi_modul/'.$dataMateriModul->id_materi_modul.'/edit') }}}">
                                 <span class="label label-warning" ><i class="fa fa-edit" >&nbsp;&nbsp; Edit &nbsp;&nbsp;</i></span>
@@ -88,7 +89,7 @@
                             <a href="{{{ action('Admin\MateriModulController@hapus_trainer',[$dataMateriModul->id_materi_modul]) }}}" title="hapus"   onclick="return confirm('Apakah anda yakin akan menghapus Data MateriModul {{{($dataMateriModul->materi_judul).' - '.($dataMateriModul->materi_nama) }}}?')">
                                 <span class="label label-danger"><i class="fa fa-trash">&nbsp;&nbsp; Delete &nbsp;&nbsp;</i></span>
                             </a> 
-                          <?php endif ?>
+                          @endif
                         </td>                              
                       </tr>
                       <?php $i++; endforeach  ?> 

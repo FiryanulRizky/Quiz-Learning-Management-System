@@ -39,10 +39,28 @@
               </i> Departemen Anda </a>
             </li> 
 
-            <li class="@if(url('trainee/materi_modul') == request()->url() or url('trainee/tambahmateri_modul')  == request()->url() ) active @else '' @endif">
-              <a href="{{{URL::to('trainee/materi_modul')}}}"><i class="fa fa-list-ol">                    
-              </i> Materi Modul</a>
-            </li>                             
+            <li class="@if(url('trainee/modul_learn') == request()->url() or url('trainee/materi_modul') == request()->url() or url('trainee/message/send') == request()->url()) treeview active @else '' @endif">
+              <a href="">
+                <i class="fa fa-list-alt"></i>
+                <span>Materi</span>
+                <span class="label label-primary pull-right">2</span>
+              </a>
+              <ul class="treeview-menu">
+                <li class="@if(url('trainee/materi_modul') == request()->url()) active @else '' @endif">
+                    <a href="{{{URL::to('trainee/materi_modul')}}}"><i class="fa fa-plus-square">                    
+                    </i> Modul Menu</a>
+                  </li>
+                  <li class="@if(url('tutorial/index.html') == request()->url()) active @else '' @endif">
+                    @if($trainee->departemen_trainee == 'Operasional')
+                      <a href="{{ url('tutorial/index.html?user=operational') }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-plus-square">                    
+                      </i> List Modul Menu</a>
+                    @elseif($trainee->departemen_trainee == 'Marketing')
+                      <a href="{{ url('tutorial/index.html?user=marketing') }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-plus-square">                    
+                      </i> List Modul Menu</a>
+                    @endif
+                </li>
+              </ul>
+            </li>
                 
             <li class="@if(url('trainee/tugas') == request()->url() or url('trainee/tambahtugas')  == request()->url() or url('trainee/message/send') == request()->url()) active @else '' @endif">
               <a href="{{{URL::to('trainee/tugas')}}}"><i class="fa fa-tasks">                    
