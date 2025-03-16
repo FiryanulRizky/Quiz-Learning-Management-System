@@ -3,20 +3,20 @@
     "description": "The Laravel Framework.",
     "type": "project",
     "require": {
-        "php": "^8.3",
-        "laravel/framework": "^11.0",
+        "php": "^8.4.5",
+        "laravel/framework": "^12.0",
         "barryvdh/laravel-dompdf": "*",
         "unisharp/laravel-filemanager": "*",
         "smsgatewayme/client": "*",
         "spatie/laravel-html": "^3.11",
         "microweber-deps/laravel-cors": "*",
-        "mfonte/laravel-collective-html": "^1.0",
+        "muhammadmahedihasan/laravel-collective-html": "^7.0",
         "laravel/ui": "^4.6"
 
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "^10.0",
+        "phpunit/phpunit": "^11.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "3.1.*",
         "barryvdh/laravel-debugbar": "*"
