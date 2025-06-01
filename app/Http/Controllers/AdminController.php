@@ -86,7 +86,7 @@ class AdminController extends Controller
         $akunNew->name        = $request['name'];
         $akunNew->username    = $request['username'];
         $akunNew->email       = $request['email'];
-        $akunNew->password    = $request['password'];
+        $akunNew->password    = bcrypt($request['password']);
         $akunNew->level       = $request['level'];
 
         if (! $akunNew->save() )
@@ -185,7 +185,7 @@ class AdminController extends Controller
               ->with('user', $user);
     }
 
-    public function simpanubahpassworduser()
+    public function simpanubahpassworduser(Request $request)
     {                
         if (Auth::user()->level == 11) {
           $request = $request->all();      
