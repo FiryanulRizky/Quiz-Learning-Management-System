@@ -384,7 +384,7 @@ public function hapus($id_soal)
                 $jawaban1 = new Jawaban();// create baru jawaban a                
                 // save kiriman form untuk tabel "jawaban index ke 0 sebagai Jawaban_A"
                 $jawaban1->jawaban  = $request->input('Jawaban_A');
-                $jawaban1->is_benar = $request->input('a_is_benar');
+                $jawaban1->is_benar = $request->input('a_is_benar') ?? 0;
                 $jawaban1->poin     = $request->input('Point_Jawaban_A');
                 $jawaban1->id_soal  = $soal_quiz->id_soal;
                 if (!$jawaban1->save())
@@ -393,7 +393,7 @@ public function hapus($id_soal)
                 $jawaban2 = new Jawaban();// create baru jawaban b                
                 // save kiriman form untuk tabel "jawaban index ke 0 sebagai Jawaban_B"
                 $jawaban2->jawaban  = $request->input('Jawaban_B');
-                $jawaban2->is_benar = $request->input('b_is_benar');
+                $jawaban2->is_benar = $request->input('b_is_benar') ?? 0;
                 $jawaban2->poin     = $request->input('Point_Jawaban_B');
                 $jawaban2->id_soal  = $soal_quiz->id_soal;
                 if (!$jawaban2->save())
@@ -402,7 +402,7 @@ public function hapus($id_soal)
                 $jawaban3 = new Jawaban();// create baru jawaban c                
                 // save kiriman form untuk tabel "jawaban index ke 0 sebagai Jawaban_C"
                 $jawaban3->jawaban  = $request->input('Jawaban_C');
-                $jawaban3->is_benar = $request->input('c_is_benar');
+                $jawaban3->is_benar = $request->input('c_is_benar') ?? 0;
                 $jawaban3->poin     = $request->input('Point_Jawaban_C');
                 $jawaban3->id_soal  = $soal_quiz->id_soal;
                 if (!$jawaban3->save())
@@ -411,7 +411,7 @@ public function hapus($id_soal)
                 $jawaban4 = new Jawaban();// create baru jawaban d                
                 // save kiriman form untuk tabel "jawaban index ke 0 sebagai Jawaban_D"
                 $jawaban4->jawaban  = $request->input('Jawaban_D');
-                $jawaban4->is_benar = $request->input('d_is_benar');
+                $jawaban4->is_benar = $request->input('d_is_benar') ?? 0;
                 $jawaban4->poin     = $request->input('Point_Jawaban_D');
                 $jawaban4->id_soal  = $soal_quiz->id_soal;
                 if (!$jawaban4->save())
@@ -645,7 +645,7 @@ public function hapus($id_soal)
                 $jawaban1 = $jawaban[0];// create baru jawaban a                
                 // save kiriman form untuk tabel "jawaban index ke 0 sebagai Jawaban_A"
                 $jawaban1->jawaban  = $request->input('Jawaban_A');
-                $jawaban1->is_benar = $request->input('a_is_benar');
+                $jawaban1->is_benar = $request->input('a_is_benar') ?? 0;
                 $jawaban1->poin     = $request->input('Point_Jawaban_A');
                 $jawaban1->id_soal  = $editSoalQuiz->id_soal;
                 if (!$jawaban1->save())
@@ -654,7 +654,7 @@ public function hapus($id_soal)
                 $jawaban2 = $jawaban[1];// create baru jawaban b                
                 // save kiriman form untuk tabel "jawaban index ke 0 sebagai Jawaban_B"
                 $jawaban2->jawaban  = $request->input('Jawaban_B');
-                $jawaban2->is_benar = $request->input('b_is_benar');
+                $jawaban2->is_benar = $request->input('b_is_benar') ?? 0;
                 $jawaban2->poin     = $request->input('Point_Jawaban_B');
                 $jawaban2->id_soal  = $editSoalQuiz->id_soal;
                 if (!$jawaban2->save())
@@ -663,7 +663,7 @@ public function hapus($id_soal)
                 $jawaban3 = $jawaban[2];// create baru jawaban c                
                 // save kiriman form untuk tabel "jawaban index ke 0 sebagai Jawaban_C"
                 $jawaban3->jawaban  = $request->input('Jawaban_C');
-                $jawaban3->is_benar = $request->input('c_is_benar');
+                $jawaban3->is_benar = $request->input('c_is_benar') ?? 0;
                 $jawaban3->poin     = $request->input('Point_Jawaban_C');
                 $jawaban3->id_soal  = $editSoalQuiz->id_soal;
                 if (!$jawaban3->save())
@@ -672,7 +672,7 @@ public function hapus($id_soal)
                 $jawaban4 = $jawaban[3];// create baru jawaban d                
                 // save kiriman form untuk tabel "jawaban index ke 0 sebagai Jawaban_D"
                 $jawaban4->jawaban  = $request->input('Jawaban_D');
-                $jawaban4->is_benar = $request->input('d_is_benar');
+                $jawaban4->is_benar = $request->input('d_is_benar') ?? 0;
                 $jawaban4->poin     = $request->input('Point_Jawaban_D');
                 $jawaban4->id_soal  = $editSoalQuiz->id_soal;
                 if (!$jawaban4->save())
@@ -706,7 +706,7 @@ public function hapus($id_soal)
                 
                 $jawaban1 = $jawaban[0]; 
                 $jawaban1->jawaban  = $request->input('Jawaban_A');
-                $jawaban1->is_benar = $request->input('a_is_benar');
+                $jawaban1->is_benar = $request->input('a_is_benar') ?? 0;
                 $jawaban1->poin     = $request->input('Point_Jawaban_A');
                 $jawaban1->id_soal  = $editSoalQuiz->id_soal;
                 // dd($jawaban1);
@@ -716,7 +716,7 @@ public function hapus($id_soal)
                 
                 $jawaban2 = $jawaban[1]; 
                 $jawaban2->jawaban  = $request->input('Jawaban_B');
-                $jawaban2->is_benar = $request->input('b_is_benar');
+                $jawaban2->is_benar = $request->input('b_is_benar') ?? 0;
                 $jawaban2->poin     = $request->input('Point_Jawaban_B');
                 $jawaban2->id_soal  = $editSoalQuiz->id_soal;
                 if (!$jawaban2->save())
@@ -724,7 +724,7 @@ public function hapus($id_soal)
                 
                 $jawaban3 = $jawaban[2]; 
                 $jawaban3->jawaban  = $request->input('Jawaban_C');
-                $jawaban3->is_benar = $request->input('c_is_benar');
+                $jawaban3->is_benar = $request->input('c_is_benar') ?? 0;
                 $jawaban3->poin     = $request->input('Point_Jawaban_C');
                 $jawaban3->id_soal  = $editSoalQuiz->id_soal;
                 if (!$jawaban3->save())
@@ -732,7 +732,7 @@ public function hapus($id_soal)
                 
                 $jawaban4 = $jawaban[3];                         
                 $jawaban4->jawaban  = $request->input('Jawaban_D');
-                $jawaban4->is_benar = $request->input('d_is_benar');
+                $jawaban4->is_benar = $request->input('d_is_benar') ?? 0;
                 $jawaban4->poin     = $request->input('Point_Jawaban_D');
                 $jawaban4->id_soal  = $editSoalQuiz->id_soal;
           
